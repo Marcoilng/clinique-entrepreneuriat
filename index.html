@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Clinique de l'Entrepreneuriat | Former • Innover • Diriger</title>
+    <meta name="description" content="La Clinique de l'Entrepreneuriat - Un écosystème stratégique dédié à la transformation de la jeunesse, des entreprises et des institutions en République Démocratique du Congo et en Afrique.">
+    <meta name="keywords" content="entrepreneuriat, formation, accompagnement, PME, Kinshasa, RDC, Afrique">
+    <meta name="author" content="La Clinique de l'Entrepreneuriat">
+    <meta property="og:title" content="La Clinique de l'Entrepreneuriat | Former • Innover • Diriger">
+    <meta property="og:description" content="Un écosystème stratégique dédié à la transformation entrepreneuriale.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="lib/owlcarousel/assets/owl.carousel.min.css">
+    
+    <!-- JSON-LD Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "La Clinique de l'Entrepreneuriat",
+        "description": "Écosystème stratégique dédié à la transformation entrepreneuriale en RDC et en Afrique",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kinshasa",
+            "addressCountry": "CD"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "lacliniquedelentrepreneuriat@gmail.com"
+        },
+        "areaServed": ["RDC", "Afrique"],
+        "serviceType": ["Formation entrepreneuriat", "Accompagnement PME", "Conseil aux entreprises"]
+    }
+    </script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: false,
+            theme: {
+                extend: {
+                    colors: {
+                        clinique: { 
+                            blue: '#125C5D', 
+                            orange: '#E8831A', 
+                            light: '#F0F4F4', 
+                            gold: '#D4AF37', 
+                            dark: '#0A3D3E',
+                            'blue-light': '#1A7A7B',
+                            'orange-light': '#F59E2D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'float-3d': 'float3D 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        float3D: {
+                            '0%, 100%': { transform: 'translateY(0) rotateX(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotateX(5deg)' },
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-gradient': 'linear-gradient(135deg, #125C5D 0%, #0A3D3E 50%, #1A7A7B 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* ========================================
+           COULEURS & VARIABLES
+           ======================================== */
+        :root {
+            --clinique-blue: #125C5D;
+            --clinique-orange: #E8831A;
+            --clinique-gold: #D4AF37;
+            --clinique-dark: #0A3D3E;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        .dark {
+            --clinique-blue: #1A7A7B;
+            --glass-bg: rgba(0, 0, 0, 0.3);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ========================================
+           DARK MODE STYLES
+           ======================================== */
+        .dark body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+
+        .dark .bg-white { background-color: #1a1a1a !important; }
+        .dark .bg-clinique-light { background-color: #1a1a1a !important; }
+        .dark .text-gray-600 { color: #a0a0a0 !important; }
+        .dark .text-gray-800 { color: #e0e0e0 !important; }
+        .dark .border-gray-100 { border-color: #333 !important; }
+        .dark .border-gray-200 { border-color: #333 !important; }
+        .dark .bg-white\/95 { background-color: rgba(26, 26, 26, 0.95) !important; }
+        .dark .glass-card { background: rgba(0, 0, 0, 0.4) !important; }
+        .dark .card-premium { background: #1a1a1a !important; }
+        .dark .testimonial-card { 
+            background: linear-gradient(145deg, #1a1a1a, #252525) !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
+        }
+
+        /* ========================================
+           SCROLL PROGRESS BAR
+           ======================================== */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(to right, var(--clinique-blue), var(--clinique-orange));
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+        }
+
+        /* ========================================
+           CUSTOM CURSOR
+           ======================================== */
+        #custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: var(--clinique-orange);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            display: none;
+            transition: transform 0.1s ease;
+        }
+
+        @media (min-width: 768px) {
+            #custom-cursor { display: block; }
+        }
+
+        /* ========================================
+           GLASSMORPHISM
+           ======================================== */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ========================================
+           LOADER SCREEN
+           ======================================== */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #125C5D 0%, #0A3D3E 100%);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            width: 120px;
+            height: 120px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--clinique-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .loader-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--clinique-orange), var(--clinique-gold));
+            border-radius: 2px;
+            animation: loadProgress 2s ease-in-out forwards;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* ========================================
+           HERO ANIMATED BACKGROUND
+           ======================================== */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(18,92,93,0.97) 0%, rgba(10,61,62,0.95) 50%, rgba(26,122,123,0.9) 100%);
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(232, 131, 26, 0.6);
+            border-radius: 50%;
+            animation: float-particle 15s infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 6s; }
+        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 8s; }
+        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 10s; }
+        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 12s; }
+        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 1s; }
+        .particle:nth-child(9) { left: 90%; top: 85%; animation-delay: 3s; }
+        .particle:nth-child(10) { left: 15%; top: 55%; animation-delay: 5s; }
+
+        @keyframes float-particle {
+            0%, 100% { 
+                transform: translateY(0) translateX(0); 
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translateY(-100px) translateX(50px); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-50px) translateX(-30px); 
+                opacity: 0.4;
+            }
+            75% { 
+                transform: translateY(-150px) translateX(20px); 
+                opacity: 0.7;
+            }
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            border: 2px solid rgba(232, 131, 26, 0.2);
+            animation: rotate-float 20s linear infinite;
+        }
+
+        .floating-shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -50px;
+            border-radius: 50%;
+        }
+
+        .floating-shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            left: -50px;
+            transform: rotate(45deg);
+        }
+
+        .floating-shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 40%;
+            right: 10%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        @keyframes rotate-float {
+            0% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(180deg) translateY(-30px); }
+            100% { transform: rotate(360deg) translateY(0); }
+        }
+
+        /* ========================================
+           NAVIGATION MODERNE
+           ======================================== */
+        .nav-modern {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-modern.scrolled {
+            background: rgba(255, 255, 255, 0.9) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .nav-modern.scrolled {
+            background: rgba(26, 26, 26, 0.9) !important;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--clinique-orange), var(--clinique-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Mobile menu animation */
+        .mobile-menu-enter {
+            animation: slideDown 0.3s ease-out forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================================
+           BENTO GRID LAYOUT
+           ======================================== */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 1.5rem;
+        }
+
+        .bento-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bento-item:nth-child(1) { grid-column: span 2; }
+        .bento-item:nth-child(2) { grid-column: span 2; }
+        .bento-item:nth-child(3) { grid-column: span 1; }
+        .bento-item:nth-child(4) { grid-column: span 1; }
+        .bento-item:nth-child(5) { grid-column: span 2; }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .bento-item:nth-child(1),
+            .bento-item:nth-child(2),
+            .bento-item:nth-child(3),
+            .bento-item:nth-child(4),
+            .bento-item:nth-child(5) {
+                grid-column: span 1;
+            }
+        }
+
+        /* ========================================
+           3D TILT CARDS
+           ======================================== */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: transform 0.3s ease;
+        }
+
+        .tilt-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+        }
+
+        .tilt-card-content {
+            transform: translateZ(20px);
+        }
+
+        /* ========================================
+           CARDS STYLES
+           ======================================== */
+        .card-premium {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .dark .card-premium {
+            background: #1a1a1a;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(18, 92, 93, 0.15);
+        }
+
+        .dark .card-premium:hover {
+            box-shadow: 0 20px 60px rgba(232, 131, 26, 0.2);
+        }
+
+        /* ========================================
+           BUTTONS
+           ======================================== */
+        .btn-gradient { 
+            background: linear-gradient(135deg, var(--clinique-orange), #F59E2D); 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-gradient:hover::before {
+            left: 100%;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 131, 26, 0.4);
+        }
+
+        /* ========================================
+           TYPOGRAPHIE OVERSIZED
+           ======================================== */
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+        }
+
+        /* ========================================
+           DARK MODE TOGGLE
+           ======================================== */
+        .dark-mode-toggle {
+            position: relative;
+            width: 60px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle.dark {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .dark-mode-toggle::after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background: white;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .dark-mode-toggle.dark::after {
+            left: 31px;
+        }
+
+        .dark-mode-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-icon.sun {
+            left: 8px;
+            color: white;
+            opacity: 1;
+        }
+
+        .dark-mode-icon.moon {
+            right: 8px;
+            color: white;
+            opacity: 0;
+        }
+
+        .dark-mode-toggle.dark .sun { opacity: 0; }
+        .dark-mode-toggle.dark .moon { opacity: 1; }
+
+        /* ========================================
+           TESTIMONIAL CARDS
+           ======================================== */
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .dark .testimonial-card {
+            background: linear-gradient(145deg, #1a1a1a, #252525);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        /* ========================================
+           STATS COUNTER
+           ======================================== */
+        .stat-number {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--clinique-blue), var(--clinique-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ========================================
+           FOOTER GRADIENT
+           ======================================== */
+        .footer-gradient { 
+            background: linear-gradient(135deg, var(--clinique-blue), var(--clinique-dark)); 
+        }
+
+        .dark .footer-gradient {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            border-top: 1px solid #333;
+        }
+
+        /* ========================================
+           NEWSLETTER POPUP
+           ======================================== */
+        .newsletter-popup {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .dark .newsletter-popup .bg-white {
+            background: #1a1a1a !important;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ========================================
+           SCROLL ANIMATIONS
+           ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ========================================
+           ACCESSIBILITY
+           ======================================== */
+        *:focus-visible {
+            outline: 3px solid var(--clinique-orange);
+            outline-offset: 2px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ========================================
+           PARALLAX & EFFECTS
+           ======================================== */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .hover-float { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        
+        .hover-float:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+        }
+
+        .img-hover-zoom { overflow: hidden; }
+        .img-hover-zoom img { transition: transform 0.5s; }
+        .img-hover-zoom:hover img { transform: scale(1.1); }
+
+        .bullet-list li { 
+            position: relative; 
+            padding-left: 1.5rem; 
+            margin-bottom: 0.5rem; 
+        }
+        
+        .bullet-list li::before { 
+            content: '•'; 
+            position: absolute; 
+            left: 0; 
+            color: var(--clinique-orange); 
+            font-weight: bold; 
+        }
+
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -10px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 60px; 
+            height: 4px; 
+            background: linear-gradient(90deg, var(--clinique-blue), var(--clinique-orange)); 
+            border-radius: 2px; 
+        }
+
+        .shape-divider svg { 
+            position: relative; 
+            display: block; 
+            width: calc(100% + 1.3px); 
+            height: 60px; 
+        }
+        
+        .shape-fill { fill: #ffffff; }
+
+        .dark .shape-fill { fill: #1a1a1a; }
+
+        /* Logo Scroller */
+        .logo-scroller {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Lazy Loading Placeholder */
+        .lazy-img {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .dark .lazy-img {
+            background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+        }
+
+        /* Smooth scroll container */
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        /* Logo Footer Animation - Slow rotation */
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+
+        /* Staggered reveal for pillars cards */
+        .reveal-delay-1 {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: 0.25s;
+        }
+
+        .reveal-delay-3 {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: 0.4s;
+        }
+
+        .reveal-delay-1.active,
+        .reveal-delay-2.active,
+        .reveal-delay-3.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800 transition-colors duration-300" itemscope itemtype="https://schema.org/Organization">
+
+    <!-- LOADER SCREEN -->
+    <div id="loader">
+        <img src="img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png" alt="Logo" class="loader-logo" onerror="this.style.display='none'">
+        <div class="loader-spinner mt-6"></div>
+        <p class="loader-text">LA CLINIQUE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div id="custom-cursor" aria-hidden="true"></div>
+
+    <!-- HEADER MODERNE -->
+    <header id="main-header" class="nav-modern fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md" role="banner">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <img src="img/LOGO-ENTREP-01.png" alt="Logo La Clinique de l'Entrepreneuriat" class="h-16 w-auto" onerror="this.src='img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png'" loading="lazy">
+                    <span class="font-heading font-bold text-clinique-blue hidden lg:block">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-4 xl:gap-6" role="navigation" aria-label="Navigation principale">
+                    <a href="#accueil" class="nav-link text-clinique-blue font-semibold hover:text-clinique-orange transition-colors text-sm xl:text-base" aria-label="Aller à la section Accueil">Accueil</a>
+                    
+                    <!-- Dropdown Notre Approche -->
+                    <div class="relative group">
+                        <button class="nav-link text-gray-600 hover:text-clinique-blue transition-colors flex items-center gap-1 text-sm xl:text-base" aria-haspopup="true" aria-expanded="false">
+                            Notre Approche
+                            <i class="fas fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 -translate-y-2 z-50">
+                            <a href="#positionnement" class="block px-4 py-3 text-gray-600 hover:bg-clinique-light hover:text-clinique-blue transition-colors rounded-t-xl text-sm">Positionnement</a>
+                            <a href="#piliers" class="block px-4 py-3 text-gray-600 hover:bg-clinique-light hover:text-clinique-blue transition-colors text-sm">Piliers</a>
+                            <a href="#doctrine" class="block px-4 py-3 text-gray-600 hover:bg-clinique-light hover:text-clinique-blue transition-colors rounded-b-xl text-sm">Doctrine</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#impact" class="nav-link text-gray-600 hover:text-clinique-blue transition-colors text-sm xl:text-base">Impact</a>
+                    <a href="#domaines" class="nav-link text-gray-600 hover:text-clinique-blue transition-colors text-sm xl:text-base">Domaines</a>
+                    <a href="#vision" class="nav-link text-gray-600 hover:text-clinique-blue transition-colors text-sm xl:text-base">Vision</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-clinique-blue transition-colors text-sm xl:text-base">Contact</a>
+                </nav>
+                
+                <a href="#contact" class="hidden lg:inline-block btn-gradient text-white font-bold py-2 px-4 xl:py-3 xl:px-6 rounded-full hover:shadow-lg transition-all text-sm xl:text-base" role="button">Collaborer</a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2" aria-label="Ouvrir le menu" aria-expanded="false" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl text-clinique-blue"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg mobile-menu-enter">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#accueil" class="block py-3 text-clinique-blue font-semibold">Accueil</a>
+                <a href="#positionnement" class="block py-2 text-gray-600">Positionnement</a>
+                <a href="#piliers" class="block py-2 text-gray-600">Piliers</a>
+                <a href="#doctrine" class="block py-2 text-gray-600">Doctrine</a>
+                <a href="#impact" class="block py-2 text-gray-600">Impact</a>
+                <a href="#domaines" class="block py-2 text-gray-600">Domaines</a>
+                <a href="#vision" class="block py-2 text-gray-600">Vision</a>
+                <a href="#contact" class="block py-2 text-gray-600">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. HERO SECTION MODERNISÉE -->
+    <section id="accueil" class="relative min-h-screen flex items-center hero-gradient parallax" aria-label="Section d'accueil">
+        <!-- Animated Background -->
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            <div class="floating-shape floating-shape-1"></div>
+            <div class="floating-shape floating-shape-2"></div>
+            <div class="floating-shape floating-shape-3"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-32 w-full">
+            <div class="text-center text-white">
+                <h1 class="font-heading hero-title mb-6 reveal animate__animated animate__fadeInUp">
+                    La Clinique de l'Entrepreneuriat
+                </h1>
+                <p class="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 text-clinique-gold reveal animate__animated animate__fadeInUp animate__delay-1">
+                    Former. Structurer. Accélérer. Transformer durablement.
+                </p>
+                <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 reveal animate__animated animate__fadeInUp animate__delay-2">
+                    Un écosystème stratégique dédié à la transformation de la jeunesse, des entreprises et des institutions en véritables moteurs de développement économique en République Démocratique du Congo et en Afrique.
+                </p>
+                <blockquote class="text-xl italic text-white/80 mb-10 max-w-2xl mx-auto reveal animate__animated animate__fadeInUp animate__delay-3 border-l-4 border-clinique-gold pl-6">
+                    Nous ne transmettons pas seulement des compétences.<br>
+                    <span class="font-bold text-clinique-gold">Nous développons des leaders capables de créer de la valeur, des emplois et des solutions durables.</span>
+                </blockquote>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center reveal animate__animated animate__fadeInUp animate__delay-4">
+                    <a href="#programmes" class="btn-gradient text-white font-bold py-4 px-8 rounded-full inline-block text-lg hover:scale-105 transition-transform" role="button" aria-label="Découvrir nos programmes">Découvrir nos programmes</a>
+                    <a href="#contact" class="glass text-white font-bold py-4 px-8 rounded-full inline-block text-lg hover:bg-white/20 transition-all" role="button" aria-label="Devenir partenaire">Devenir partenaire</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,120.25,189.7,105.51,235.27,94.06,279.7,73.4,321.39,56.44Z" class="shape-fill"></path></svg>
+        </div>
+    </section>
+
+    <!-- 2. SECTION POSITIONNEMENT -->
+    <section id="positionnement" class="py-24 bg-white reveal dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="img/clinique2.jpg" class="rounded-2xl shadow-xl img-hover-zoom lazy-img" alt="Formation entrepreneuriat" loading="lazy" onerror="this.style.display='none'">
+                        <img src="img/clinique4.jpg" class="rounded-2xl shadow-xl img-hover-zoom lazy-img" alt="Atelier pratique" loading="lazy" onerror="this.style.display='none'">
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <img src="img/clinique5.jpg" class="rounded-2xl shadow-xl img-hover-zoom lazy-img" alt="Jeunes entrepreneurs" loading="lazy" onerror="this.style.display='none'">
+                        <img src="img/clinique6.jpg" class="rounded-2xl shadow-xl img-hover-zoom lazy-img" alt="Équipe La Clinique" loading="lazy" onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <div>
+                    <h2 class="font-heading section-title text-clinique-blue mb-6">
+                        Répondre aux défis économiques par l'action structurée.
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-6 dark:text-gray-300">
+                        Le chômage des jeunes, la fragilité organisationnelle des PME et l'absence de culture entrepreneuriale solide constituent des freins majeurs au développement économique.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-6 dark:text-gray-300">
+                        <strong class="text-clinique-blue">La Clinique de l'Entrepreneuriat</strong> est née d'une conviction forte :
+                    </p>
+                    <blockquote class="text-xl italic text-clinique-blue border-l-4 border-clinique-orange pl-6 mb-6 dark:text-white">
+                        Le développement ne viendra pas uniquement des ressources naturelles, mais de la structuration des talents, des entreprises et des institutions.
+                    </blockquote>
+                    <p class="text-gray-600 text-lg dark:text-gray-300">
+                        Nous intervenons à tous les niveaux de l'écosystème pour bâtir des structures performantes, innovantes et durables.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECTION NOS PILIERS STRATÉGIQUES -->
+    <section id="piliers" class="py-24 bg-clinique-light reveal dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative dark:text-white">Nos Piliers Stratégiques</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="tilt-card card-premium bg-white p-12 hover-float text-left reveal-delay-1">
+                    <div class="tilt-card-content">
+                        <div class="w-20 h-20 bg-clinique-blue text-white rounded-2xl flex items-center justify-center text-4xl mb-6 transform hover:scale-110 transition-transform">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Formation</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Programmes pratiques, structurés et orientés résultats pour développer une culture entrepreneuriale solide et durable.
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="tilt-card card-premium bg-white p-12 hover-float text-left reveal-delay-2">
+                    <div class="tilt-card-content">
+                        <div class="w-20 h-20 bg-clinique-orange text-white rounded-2xl flex items-center justify-center text-4xl mb-6 transform hover:scale-110 transition-transform">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Accompagnement</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Suivi stratégique personnalisé pour transformer les idées en entreprises viables et en organisations performantes.
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="tilt-card card-premium bg-white p-12 hover-float text-left reveal-delay-3">
+                    <div class="tilt-card-content">
+                        <div class="w-20 h-20 bg-clinique-dark text-white rounded-2xl flex items-center justify-center text-4xl mb-6 transform hover:scale-110 transition-transform">
+                            <i class="fas fa-building-columns"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Structuration Institutionnelle</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Renforcement des capacités organisationnelles, leadership administratif et culture de performance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECTION IMPACT -->
+    <section id="impact" class="py-24 bg-clinique-blue text-white reveal">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title section-title inline-block relative">Notre Impact</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="glass rounded-3xl p-8 hover-float">
+                    <div class="stat-number mb-2" data-target="5000" aria-label="5000+">0+</div>
+                    <p class="text-xl">Élèves initiés à l'esprit entrepreneurial</p>
+                </div>
+                <div class="glass rounded-3xl p-8 hover-float">
+                    <div class="stat-number mb-2" data-target="150" aria-label="150+">0+</div>
+                    <p class="text-xl">PME accompagnées vers une structuration durable</p>
+                </div>
+                <div class="glass rounded-3xl p-8 hover-float">
+                    <div class="stat-number mb-2" data-target="50" aria-label="50+">0+</div>
+                    <p class="text-xl">Institutions renforcées dans leur organisation</p>
+                </div>
+                <div class="glass rounded-3xl p-8 hover-float">
+                    <div class="stat-number mb-2" data-target="10000" aria-label="10000+">0+</div>
+                    <p class="text-xl">Jeunes formés à créer et gérer leurs propres entreprises</p>
+                </div>
+            </div>
+        </div>
+        <div class="shape-divider">
+            <svg viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V95.8C59.71,118.08,130.83,120.25,189.7,105.51,235.27,94.06,279.7,73.4,321.39,56.44Z" fill="#ffffff"></path></svg>
+        </div>
+    </section>
+
+    <!-- 5. SECTION DOMAINS - BENTO GRID -->
+    <section id="domaines" class="py-24 bg-white reveal dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative dark:text-white">Nos Domaines d'Intervention</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto dark:text-gray-300">Un écosystème complet pour répondre à tous les besoins de développement entrepreneurial.</p>
+            </div>
+            
+            <!-- Bento Grid Layout -->
+            <div class="bento-grid">
+                <!-- Item 1 - Large -->
+                <div class="tilt-card bento-item card-premium bg-clinique-light p-10 hover-float">
+                    <div class="tilt-card-content flex items-start gap-4">
+                        <div class="w-16 h-16 bg-clinique-blue text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">1. Entrepreneuriat à l'École</h3>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Sensibilisation et formation des élèves pour développer créativité, autonomie et capacité d'initiative dès le plus jeune âge.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 2 - Large -->
+                <div class="tilt-card bento-item card-premium bg-clinique-light p-10 hover-float">
+                    <div class="tilt-card-content flex items-start gap-4">
+                        <div class="w-16 h-16 bg-clinique-orange text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">2. Formation des Jeunes Entrepreneurs</h3>
+                            <ul class="bullet-list text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <li>Création et structuration de projets</li>
+                                <li>Modélisation économique</li>
+                                <li>Leadership et innovation</li>
+                                <li>Gestion stratégique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 3 - Small -->
+                <div class="tilt-card bento-item card-premium bg-clinique-light p-8 hover-float">
+                    <div class="tilt-card-content">
+                        <div class="w-14 h-14 bg-green-500 text-white rounded-xl flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-clinique-blue mb-2">3. PME</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-300 leading-relaxed">Optimisation organisationnelle et stratégies de croissance.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 - Small -->
+                <div class="tilt-card bento-item card-premium bg-clinique-light p-8 hover-float">
+                    <div class="tilt-card-content">
+                        <div class="w-14 h-14 bg-purple-500 text-white rounded-xl flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-clinique-blue mb-2">4. Grandes Entreprises</h4>
+                        <p class="text-gray-600 text-sm dark:text-gray-300 leading-relaxed">Recrutement stratégique et culture d'excellence.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 5 - Wide -->
+                <div class="tilt-card bento-item card-premium bg-clinique-light p-10 hover-float">
+                    <div class="tilt-card-content flex items-start gap-4">
+                        <div class="w-16 h-16 bg-red-500 text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">5. Institutions Publiques</h3>
+                            <ul class="bullet-list text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <li>Renforcement des capacités</li>
+                                <li>Leadership administratif</li>
+                                <li>Culture de résultats</li>
+                                <li>Modernisation organisationnelle</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SECTION DIFFÉRENCIATION -->
+    <section class="py-24 bg-clinique-light reveal dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-heading section-title text-clinique-blue mb-6 dark:text-white">Pourquoi La Clinique ?</h2>
+                    <p class="text-gray-600 text-lg mb-8 dark:text-gray-300">Notre approche combine :</p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 hover-float p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 transition-all">
+                            <div class="w-12 h-12 bg-clinique-blue text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-chess-knight"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-clinique-blue dark:text-white">Vision stratégique</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Une approche globale et前瞻ante du développement entrepreneurial.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 hover-float p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 transition-all">
+                            <div class="w-12 h-12 bg-clinique-orange text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-clinique-blue dark:text-white">Méthodologie structurée</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Des processus éprouvés pour des résultats mesurables.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 hover-float p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 transition-all">
+                            <div class="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-clinique-blue dark:text-white">Mesure des résultats</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Un suivi rigoureux pour garantir l'impact de chaque intervention.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 hover-float p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 transition-all">
+                            <div class="w-12 h-12 bg-clinique-dark text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-clinique-blue dark:text-white">Engagement sur le long terme</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Un partenariat durable pour accompagner votre croissance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-xl italic text-clinique-blue border-l-4 border-clinique-gold pl-6 mt-8 dark:text-white">
+                        Nous ne livrons pas des formations ponctuelles.<br>
+                        <span class="font-bold">Nous construisons des trajectoires durables.</span>
+                    </blockquote>
+                </div>
+                <div class="hidden lg:block">
+                    <img src="img/clinique3.jpg" class="rounded-3xl shadow-2xl img-hover-zoom lazy-img" alt="Réunion stratégique" loading="lazy" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SECTION TEMOIGNAGES -->
+    <section id="temoignages" class="py-24 bg-white reveal dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative dark:text-white">Témoignages</h2>
+            </div>
+            <div class="owl-carousel owl-theme">
+                <div class="item p-6">
+                    <div class="testimonial-card rounded-3xl p-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-clinique-blue text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-clinique-blue">Jean M.</h4>
+                                <p class="text-gray-500 text-sm">Entrepreneur, Kinshasa</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic dark:text-gray-300">"La Clinique de l'Entrepreneuriat a transformé ma vision des affaires. Grâce à leur accompagnement, j'ai pu structurer mon entreprise et créer 15 emplois."</p>
+                        <div class="mt-4 text-clinique-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="item p-6">
+                    <div class="testimonial-card rounded-3xl p-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-clinique-orange text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-clinique-blue">Marie K.</h4>
+                                <p class="text-gray-500 text-sm">Directrice, PME</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic dark:text-gray-300">"Une approche professionnelle et personnalisée. Notre PME a 倍增 son chiffre d'affaires en 18 mois grâce à leur accompagnement stratégique."</p>
+                        <div class="mt-4 text-clinique-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="item p-6">
+                    <div class="testimonial-card rounded-3xl p-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-clinique-blue">Pierre L.</h4>
+                                <p class="text-gray-500 text-sm">Fonctionnaire, Ministère</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic dark:text-gray-300">"Le renforcement de nos capacités institutionnelles a été déterminant. Une équipe compétente et engagée pour le développement de la RDC."</p>
+                        <div class="mt-4 text-clinique-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Satisfaction Badge -->
+            <div class="text-center mt-12">
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-6 py-3 rounded-full dark:bg-green-900 dark:text-green-300">
+                    <i class="fas fa-check-circle text-xl"></i>
+                    <span class="font-semibold">100% Satisfaction garantie</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTRE DOCTRINE -->
+    <section id="doctrine" class="py-24 bg-clinique-light reveal">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative">Notre Doctrine</h2>
+                <p class="text-clinique-orange font-semibold mt-4 text-lg">L'Ingénierie de la Transformation Durable</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                    À la Clinique de l'Entrepreneuriat, nous avons transcendé le modèle classique de l'incubation pour forger une approche holistique, où chaque intervention est traitée avec la précision d'un acte chirurgical. Notre méthodologie ne se contente pas de répondre à des besoins immédiats ; elle anticipe les cycles économiques pour bâti r des structures résilientes.
+                </p>
+
+                <!-- Point 1 -->
+                <div class="mb-10 flex items-start gap-5">
+                    <div class="w-16 h-16 bg-clinique-blue text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                        <i class="fas fa-search text-black"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">1. Vision Stratégique & Prospective Entrepreneuriale</h3>
+                        <p class="text-gray-700 leading-relaxed">Nous évoluons dans un monde en mutation rapide où l'obsolescence des idées est la règle. Notre approche intègre une veille stratégique constante et une analyse prospective des marchés émergents, particulièrement dans le contexte panafricain.</p>
+                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">Au-delà du Business Plan :</strong> Nous aidons nos partenaires à décrypter les signaux faibles de l'économie pour transformer l'incertitude en avantage concurrentiel.</p>
+                        <p class="text-clinique-orange font-semibold mt-3 leading-relaxed"><strong>L'ambition :</strong> Inculquer une vision à 360° qui permet de passer d'une gestion de survie à une stratégie de conquête et de domination de marché.</p>
+                    </div>
+                </div>
+
+                <!-- Point 2 -->
+                <div class="mb-10 flex items-start gap-5">
+                    <div class="w-16 h-16 bg-clinique-orange text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                        <i class="fas fa-cogs text-black"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">2. Méthodologie Clinique & Architecture des Processus</h3>
+                        <p class="text-gray-700 leading-relaxed">L'innovation sans méthode n'est que du bruit. La Clinique a développé un protocole d'accompagnement rigoureux, articulé autour de diagnostics profonds et de feuilles de route opérationnelles.</p>
+                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">Le Protocole :</strong> Nous déstructurons les idées reçues pour reconstruire des modèles d'affaires basés sur la réalité du terrain congolais.</p>
+                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">L'Excellence Opérationnelle :</strong> En utilisant des outils d'agilité organisationnelle et de Design Thinking, nous garantissons que chaque projet, qu'il soit scolaire ou institutionnel, repose sur des fondations structurelles inébranlables et une efficacité de déploiement optimale.</p>
+                    </div>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="mb-10 flex items-start gap-5">
+                    <div class="w-16 h-16 bg-clinique-dark text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                        <i class="fas fa-chart-bar text-black"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">3. Mesure de l'Impact & Analyse de la Performance</h3>
+                        <p class="text-gray-700 leading-relaxed">La complaisance n'a pas sa place dans notre écosystème. Chaque action entreprise par La Clinique est soumise à un audit de performance rigoureux. Nous avons développé une matrice d'indicateurs (KPI) qui va bien au-delà du simple profit financier.</p>
+                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">Le Tableau de Bord :</strong> Nous mesurons l'indice de création de valeur ajoutée, l'augmentation du capital humain et l'efficience des processus administratifs.</p>
+                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">La Garantie de Résultats :</strong> Ce suivi data-driven nous permet d'ajuster nos prescriptions en temps réel, garantissant ainsi que chaque investissement — qu'il soit temporel ou financier — génère un impact social et économique quantifiable et auditable.</p>
+                    </div>
+                </div>
+
+                <!-- Point 4 -->
+                <div class="flex items-start gap-5">
+                    <div class="w-16 h-16 bg-clinique-gold text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                        <i class="fas fa-hands-helping text-black"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">4. Engagement Holistique & Partenariat de Croissance</h3>
+                        <p class="text-gray-700 leading-relaxed">Nous ne signons pas des contrats, nous scellons des alliances. L'entrepreneuriat est un marathon, pas un sprint. C'est pourquoi La Clinique s'engage dans une relation de compagnonnage avec ses bénéficiaires.</p>
+                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">L'Écosystème vivant :</strong> Nous créons une symbiose entre la jeunesse montante, les PME en quête de structuration et les institutions publiques.</p>
+                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">La Pérennité :</strong> Notre accompagnement ne s'arrête pas à la remise d'un certificat. Nous restons aux côtés de nos partenaires pour sécuriser leur croissance, faciliter leur accès au réseau et veille r à ce que l'étincelle initiale se transforme en une institution pérenne capable de traverser les décennies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. SECTION VISION LONG TERME -->
+    <section id="vision" class="py-24 bg-white reveal dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="hidden lg:block order-2">
+                    <img src="img/clinique6.jpg" class="rounded-3xl shadow-2xl img-hover-zoom lazy-img" alt="Université de l'Entrepreneuriat" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="order-1">
+                    <div class="inline-block bg-clinique-gold/20 text-clinique-gold py-2 px-4 rounded-full text-sm font-semibold mb-4">
+                        Vision 2035-2040
+                    </div>
+                    <h2 class="font-heading section-title text-clinique-blue mb-6 dark:text-white">
+                        Université de l'Entrepreneuriat
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-6 dark:text-gray-300">
+                        Notre ambition est de créer <strong>l'Université de l'Entrepreneuriat du Congo</strong> : un établissement dédié à la formation de leaders économiques, capables de créer des entreprises innovantes et performantes dès le Bac.
+                    </p>
+                    <div class="bg-clinique-light rounded-2xl p-6 dark:bg-gray-800">
+                        <h4 class="font-heading font-bold text-clinique-blue mb-2 dark:text-white">
+                            <i class="fas fa-bullseye text-clinique-orange mr-2"></i>Notre Vision
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Former une génération de bâtisseurs économiques pour le Congo et l'Afrique.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. SECTION BLOG & RÉFLEXION -->
+    <section class="py-24 bg-clinique-light reveal dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative dark:text-white">Nos Réflexions</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto dark:text-gray-300">Analyses stratégiques sur les enjeux économiques africains.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="tilt-card card-premium overflow-hidden">
+                    <div class="h-56 overflow-hidden">
+                        <img src="img/clinique1.jpg" class="w-full h-full object-cover lazy-img" alt="Article: Le chômage des jeunes" loading="lazy" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-clinique-orange text-sm font-semibold">Économie</span>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mt-2 mb-2 dark:text-white">Le chômage des jeunes</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Analyses et solutions pour l'Afrique.</p>
+                        <a href="#" class="text-clinique-orange font-semibold hover:underline" aria-label="Lire la suite: Le chômage des jeunes">Lire la suite →</a>
+                    </div>
+                </div>
+                <div class="tilt-card card-premium overflow-hidden">
+                    <div class="h-56 overflow-hidden">
+                        <img src="img/clinique2.jpg" class="w-full h-full object-cover lazy-img" alt="Article: La transformation économique" loading="lazy" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-clinique-orange text-sm font-semibold">Stratégie</span>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mt-2 mb-2 dark:text-white">La transformation économique</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Comment développer l'esprit d'entreprise.</p>
+                        <a href="#" class="text-clinique-orange font-semibold hover:underline" aria-label="Lire la suite: La transformation économique">Lire la suite →</a>
+                    </div>
+                </div>
+                <div class="tilt-card card-premium overflow-hidden">
+                    <div class="h-56 overflow-hidden">
+                        <img src="img/clinique3.jpg" class="w-full h-full object-cover lazy-img" alt="Article: Leadership & Innovation" loading="lazy" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-clinique-orange text-sm font-semibold">Leadership</span>
+                        <h3 class="font-heading text-xl font-bold text-clinique-blue mt-2 mb-2 dark:text-white">Leadership & Innovation</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Les clés du succès en entreprise.</p>
+                        <a href="#" class="text-clinique-orange font-semibold hover:underline" aria-label="Lire la suite: Leadership & Innovation">Lire la suite →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. SECTION PARTENAIRES -->
+    <section class="py-24 bg-white reveal dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative dark:text-white">Ils collaborent avec nous</h2>
+            </div>
+            
+            <!-- Scrolling Logo Banner -->
+            <div class="overflow-hidden py-8 mb-12">
+                <div class="logo-scroller">
+                    <div class="flex items-center gap-16 mx-8">
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-school text-4xl text-clinique-blue"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">Université</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-building text-4xl text-clinique-orange"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">PME</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-city text-4xl text-green-600"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">Institution</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-handshake text-4xl text-purple-600"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">Partenaire</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-rocket text-4xl text-red-500"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">Startup</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-globe-africa text-4xl text-clinique-gold"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">ONG</span>
+                        </div>
+                    </div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="flex items-center gap-16 mx-8">
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-school text-4xl text-clinique-blue"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">Université</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-building text-4xl text-clinique-orange"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">PME</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-city text-4xl text-green-600"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">Institution</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-handshake text-4xl text-purple-600"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">Partenaire</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-rocket text-4xl text-red-500"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">Startup</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fas fa-globe-africa text-4xl text-clinique-gold"></i>
+                            <span class="text-gray-600 text-sm dark:text-gray-400">ONG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="tilt-card bg-white rounded-3xl p-8 text-center hover-float border-2 border-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div class="w-20 h-20 bg-clinique-blue/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-school text-clinique-blue text-4xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue dark:text-white">Écoles et universités</h3>
+                </div>
+                <div class="tilt-card bg-white rounded-3xl p-8 text-center hover-float border-2 border-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div class="w-20 h-20 bg-clinique-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-clinique-orange text-4xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue dark:text-white">Entreprises innovantes</h3>
+                </div>
+                <div class="tilt-card bg-white rounded-3xl p-8 text-center hover-float border-2 border-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div class="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 dark:bg-green-900">
+                        <i class="fas fa-landmark text-green-600 text-4xl dark:text-green-400"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue dark:text-white">Institutions et ministères</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. SECTION APPEL À L'ACTION FINAL -->
+    <section class="py-24 bg-clinique-blue text-white reveal">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="font-heading section-title mb-6">Bâtissons ensemble l'économie de demain.</h2>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10">
+                Que vous soyez une école, une PME, une grande entreprise ou une institution publique, La Clinique de l'Entrepreneuriat est prête à collaborer pour transformer vos ambitions en résultats mesurables.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="btn-gradient text-white font-bold py-4 px-8 rounded-full inline-block text-lg hover:scale-105 transition-transform" role="button">Prendre rendez-vous</a>
+                <a href="#contact" class="glass text-white font-bold py-4 px-8 rounded-full inline-block text-lg hover:bg-white/20 transition-all" role="button">Devenir partenaire</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-white reveal dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative dark:text-white">Contactez-nous</h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-clinique-light rounded-3xl p-8 dark:bg-gray-800">
+                    <h3 class="font-heading text-2xl font-bold text-clinique-blue mb-8 dark:text-white">Envoyez-nous un message</h3>
+                    <form class="space-y-6" id="contact-form" novalidate>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" id="nom" placeholder="Nom *" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-clinique-blue outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white" aria-required="true">
+                                <p class="text-red-500 text-sm mt-1 hidden" id="nom-error">Veuillez entrer votre nom</p>
+                            </div>
+                            <div>
+                                <input type="text" id="organisation" placeholder="Organisation" class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-clinique-blue outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="email" id="email" placeholder="Email *" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-clinique-blue outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white" aria-required="true">
+                            <p class="text-red-500 text-sm mt-1 hidden" id="email-error">Veuillez entrer un email valide</p>
+                        </div>
+                        <div>
+                            <select class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-clinique-blue outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                <option value="">Sujet de votre message</option>
+                                <option value="formation">Demande de formation</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="accompagnement">Accompagnement PME</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea id="message" rows="5" placeholder="Message *" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-clinique-blue outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white" aria-required="true"></textarea>
+                            <p class="text-red-500 text-sm mt-1 hidden" id="message-error">Veuillez entrer votre message</p>
+                        </div>
+                        <button type="submit" class="w-full btn-gradient text-white font-bold py-4 rounded-xl hover:scale-105 transition-transform" aria-label="Envoyer le formulaire">Envoyer</button>
+                    </form>
+                </div>
+                <div class="bg-clinique-blue rounded-3xl p-8 text-white">
+                    <h3 class="font-heading text-2xl font-bold mb-8">Nos Coordonnées</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-white/70 text-sm">Téléphone</p>
+                                <p class="font-bold">+243</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-white/70 text-sm">Email</p>
+                                <p class="font-bold">lacliniquedelentrepreneuriat@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-white/70 text-sm">Adresse</p>
+                                <p class="font-bold">Kinshasa, RDC</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Google Map Kinshasa -->
+                    <div class="mt-6 rounded-xl overflow-hidden h-48">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.4294895663!2d15.180789467502767!3d-4.325253744219813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a3131e709d%3A0x6a7a8d3a7a7a7a7a!2sKinshasa%2C%20R%C3%A9publique%20d%C3%A9mocratique%20du%20Congo!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/20">
+                        <p class="text-white/70 mb-4">Suivez-nous</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-clinique-orange transition-colors" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-clinique-orange transition-colors" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-clinique-orange transition-colors" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER POPUP -->
+    <div id="newsletter-popup" class="hidden newsletter-popup">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-sm dark:bg-gray-800" role="dialog" aria-labelledby="newsletter-title">
+            <button id="close-newsletter" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center">
+                <div class="w-16 h-16 bg-clinique-orange text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3 id="newsletter-title" class="font-heading text-xl font-bold text-clinique-blue mb-2 dark:text-white">Restez informé!</h3>
+                <p class="text-gray-600 text-sm mb-4 dark:text-gray-300">Inscrivez-vous à notre newsletter pour recevoir nos dernières nouvelles et formations.</p>
+                <form id="newsletter-form" class="space-y-3">
+                    <input type="email" placeholder="Votre email" required class="w-full px-4 py-2 rounded-xl border-2 border-gray-200 focus:border-clinique-blue outline-none text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <button type="submit" class="w-full btn-gradient text-white font-bold py-2 rounded-xl text-sm">S'inscrire</button>
+                </form>
+                <p class="text-gray-400 text-xs mt-2">Pas de spam, désabonnement possible.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-gradient text-white py-12 dark:bg-gray-900" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="relative inline-block mb-4">
+                <img src="img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png" alt="Logo La Clinique de l'Entrepreneuriat" class="h-16 w-auto mx-auto animate-spin-slow" onerror="this.style.display='none'" loading="lazy">
+                <!-- Decorative ring -->
+                <div class="absolute inset-0 border-2 border-white/20 rounded-full animate-pulse"></div>
+            </div>
+            <p class="text-white/80 mb-2">La Clinique de l'Entrepreneuriat</p>
+            <p class="text-white/60 text-sm">© 2026 Tous droits réservés. Réalisé par <span class="font-bold text-clinique-gold">360 Creative</span></p>
+            
+            <!-- Quick Links -->
+            <div class="flex justify-center gap-6 mt-6">
+                <a href="#" class="text-white/60 hover:text-white text-sm">Mentions légales</a>
+                <a href="#" class="text-white/60 hover:text-white text-sm">Politique de confidentialité</a>
+                <a href="#" class="text-white/60 hover:text-white text-sm">Plan du site</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/modern.js"></script>
+</body>
+</html>
