@@ -16,6 +16,8 @@
             $('.reveal').each(function () {
                 $(this).addClass('active');
             });
+            // Activate reveal-delay elements (pillar cards)
+            $('.reveal-delay-1, .reveal-delay-2, .reveal-delay-3').addClass('active');
         }, 2500);
     });
 
@@ -110,7 +112,19 @@
     // 8. REVEAL ANIMATIONS ON SCROLL
     // ========================================
     function reveal() {
+        // Handle main reveal elements
         $('.reveal').each(function () {
+            const windowHeight = window.innerHeight;
+            const elementTop = $(this).offset().top;
+            const elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                $(this).addClass('active');
+            }
+        });
+        
+        // Handle reveal-delay elements (nested in reveal sections)
+        $('.reveal-delay-1, .reveal-delay-2, .reveal-delay-3').each(function () {
             const windowHeight = window.innerHeight;
             const elementTop = $(this).offset().top;
             const elementVisible = 150;
@@ -125,6 +139,9 @@
     $(document).ready(function () {
         reveal();
         setTimeout(reveal, 100);
+        // Also trigger after a longer delay to ensure all elements are visible
+        setTimeout(reveal, 500);
+        setTimeout(reveal, 1000);
     });
 
     // ========================================

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités & Blog | La Clinique de l'Entrepreneuriat</title>
+    <meta name="description" content="Découvrez les dernières nouvelles, événements et articles de La Clinique de l'Entrepreneuriat en RDC et en Afrique.">
+    <meta name="keywords" content="actualités, blog, entrepreneuriat, RDC, Afrique, événements, formation">
+    <meta name="author" content="La Clinique de l'Entrepreneuriat">
+    <meta property="og:title" content="Actualités | La Clinique de l'Entrepreneuriat">
+    <meta property="og:description" content="Restez informé des dernières nouvelles de La Clinique de l'Entrepreneuriat.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: false,
+            theme: {
+                extend: {
+                    colors: {
+                        clinique: { 
+                            blue: '#125C5D', 
+                            orange: '#E8831A', 
+                            light: '#F0F4F4', 
+                            gold: '#D4AF37', 
+                            dark: '#0A3D3E',
+                            'blue-light': '#1A7A7B',
+                            'orange-light': '#F59E2D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --clinique-blue: #125C5D;
+            --clinique-orange: #E8831A;
+            --clinique-gold: #D4AF37;
+            --clinique-dark: #0A3D3E;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #125C5D 0%, #0A3D3E 100%);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .nav-modern.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--clinique-orange), var(--clinique-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hero-blog {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(18,92,93,0.95) 0%, rgba(10,61,62,0.92) 100%);
+        }
+
+        .card-article {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-article:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(18, 92, 93, 0.15);
+        }
+
+        .card-article .image-wrapper {
+            overflow: hidden;
+        }
+
+        .card-article:hover .image-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .btn-gradient { 
+            background: linear-gradient(135deg, var(--clinique-orange), #F59E2D); 
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 131, 26, 0.4);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+        }
+
+        .badge-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-gradient { 
+            background: linear-gradient(135deg, var(--clinique-blue), var(--clinique-dark)); 
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800">
+
+    <div id="loader">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-white/20 border-t-clinique-orange rounded-full animate-spin mb-4"></div>
+            <p class="text-white font-heading font-bold text-xl">LA CLINIQUE</p>
+        </div>
+    </div>
+
+    <header id="main-header" class="nav-modern fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <a href="index.html">
+                        <img src="img/LOGO-ENTREP-01.png" alt="Logo" class="h-16 w-auto">
+                    </a>
+                    <span class="font-heading font-bold text-clinique-blue hidden lg:block">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
+                </div>
+                
+                <nav class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-clinique-blue">Accueil</a>
+                    <a href="initiateur.html" class="nav-link text-gray-600 hover:text-clinique-blue">L'initiateur</a>
+                    <a href="services.html" class="nav-link text-gray-600 hover:text-clinique-blue">Services</a>
+                    <a href="blog.html" class="nav-link text-clinique-blue font-semibold">Actualités</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-clinique-blue">Contact</a>
+                </nav>
+                
+                <a href="index.html#contact" class="hidden lg:inline-block btn-gradient text-white font-bold py-2 px-4 rounded-full text-sm">Collaborer</a>
+                
+                <button class="lg:hidden p-2" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl text-clinique-blue"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-3 text-gray-600">Accueil</a>
+                <a href="initiateur.html" class="block py-3 text-gray-600">L'initiateur</a>
+                <a href="services.html" class="block py-3 text-gray-600">Services</a>
+                <a href="blog.html" class="block py-3 text-clinique-blue font-semibold">Actualités</a>
+                <a href="#contact" class="block py-3 text-gray-600">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-blog pt-20">
+        <div class="max-w-7xl mx-auto px-4 py-16 w-full text-center text-white">
+            <div class="inline-block bg-clinique-orange/20 text-clinique-orange py-2 px-4 rounded-full text-sm font-semibold mb-6">
+                Actualités & Blog
+            </div>
+            <h1 class="font-heading text-4xl md:text-5xl font-bold mb-6">
+                Restez informé
+            </h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto">
+                Découvrez les dernières nouvelles, événements et réflexions de La Clinique de l'Entrepreneuriat.
+            </p>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,120.25,189.7,105.51,235.27,94.06,279.7,73.4,321.39,56.44Z" fill="#ffffff"></path></svg>
+        </div>
+    </section>
+
+    <!-- Filtres -->
+    <section class="py-8 bg-clinique-light border-b">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="px-6 py-2 bg-clinique-blue text-white rounded-full font-semibold text-sm">Tous</button>
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-clinique-blue hover:text-white transition">Formations</button>
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-clinique-blue hover:text-white transition">Événements</button>
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-clinique-blue hover:text-white transition">PME</button>
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-clinique-blue hover:text-white transition">Témoignages</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles à la une -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-heading section-title text-clinique-blue mb-10">
+                À la une
+            </h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+<!-- Article principal -->
+                <div class="card-article lg:col-span-2 reveal">
+                    <div class="relative">
+                        <div class="image-wrapper h-80">
+                            <img src="img/couv.png" alt="Article à la une" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-clinique-orange text-white px-4 py-1 rounded-full text-sm font-semibold">Événement</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 text-gray-500 text-sm mb-4">
+                            <span><i class="far fa-calendar mr-2"></i>15 Janvier 2026</span>
+                            <span><i class="far fa-user mr-2"></i>La Rédaction</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-clinique-blue mb-4">
+                            Lancement de la nouvelle cohorte d'incubation 2026 : Transformez votre rêve entrepreneurial en réalité
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            La Clinique de l'Entrepreneuriat est fière d'annoncer le lancement de sa nouvelle cohorte d'incubation pour l'année 2026. Ce programme stratégique vise à identifier, former et accompagner les entrepreneursles plus prometteurs de la région de Kinshasa et au-delà.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            Les entrepreneurs sélectionnés bénéficieront d'un accompagnement personnalisé de 6 mois, incluant des sessions de coaching individuel, des ateliers pratiques sur la gestion financière, le marketing et la stratégie commerciale, ainsi qu'un accès à notre réseau de mentors expérimentés et de partenaires potentiels.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            <strong>Critères de sélection :</strong> Projet entrepreneurial viable, motivation exceptionnelle, potentiel de croissance et impact social. Les candidats doivent soumettre leur dossier avant le 28 février 2026.发布日期 : 15 Janvier 2026 | Catégorie : Événement | Durée de lecture : 5 min
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Derniers articles -->
+    <section class="py-16 bg-clinique-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-heading section-title text-clinique-blue mb-10">
+                Derniers articles
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Article 1 -->
+                <div class="card-article reveal">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique 1.jpg" alt="Formation" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-clinique-blue text-white px-3 py-1 rounded-full text-xs font-semibold">Formation</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>10 Janvier 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Atelier sur la gestion financière pour les PME : Les fondamentaux
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            La Clinique de l'Entrepreneuriat a organisé un atelier intensif sur la gestion financière destiné aux propriétaires de PME. Les participants ont appris à établir un budget prévisionnel, gérer leur trésorerie et optimiser leur fonds de roulement. Cet atelier pratique a réuni 45 entrepreneurs de Kinshasa.
+                        </p>
+                        <p class="text-gray-500 text-xs mb-3">Durée de lecture : 4 min</p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="card-article reveal">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique2.jpg" alt="PME" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">PME</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>5 Janvier 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Comment structurer votre entreprise en 2026
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Les clés pour structurer efficacement votre PME et préparer sa croissance durable...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="card-article reveal">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique3.jpg" alt="Témoignage" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Témoignage</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>28 Décembre 2025</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Témoignage : Comment j'ai lancé mon entreprise
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Parcours d'un entrepreneur accompagné par La Clinique de l'Entrepreneuriat...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="card-article reveal">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique4.jpg" alt="Événement" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-clinique-orange text-white px-3 py-1 rounded-full text-xs font-semibold">Événement</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>20 Décembre 2025</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Forum de l'Entrepreneuriat Kinshasa 2025
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Retour sur le plus grand forum entrepreneurial de l'année en RDC...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="card-article reveal">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique5.jpg" alt="Formation" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-clinique-blue text-white px-3 py-1 rounded-full text-xs font-semibold">Formation</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>15 Décembre 2025</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Programme de formation des formateurs
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            La Clinique lance un programme de formation des formateurs pour renforcer les capacités...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 6 -->
+                <div class="card-article reveal">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique6.jpg" alt="PME" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">PME</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>10 Décembre 2025</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Les 5 erreurs à éviter quand vous startpez
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Conseils pratiques pour éviter les pièges courants de l'entrepreneuriat...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex gap-2">
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-clinique-blue text-white font-semibold">1</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-clinique-blue hover:text-white font-semibold">2</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-clinique-blue hover:text-white font-semibold">3</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-clinique-blue hover:text-white font-semibold">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 bg-clinique-blue text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-heading text-3xl font-bold mb-6">
+                Abonnez-vous à notre newsletter
+            </h2>
+            <p class="text-white/90 mb-8">
+                Recevez nos dernières nouvelles, conseils et événements directement dans votre boîte mail.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input type="email" placeholder="Votre adresse email" required class="flex-1 px-6 py-4 rounded-full text-gray-800 outline-none">
+                <button type="submit" class="btn-gradient text-white font-bold py-4 px-8 rounded-full">
+                    S'abonner
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="relative inline-block mb-4">
+                <img src="img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png" alt="Logo" class="h-16 w-auto mx-auto" onerror="this.style.display='none'">
+            </div>
+            <p class="text-white/80 mb-2">La Clinique de l'Entrepreneuriat</p>
+            <p class="text-white/60 text-sm">+243 801 199 934</p>
+            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <span class="font-bold text-clinique-gold">360 Creative</span></p>
+            
+            <div class="flex justify-center gap-6 mt-6">
+                <a href="index.html" class="text-white/60 hover:text-white text-sm">Accueil</a>
+                <a href="initiateur.html" class="text-white/60 hover:text-white text-sm">L'initiateur</a>
+                <a href="services.html" class="text-white/60 hover:text-white text-sm">Services</a>
+                <a href="blog.html" class="text-white/60 hover:text-white text-sm">Actualités</a>
+                <a href="index.html#contact" class="text-white/60 hover:text-white text-sm">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
+</body>
+</html>

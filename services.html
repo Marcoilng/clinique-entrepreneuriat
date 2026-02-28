@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services | La Clinique de l'Entrepreneuriat</title>
+    <meta name="description" content="Découvrez les services de La Clinique de l'Entrepreneuriat : formation, accompagnement, conseil et incubation pour entrepreneurs en RDC et en Afrique.">
+    <meta name="keywords" content="services, formation, accompagnement, incubation, conseil, entrepreneuriat, RDC, Afrique">
+    <meta name="author" content="La Clinique de l'Entrepreneuriat">
+    <meta property="og:title" content="Nos Services | La Clinique de l'Entrepreneuriat">
+    <meta property="og:description" content="Des programmes adaptés à vos besoins pour développer votre entreprise.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: false,
+            theme: {
+                extend: {
+                    colors: {
+                        clinique: { 
+                            blue: '#125C5D', 
+                            orange: '#E8831A', 
+                            light: '#F0F4F4', 
+                            gold: '#D4AF37', 
+                            dark: '#0A3D3E',
+                            'blue-light': '#1A7A7B',
+                            'orange-light': '#F59E2D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --clinique-blue: #125C5D;
+            --clinique-orange: #E8831A;
+            --clinique-gold: #D4AF37;
+            --clinique-dark: #0A3D3E;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #125C5D 0%, #0A3D3E 100%);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .nav-modern.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--clinique-orange), var(--clinique-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hero-services {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(18,92,93,0.95) 0%, rgba(10,61,62,0.92) 100%);
+            overflow: hidden;
+        }
+
+        .card-service {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(18, 92, 93, 0.15);
+        }
+
+        .card-service .icon-box {
+            transition: all 0.3s ease;
+        }
+
+        .card-service:hover .icon-box {
+            transform: scale(1.1);
+        }
+
+        .btn-gradient { 
+            background: linear-gradient(135deg, var(--clinique-orange), #F59E2D); 
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 131, 26, 0.4);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-gradient { 
+            background: linear-gradient(135deg, var(--clinique-blue), var(--clinique-dark)); 
+        }
+
+        .service-grid-pattern {
+            background-image: radial-gradient(circle at 20px 20px, rgba(18, 92, 93, 0.05) 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800">
+
+    <div id="loader">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-white/20 border-t-clinique-orange rounded-full animate-spin mb-4"></div>
+            <p class="text-white font-heading font-bold text-xl">LA CLINIQUE</p>
+        </div>
+    </div>
+
+    <header id="main-header" class="nav-modern fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <a href="index.html">
+                        <img src="img/LOGO-ENTREP-01.png" alt="Logo" class="h-16 w-auto">
+                    </a>
+                    <span class="font-heading font-bold text-clinique-blue hidden lg:block">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
+                </div>
+                
+                <nav class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-clinique-blue">Accueil</a>
+                    <a href="initiateur.html" class="nav-link text-gray-600 hover:text-clinique-blue">L'initiateur</a>
+                    <a href="services.html" class="nav-link text-clinique-blue font-semibold">Services</a>
+                    <a href="blog.html" class="nav-link text-gray-600 hover:text-clinique-blue">Blog</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-clinique-blue">Contact</a>
+                </nav>
+                
+                <a href="index.html#contact" class="hidden lg:inline-block btn-gradient text-white font-bold py-2 px-4 rounded-full text-sm">Collaborer</a>
+                
+                <button class="lg:hidden p-2" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl text-clinique-blue"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-3 text-gray-600">Accueil</a>
+                <a href="initiateur.html" class="block py-3 text-gray-600">L'initiateur</a>
+                <a href="services.html" class="block py-3 text-clinique-blue font-semibold">Services</a>
+                <a href="blog.html" class="block py-3 text-gray-600">Blog</a>
+                <a href="#contact" class="block py-3 text-gray-600">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-services pt-20">
+        <div class="max-w-7xl mx-auto px-4 py-20 w-full text-center text-white">
+            <div class="inline-block bg-clinique-orange/20 text-clinique-orange py-2 px-4 rounded-full text-sm font-semibold mb-6">
+                Nos Services
+            </div>
+            <h1 class="font-heading text-4xl md:text-6xl font-bold mb-6">
+                Des solutions complètes<br>pour votre succès
+            </h1>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10">
+                La Clinique de l'Entrepreneuriat vous accompagne à chaque étape de votre parcours entrepreneurial avec des programmes adaptés à vos besoins.
+            </p>
+            <a href="#services" class="btn-gradient text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+                Découvrir nos services
+            </a>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,120.25,189.7,105.51,235.27,94.06,279.7,73.4,321.39,56.44Z" fill="#ffffff"></path></svg>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-white service-grid-pattern">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue">
+                    Nos Domaines d'Expertise
+                </h2>
+                <p class="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
+                    Nous offrons une gamme complète de services pour répondre à tous vos besoins entrepreneuriaux.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="card-service p-8 reveal">
+                    <div class="icon-box w-20 h-20 bg-clinique-blue rounded-2xl flex items-center justify-center text-4xl text-white mb-6">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Formation Entrepreneuriale</h3>
+                    <p class="text-gray-600 mb-6">
+                        Des programmes de formation adaptés aux réalités du terrain pour développer les compétences clés des entrepreneurs.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Management de proximité
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Gestion financière
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Stratégie commerciale
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="text-clinique-orange font-semibold hover:underline">En savoir plus →</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="card-service p-8 reveal">
+                    <div class="icon-box w-20 h-20 bg-clinique-orange rounded-2xl flex items-center justify-center text-4xl text-white mb-6">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Accompagnement Personnalisé</h3>
+                    <p class="text-gray-600 mb-6">
+                        Un suivi individualisé pour vous aider à surmonter les défis spécifiques de votre entreprise.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Coaching individuel
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Diagnostic d'entreprise
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Plan d'action personnalisé
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="text-clinique-orange font-semibold hover:underline">En savoir plus →</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="card-service p-8 reveal">
+                    <div class="icon-box w-20 h-20 bg-clinique-gold rounded-2xl flex items-center justify-center text-4xl text-white mb-6">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Incubation & Acceleration</h3>
+                    <p class="text-gray-600 mb-6">
+                        Un programme intensif pour transformer votre idée en entreprise viable et performante.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Lab Idées / Startup
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Mentorat avec experts
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Accès aux financement
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="text-clinique-orange font-semibold hover:underline">En savoir plus →</a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="card-service p-8 reveal">
+                    <div class="icon-box w-20 h-20 bg-clinique-dark rounded-2xl flex items-center justify-center text-4xl text-white mb-6">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Conseil aux Entreprises</h3>
+                    <p class="text-gray-600 mb-6">
+                        Des expertises pointues pour optimiser la performance et la croissance de votre organisation.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Stratégie & Organisation
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Restructuration
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Développement commercial
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="text-clinique-orange font-semibold hover:underline">En savoir plus →</a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="card-service p-8 reveal">
+                    <div class="icon-box w-20 h-20 bg-green-600 rounded-2xl flex items-center justify-center text-4xl text-white mb-6">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Conseil aux Institutions</h3>
+                    <p class="text-gray-600 mb-6">
+                        Accompagnement des institutions publiques et privées dans leurs projets de développement.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Formation de formateurs
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Évaluation de programmes
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Expertise sectorielle
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="text-clinique-orange font-semibold hover:underline">En savoir plus →</a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="card-service p-8 reveal">
+                    <div class="icon-box w-20 h-20 bg-purple-600 rounded-2xl flex items-center justify-center text-4xl text-white mb-6">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Conférences & Événements</h3>
+                    <p class="text-gray-600 mb-6">
+                        Des événements inspirants pour réfléchir et avancer ensemble.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Conférences thématiques
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Tables rondes
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600 text-sm">
+                            <i class="fas fa-check text-clinique-orange"></i> Networking B2B
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="text-clinique-orange font-semibold hover:underline">En savoir plus →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-clinique-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue">
+                    Pourquoi nous choisir ?
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-clinique-blue text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-clinique-blue mb-2">Expertise</h3>
+                    <p class="text-gray-600 text-sm">Une équipe pluridisciplinaire avec des années d'expérience</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-clinique-orange text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-clinique-blue mb-2">Approche</h3>
+                    <p class="text-gray-600 text-sm">Une méthodologie adaptée aux réalités africaines</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-clinique-gold text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-clinique-blue mb-2">Réseau</h3>
+                    <p class="text-gray-600 text-sm">Un écosystème de partenaires locaux et internationaux</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-clinique-dark text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-clinique-blue mb-2">Impact</h3>
+                    <p class="text-gray-600 text-sm">Des résultats concrets et mesurables</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-clinique-blue text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6">
+                Prêt à transformer votre entreprise ?
+            </h2>
+            <p class="text-xl text-white/90 mb-10">
+                Contactez La Clinique de l'Entrepreneuriat pour discuté de vos besoins et trouver la solution adaptée.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#contact" class="btn-gradient text-white font-bold py-4 px-8 rounded-full text-lg">
+                    Nous contacter
+                </a>
+                <a href="initiateur.html" class="border-2 border-white text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-white hover:text-clinique-blue">
+                    Découvrir l'initiateur
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="relative inline-block mb-4">
+                <img src="img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png" alt="Logo" class="h-16 w-auto mx-auto" onerror="this.style.display='none'">
+            </div>
+            <p class="text-white/80 mb-2">La Clinique de l'Entrepreneuriat</p>
+            <p class="text-white/60 text-sm">+243 801 199 934</p>
+            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <span class="font-bold text-clinique-gold">360 Creative</span></p>
+            
+            <div class="flex justify-center gap-6 mt-6">
+                <a href="index.html" class="text-white/60 hover:text-white text-sm">Accueil</a>
+                <a href="initiateur.html" class="text-white/60 hover:text-white text-sm">L'initiateur</a>
+                <a href="services.html" class="text-white/60 hover:text-white text-sm">Services</a>
+                <a href="index.html#contact" class="text-white/60 hover:text-white text-sm">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
+</body>
+</html>
