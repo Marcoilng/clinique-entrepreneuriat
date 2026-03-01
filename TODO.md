@@ -1,24 +1,20 @@
-# TODO - Améliorations Site La Clinique de l'Entrepreneuriat
+# TODO - Mise à jour du site La Clinique de l'Entrepreneuriat
 
-## 1. Navigation et Header
-- [x] Regrouper les liens en dropdown "Notre Approche" (Positionnement, Piliers, Doctrine)
-- [x] Garder en accès direct: Accueil, Impact, Domaines, Vision, Contact
-- [x] Augmenter la taille du logo de 20%
+## Index.html
+- [ ] 1. Ajouter section NOTRE VISION
+- [ ] 2. Ajouter section NOTRE MISSION
+- [ ] 3. Ajouter section NOTRE MÉTHODOLOGIE (4 étapes)
+- [ ] 4. Ajouter section MESURE DES RÉSULTATS
+- [ ] 5. Ajouter section ENGAGEMENT SUR LE LONG TERME
+- [ ] 6. Remplacer témoignages existants par Sun et Gradi Art
+- [ ] 7. Ajouter section CRITÈRES DE SÉLECTION (Cohorte 2026)
+- [ ] 8. Mettre à jour les réseaux sociaux dans le footer
 
-## 2. Typographie et Hiérarchie
-- [x] Ajouter line-height: 1.6 pour les paragraphes
-- [x] Améliorer le contraste dans la section Doctrine
+## Services.html
+- [ ] 1. Ajouter les liens des réseaux sociaux
 
-## 3. Cartes et Espacement
-- [x] Ajouter padding: 3rem (48px) aux cartes
-- [x] Changer l'alignement de center à left dans les cartes
-
-## 4. Iconographie
-- [x] Remplacer les icônes classiques par des versions Line Art
-
-## 5. Section Impact
-- [x] Utiliser des chiffres symboliques (50+, 10+, 5+)
-
-## 6. Motion Design
-- [x] Ajouter animation de rotation au logo dans le footer
-- [x] Améliorer l'effet Scroll Reveal pour les cartes des Piliers (effet décalé)
+## Réseaux sociaux à ajouter:
+- TikTok: https://www.tiktok.com/@la.cde?_r=1&_t=ZS-94KR6wF96tr
+- Instagram: https://www.instagram.com/la_clinique2lentrepeneuriat?igsh=MXRicjl5bmdnc2puMQ%3D%3D&utm_source=qr
+- Facebook: https://www.facebook.com/share/15bfaaHSHby/?mibextid=wwXIfr
+- LinkedIn: https://www.linkedin.com/company/clinique-de-l-entreprenariat/
