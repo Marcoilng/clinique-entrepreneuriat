@@ -162,6 +162,30 @@
     });
 
     // ========================================
+    // HELPER: SECURITY & UX
+    // ========================================
+    // Sanitize input to prevent XSS
+    function sanitize(input) {
+        return $('<div>').text(input).html();
+    }
+
+    // Show professional toast notification instead of alert
+    function showToast(message, type = 'success') {
+        // Create toast container if not exists
+        if ($('#toast-notification').length === 0) {
+            $('body').append('<div id="toast-notification" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-full shadow-2xl z-50 transition-all duration-300 opacity-0 translate-y-10 flex items-center gap-3 border border-gray-700"><i class="fas fa-check-circle text-green-400"></i><span class="toast-message font-medium"></span></div>');
+        }
+        
+        const $toast = $('#toast-notification');
+        $toast.find('.toast-message').text(message);
+        $toast.removeClass('opacity-0 translate-y-10');
+        
+        setTimeout(() => {
+            $toast.addClass('opacity-0 translate-y-10');
+        }, 4000);
+    }
+
+    // ========================================
     // 10. FORM VALIDATION
     // ========================================
     $('#contact-form').on('submit', function (e) {
@@ -169,7 +193,7 @@
         let isValid = true;
         
         // Validate Nom
-        if ($('#nom').val().trim() === '') {
+        if (sanitize($('#nom').val()).trim() === '') {
             $('#nom-error').removeClass('hidden');
             isValid = false;
         } else {
@@ -177,7 +201,7 @@
         }
         
         // Validate Email
-        const email = $('#email').val();
+        const email = sanitize($('#email').val());
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             $('#email-error').removeClass('hidden');
@@ -187,7 +211,7 @@
         }
         
         // Validate Message
-        if ($('#message').val().trim() === '') {
+        if (sanitize($('#message').val()).trim() === '') {
             $('#message-error').removeClass('hidden');
             isValid = false;
         } else {
@@ -196,20 +220,34 @@
         
         // If valid, show success message
         if (isValid) {
-            alert('Merci pour votre message! Nous vous contacterons bientôt.');
+            // UX: Show integrated success message
+            $('#success-message').removeClass('hidden').hide().fadeIn();
             $('#contact-form')[0].reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(function() {
+                $('#success-message').fadeOut();
+            }, 5000);
         }
     });
 
     // ========================================
     // 11. NEWSLETTER FORM
     // ========================================
-    $('#newsletter-form').on('submit', function (e) {
+    $('#newsletter-form, #main-newsletter-form').on('submit', function (e) {
         e.preventDefault();
-        const email = $(this).find('input[type="email"]').val();
+        const email = sanitize($(this).find('input[type="email"]').val());
         if (email) {
-            alert('Merci de votre inscription à la newsletter!');
+            showToast('Merci de votre inscription à la newsletter !');
             $(this)[0].reset();
+            
+            // Close popup if it was the source
+            if ($(this).attr('id') === 'newsletter-form') {
+                setTimeout(() => {
+                    $('#newsletter-popup').addClass('hidden');
+                    localStorage.setItem('newsletterClosed', 'true');
+                }, 1500);
+            }
         }
     });
 
