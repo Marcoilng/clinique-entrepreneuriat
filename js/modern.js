@@ -61,23 +61,23 @@
     // ========================================
     // 6. CUSTOM CURSOR
     // ========================================
-    const cursor = document.getElementById('custom-cursor');
+    // const cursor = document.getElementById('custom-cursor');
     
-    if (cursor && window.innerWidth >= 768) {
-        document.addEventListener('mousemove', function (e) {
-            cursor.style.left = e.clientX - 10 + 'px';
-            cursor.style.top = e.clientY - 10 + 'px';
-        });
+    // if (cursor && window.innerWidth >= 768) {
+    //     document.addEventListener('mousemove', function (e) {
+    //         cursor.style.left = e.clientX - 10 + 'px';
+    //         cursor.style.top = e.clientY - 10 + 'px';
+    //     });
 
-        // Effet sur les liens et boutons
-        $('a, button, .tilt-card, .hover-float').on('mouseenter', function () {
-            cursor.style.transform = 'scale(1.5)';
-            cursor.style.background = '#125C5D';
-        }).on('mouseleave', function () {
-            cursor.style.transform = 'scale(1)';
-            cursor.style.background = '#E8831A';
-        });
-    }
+    //     // Effet sur les liens et boutons
+    //     $('a, button, .tilt-card, .hover-float').on('mouseenter', function () {
+    //         cursor.style.transform = 'scale(1.5)';
+    //         cursor.style.background = '#125C5D';
+    //     }).on('mouseleave', function () {
+    //         cursor.style.transform = 'scale(1)';
+    //         cursor.style.background = '#E8831A';
+    //     });
+    // }
 
     // ========================================
     // 7. ANIMATED COUNTERS
@@ -349,6 +349,13 @@
                 scrollTop: target.offset().top - 80
             }, 0);
         }
+    }
+
+    // ========================================
+    // 21. DYNAMIC COPYRIGHT YEAR
+    // ========================================
+    if ($('#copyright-year').length) {
+        $('#copyright-year').text(new Date().getFullYear());
     }
 
 })(jQuery);
