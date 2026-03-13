@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration | La Clinique de l'Entrepreneuriat</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Quill Rich Text Editor -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clinique: { 
+                            blue: '#125C5D', 
+                            orange: '#E8831A', 
+                            light: '#F0F4F4', 
+                            gold: '#D4AF37', 
+                            dark: '#0A3D3E'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .ql-editor {
+            min-height: 300px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white shadow relative z-10 w-full">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="font-heading font-bold text-clinique-blue">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
+                <span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full font-semibold ml-2">Administration</span>
+            </div>
+            <button id="logoutBtn" class="hidden text-red-500 hover:text-red-700 font-semibold text-sm">
+                <i class="fas fa-sign-out-alt mr-1"></i>Déconnexion
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-auto p-4 md:p-8">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Auth Section -->
+            <div id="authSection" class="bg-white p-8 rounded-2xl shadow-lg max-w-md mx-auto mt-10">
+                <h2 class="font-heading text-2xl font-bold text-clinique-blue mb-6 text-center">Connexion requise</h2>
+                <div id="authError" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                    <span class="block sm:inline" id="authErrorMessage"></span>
+                </div>
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Email Administrateur</label>
+                        <input type="email" id="email" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-clinique-blue focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Mot de passe</label>
+                        <input type="password" id="password" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-clinique-blue focus:border-transparent">
+                    </div>
+                    <button type="submit" class="w-full bg-clinique-blue hover:bg-clinique-dark text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition">
+                        Se connecter
+                    </button>
+                </form>
+            </div>
+
+            <!-- Admin Dashboard Section -->
+            <div id="dashboardSection" class="hidden space-y-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="font-heading text-3xl font-bold text-gray-800">Ajouter un nouvel article</h1>
+                    <a href="blog.html" target="_blank" class="text-clinique-blue hover:underline text-sm"><i class="fas fa-external-link-alt mr-1"></i>Voir le blog</a>
+                </div>
+
+                <div id="publishSuccess" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                    <span class="block sm:inline">Article publié avec succès sur le blog !</span>
+                </div>
+                
+                <div id="publishError" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <span class="block sm:inline" id="publishErrorMessage"></span>
+                </div>
+
+                <form id="articleForm" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg space-y-6">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Titre -->
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 font-bold mb-2">Titre de l'article *</label>
+                            <input type="text" id="articleTitle" required class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-clinique-blue focus:border-transparent" placeholder="Ex: Lancement de la nouvelle cohorte...">
+                        </div>
+
+                        <!-- Catégorie -->
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">Catégorie *</label>
+                            <select id="articleCategory" required class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-clinique-blue focus:border-transparent">
+                                <option value="" disabled selected>Choisir une catégorie</option>
+                                <option value="formation">Formation</option>
+                                <option value="evenement">Événement</option>
+                                <option value="tribune">Tribune de l'initiateur</option>
+                                <option value="pme">PME</option>
+                                <option value="temoignage">Témoignage</option>
+                            </select>
+                        </div>
+
+                        <!-- Image URL -->
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">Lien de l'image de couverture *</label>
+                            <input type="url" id="articleImage" required class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-clinique-blue focus:border-transparent" placeholder="Ex: https://lien-vers-image.jpg ou nom de fichier local img/...">
+                            <p class="text-xs text-gray-500 mt-1">Vous pouvez utiliser le nom d'une image locale (ex: img/clinique1.jpg) ou l'URL complète d'une image en ligne.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contenu (Quill Editor) -->
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Contenu de l'article *</label>
+                        <div class="border border-gray-300 rounded-lg overflow-hidden">
+                            <div id="editor-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end pt-4 border-t">
+                        <button type="submit" id="submitBtn" class="bg-clinique-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow transition flex items-center">
+                            <span>Publier sur le blog</span>
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Firebase SDK (Version 9+ Modular) -->
+    <script type="module" src="js/admin.js"></script>
+
+</body>
+</html>
