@@ -441,3 +441,54 @@ $(document).ready(function() {
         });
     });
 });
+
+// ========================================
+// 24. COOKIE CONSENT BANNER
+// ========================================
+$(document).ready(function() {
+    if (!localStorage.getItem('cookieConsent')) {
+        const cookieHtml = `
+        <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-[#0A3D3E] text-white p-4 md:p-6 z-[99999] flex flex-col md:flex-row items-center justify-between gap-4 border-t border-[#D4AF37]/30 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] transform translate-y-full transition-transform duration-500">
+            <div class="flex-1 max-w-4xl">
+                <h4 class="font-heading font-bold text-[#D4AF37] mb-2 flex items-center gap-2">
+                    <i class="fas fa-cookie-bite"></i> Gestion des cookies
+                </h4>
+                <p class="text-sm text-gray-300">
+                    Nous utilisons des cookies pour améliorer votre expérience sur notre site, analyser notre trafic et vous proposer des contenus personnalisés. En cliquant sur "Accepter", vous consentez à l'utilisation de tous les cookies.
+                </p>
+            </div>
+            <div class="flex gap-3 shrink-0">
+                <button id="decline-cookies" class="px-5 py-2 rounded-full border border-gray-500 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors text-sm font-semibold">
+                    Refuser
+                </button>
+                <button id="accept-cookies" class="px-5 py-2 rounded-full bg-gradient-to-r from-[#E8831A] to-[#D4AF37] text-white hover:shadow-lg hover:scale-105 transition-all text-sm font-semibold">
+                    Accepter
+                </button>
+            </div>
+        </div>
+        `;
+        $('body').append(cookieHtml);
+        
+        // Timeout pour laisser le temps de l'animation d'entrée
+        setTimeout(() => {
+            $('#cookie-banner').removeClass('translate-y-full');
+        }, 1000);
+
+        $('#accept-cookies').on('click', function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            closeCookieBanner();
+        });
+
+        $('#decline-cookies').on('click', function() {
+            localStorage.setItem('cookieConsent', 'declined');
+            closeCookieBanner();
+        });
+
+        function closeCookieBanner() {
+            $('#cookie-banner').addClass('translate-y-full');
+            setTimeout(() => {
+                $('#cookie-banner').remove();
+            }, 500);
+        }
+    }
+});
