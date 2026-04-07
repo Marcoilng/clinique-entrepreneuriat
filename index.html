@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Clinique de l'Entrepreneuriat | Former • Innover • Diriger</title>
-    <meta name="description" content="La Clinique de l'Entrepreneuriat - Un écosystème stratégique dédié à la transformation de la jeunesse, des entreprises et des institutions en République Démocratique du Congo et en Afrique.">
-    <meta name="keywords" content="entrepreneuriat, formation, accompagnement, PME, Kinshasa, RDC, Afrique">
+    <title>La Clinique de l'Entrepreneuriat | Université & Incubation en RDC</title>
+    <meta name="description" content="La Clinique de l'Entrepreneuriat : Première Université de l'Entrepreneuriat du Congo. Incubation, formation et accompagnement stratégique pour leaders en RDC et Afrique.">
+    <meta name="keywords" content="entrepreneuriat, université entrepreneuriat congo, incubation RDC, formation business Kinshasa, accompagnement PME Afrique, Mirichi Mbumba Nkuangudi">
     <meta name="author" content="La Clinique de l'Entrepreneuriat">
-    <meta property="og:title" content="La Clinique de l'Entrepreneuriat | Former • Innover • Diriger">
-    <meta property="og:description" content="Un écosystème stratégique dédié à la transformation entrepreneuriale.">
+    <link rel="canonical" href="https://laclinique-entrepreneuriat.com/">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laclinique-entrepreneuriat.com/">
+    <meta property="og:title" content="La Clinique de l'Entrepreneuriat | Université & Incubation en RDC">
+    <meta property="og:description" content="L'écosystème de référence pour la transformation entrepreneuriale en Afrique.">
+    <meta property="og:image" content="https://laclinique-entrepreneuriat.com/img/og-main.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://laclinique-entrepreneuriat.com/">
+    <meta property="twitter:title" content="La Clinique de l'Entrepreneuriat | Université & Incubation en RDC">
+    <meta property="twitter:description" content="L'écosystème de référence pour la transformation entrepreneuriale en Afrique.">
+    <meta property="twitter:image" content="https://laclinique-entrepreneuriat.com/img/og-main.jpg">
     
     <!-- SECURITY: Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://code.jquery.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://lib.owlcarousel; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com;">
@@ -19,7 +31,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -65,6 +77,7 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         heading: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -104,8 +117,10 @@
             --clinique-orange: #E8831A;
             --clinique-gold: #D4AF37;
             --clinique-dark: #0A3D3E;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.1);
+            --shadow-lux: 0 20px 60px -15px rgba(18, 92, 93, 0.2);
         }
 
         .dark {
@@ -852,7 +867,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3">
-                    <img src="img/LOGO-ENTREP-01.png" alt="Logo La Clinique de l'Entrepreneuriat" class="h-16 w-auto" onerror="this.src='img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png'" loading="lazy">
+                    <img src="img/LOGO-ENTREP-01.png" alt="Logo La Clinique de l'Entrepreneuriat" class="h-14 md:h-20 w-auto" onerror="this.src='img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png'" loading="lazy">
                     <span class="font-heading font-bold text-clinique-blue hidden lg:block">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
                 </div>
                 
@@ -935,18 +950,22 @@
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 py-32 w-full">
             <div class="text-center text-white">
-                <h1 class="font-heading hero-title mb-6 reveal animate__animated animate__fadeInUp">
-                    La Clinique de l'Entrepreneuriat
+                <p class="text-clinique-gold font-heading font-bold tracking-[0.3em] uppercase text-sm mb-6 reveal animate__animated animate__fadeInDown italic">
+                    Élite • Stratégie • Impact
+                </p>
+                <h1 class="hero-title font-serif text-white mb-6 reveal animate__animated animate__fadeInUp">
+                    Former les Leaders <br>
+                    <span class="text-clinique-gold italic">de Demain</span>
                 </h1>
-                <p class="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 text-clinique-gold reveal animate__animated animate__fadeInUp animate__delay-1">
+                <p class="text-lg md:text-2xl text-white/80 font-heading font-light tracking-wide mb-8 reveal animate__animated animate__fadeInUp animate__delay-1">
                     Former. Structurer. Accélérer. Transformer durablement.
                 </p>
                 <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 reveal animate__animated animate__fadeInUp animate__delay-2">
                     Une <strong class="text-clinique-gold">Université de l’Entrepreneuriat</strong> et un écosystème stratégique dédié à la transformation de la jeunesse, des entreprises et des institutions en véritables moteurs de développement économique.
                 </p>
-                <blockquote class="text-xl italic text-white/80 mb-10 max-w-2xl mx-auto reveal animate__animated animate__fadeInUp animate__delay-3 border-l-4 border-clinique-gold pl-6">
-                    Nous ne transmettons pas seulement des compétences.<br>
-                    <span class="font-bold text-clinique-gold">Nous développons des leaders capables de créer de la valeur, des emplois et des solutions durables.</span>
+                <blockquote class="text-2xl md:text-3xl font-serif italic text-white/90 mb-12 max-w-3xl mx-auto reveal animate__animated animate__fadeInUp animate__delay-3 border-l-4 border-clinique-gold pl-8 leading-relaxed glass-dark p-8 rounded-r-3xl">
+                    "Nous ne transmettons pas seulement des compétences.<br>
+                    <span class="text-clinique-gold">Nous forgeons des destins d'entrepreneurs."</span>
                 </blockquote>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center reveal animate__animated animate__fadeInUp animate__delay-4">
                     <a href="#programmes" class="btn-gradient text-white font-bold py-4 px-8 rounded-full inline-block text-lg hover:scale-105 transition-transform" role="button" aria-label="Découvrir nos programmes">Découvrir nos programmes</a>
@@ -1000,40 +1019,40 @@
     <section id="piliers" class="py-24 bg-clinique-light reveal dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative dark:text-white">Nos Piliers Stratégiques</h2>
+                <h2 class="font-serif section-title text-clinique-blue dark:text-white">Nos Piliers Stratégiques</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="tilt-card card-premium bg-white p-12 hover-float text-left reveal-delay-1">
+                <div class="tilt-card card-premium bg-white p-12 shadow-lux hover-float text-left reveal-delay-1 border border-gray-100">
                     <div class="tilt-card-content">
-                        <div class="w-20 h-20 bg-clinique-blue text-white rounded-2xl flex items-center justify-center text-4xl mb-6 transform hover:scale-110 transition-transform">
+                        <div class="w-20 h-20 bg-clinique-blue text-white rounded-2xl flex items-center justify-center text-4xl mb-6 shadow-lg transform hover:rotate-6 transition-transform">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Formation</h3>
+                        <h3 class="font-serif text-2xl font-bold text-clinique-blue mb-4">Formation</h3>
                         <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
                             Programmes pratiques, structurés et orientés résultats pour développer une culture entrepreneuriale solide et durable.
                         </p>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="tilt-card card-premium bg-white p-12 hover-float text-left reveal-delay-2">
+                <div class="tilt-card card-premium bg-white p-12 shadow-lux hover-float text-left reveal-delay-2 border border-gray-100">
                     <div class="tilt-card-content">
-                        <div class="w-20 h-20 bg-clinique-orange text-white rounded-2xl flex items-center justify-center text-4xl mb-6 transform hover:scale-110 transition-transform">
+                        <div class="w-20 h-20 bg-clinique-orange text-white rounded-2xl flex items-center justify-center text-4xl mb-6 shadow-lg transform hover:-rotate-6 transition-transform">
                             <i class="fas fa-rocket"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Accompagnement</h3>
+                        <h3 class="font-serif text-2xl font-bold text-clinique-blue mb-4">Accompagnement</h3>
                         <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
                             Suivi stratégique personnalisé pour transformer les idées en entreprises viables et en organisations performantes.
                         </p>
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="tilt-card card-premium bg-white p-12 hover-float text-left reveal-delay-3">
+                <div class="tilt-card card-premium bg-white p-12 shadow-lux hover-float text-left reveal-delay-3 border border-gray-100">
                     <div class="tilt-card-content">
-                        <div class="w-20 h-20 bg-clinique-dark text-white rounded-2xl flex items-center justify-center text-4xl mb-6 transform hover:scale-110 transition-transform">
+                        <div class="w-20 h-20 bg-clinique-dark text-white rounded-2xl flex items-center justify-center text-4xl mb-6 shadow-lg transform hover:scale-110 transition-transform">
                             <i class="fas fa-building-columns"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-4">Structuration Institutionnelle</h3>
+                        <h3 class="font-serif text-2xl font-bold text-clinique-blue mb-4">Structuration Institutionnelle</h3>
                         <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
                             Renforcement des capacités organisationnelles, leadership administratif et culture de performance.
                         </p>
@@ -1046,29 +1065,29 @@
     <!-- 4. SECTION IMPACT -->
     <section id="impact" class="py-24 bg-clinique-blue text-white reveal relative overflow-hidden">
         <!-- Background Image -->
-        <div class="absolute inset-0 opacity-10">
-            <img src="img/clinique8.jpg" alt="" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-clinique-dark/60 z-0">
+            <img src="img/clinique14.jpg" alt="Université de l'Entrepreneuriat du Congo" class="w-full h-full object-cover">
         </div>
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="font-heading section-title section-title inline-block relative">Notre Impact</h2>
+                <h2 class="font-serif section-title inline-block relative">Notre Impact</h2>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div class="glass rounded-3xl p-8 hover-float">
-                    <div class="stat-number mb-2" data-target="130" aria-label="130+">130+</div>
-                    <p class="text-xl">Élèves initiés à l'esprit entrepreneurial</p>
+                <div class="glass-dark border border-white/20 rounded-[2rem] p-10 hover-float transition-all duration-500 hover:bg-white/10">
+                    <div class="stat-number font-serif mb-4 text-5xl font-bold text-clinique-gold" data-target="130" aria-label="130+">0</div>
+                    <p class="text-lg text-white/80 font-heading">Élèves initiés à l'esprit entrepreneurial</p>
                 </div>
-                <div class="glass rounded-3xl p-8 hover-float">
-                    <div class="stat-number mb-2" data-target="22" aria-label="22+">22+</div>
-                    <p class="text-xl">PME accompagnées vers une structuration durable</p>
+                <div class="glass-dark border border-white/20 rounded-[2rem] p-10 hover-float transition-all duration-500 hover:bg-white/10">
+                    <div class="stat-number font-serif mb-4 text-5xl font-bold text-clinique-gold" data-target="22" aria-label="22+">0</div>
+                    <p class="text-lg text-white/80 font-heading">PME accompagnées vers une structuration durable</p>
                 </div>
-                <div class="glass rounded-3xl p-8 hover-float">
-                    <div class="stat-number mb-2" data-target="40" aria-label="40+">40+</div>
-                    <p class="text-xl">Institutions renforcées dans leur organisation</p>
+                <div class="glass-dark border border-white/20 rounded-[2rem] p-10 hover-float transition-all duration-500 hover:bg-white/10">
+                    <div class="stat-number font-serif mb-4 text-5xl font-bold text-clinique-gold" data-target="40" aria-label="40+">0</div>
+                    <p class="text-lg text-white/80 font-heading">Institutions renforcées dans leur organisation</p>
                 </div>
-                <div class="glass rounded-3xl p-8 hover-float">
-                    <div class="stat-number mb-2" data-target="70" aria-label="70+">70+</div>
-                    <p class="text-xl">Jeunes formés à créer et gérer leurs propres entreprises</p>
+                <div class="glass-dark border border-white/20 rounded-[2rem] p-10 hover-float transition-all duration-500 hover:bg-white/10">
+                    <div class="stat-number font-serif mb-4 text-5xl font-bold text-clinique-gold" data-target="70" aria-label="70+">0</div>
+                    <p class="text-lg text-white/80 font-heading">Jeunes formés à créer et gérer leurs propres entreprises</p>
                 </div>
             </div>
         </div>
@@ -1081,7 +1100,7 @@
                 <div class="inline-block bg-clinique-orange/20 text-clinique-orange py-2 px-4 rounded-full text-sm font-semibold mb-4">
                     Cohorte 2026
                 </div>
-                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative">
+                <h2 class="font-serif section-title text-clinique-blue dark:text-white">
                     Critères de sélection
                 </h2>
                 <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
@@ -1127,9 +1146,9 @@
     <!-- 5. SECTION DOMAINS - BENTO GRID -->
     <section id="domaines" class="py-24 bg-white reveal dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative dark:text-white">Nos Domaines d'Intervention</h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto dark:text-gray-300">Un écosystème complet pour répondre à tous les besoins de développement entrepreneurial.</p>
+            <div class="text-center mb-20">
+                <h2 class="font-serif section-title text-clinique-blue dark:text-white">Nos Domaines d'Intervention</h2>
+                <p class="text-gray-500 mt-6 max-w-2xl mx-auto dark:text-gray-400 font-light text-lg">Un écosystème complet pour répondre à tous les besoins de développement entrepreneurial.</p>
             </div>
             
             <!-- Bento Grid Layout -->
@@ -1268,7 +1287,7 @@
     <section id="temoignages" class="py-24 bg-white reveal dark:bg-gray-900 relative overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 opacity-5">
-            <img src="img/clinique9.jpg" alt="" class="w-full h-full object-cover">
+            <img src="img/clinique9.jpg" alt="Témoignages de clients satisfaits" class="w-full h-full object-cover">
         </div>
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -1340,51 +1359,54 @@
     <section id="doctrine" class="py-24 bg-clinique-light reveal">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="font-heading section-title text-clinique-blue section-title inline-block relative">Notre Doctrine</h2>
-                <p class="text-clinique-orange font-semibold mt-4 text-lg">L'Ingénierie de la Transformation Durable</p>
+                <h2 class="font-serif section-title text-clinique-blue dark:text-white">Notre Doctrine</h2>
+                <p class="text-clinique-orange font-heading font-bold tracking-widest mt-4 text-sm uppercase">L'Ingénierie de la Transformation Durable</p>
             </div>
             
-            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
-                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                    À la Clinique de l'Entrepreneuriat, nous avons transcendé le modèle classique de l'incubation pour forger une approche holistique, où chaque intervention est traitée avec la précision d'un acte chirurgical. Notre méthodologie ne se contente pas de répondre à des besoins immédiats ; elle anticipe les cycles économiques pour bâti r des structures résilientes.
+            <div class="bg-white rounded-[2.5rem] p-10 md:p-16 shadow-lux border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                <p class="text-gray-500 text-xl mb-12 leading-relaxed font-light italic border-l-4 border-clinique-orange pl-8">
+                    À la Clinique de l'Entrepreneuriat, nous avons transcendé le modèle classique de l'incubation pour forger une approche holistique, où chaque intervention est traitée avec la précision d'un acte chirurgical.
                 </p>
 
                 <!-- Point 1 -->
-                <div class="mb-10 flex items-start gap-5">
-                    <div class="w-16 h-16 bg-clinique-blue text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
-                        <i class="fas fa-search text-black"></i>
+                <div class="mb-12 flex flex-col md:flex-row items-start gap-8 group">
+                    <div class="w-20 h-20 bg-clinique-blue/10 text-clinique-blue rounded-[1.5rem] flex items-center justify-center text-3xl flex-shrink-0 group-hover:bg-clinique-blue group-hover:text-white transition-all duration-500 shadow-sm">
+                        <i class="fas fa-search"></i>
                     </div>
                     <div>
-                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">1. Vision Stratégique & Prospective Entrepreneuriale</h3>
-                        <p class="text-gray-700 leading-relaxed">Nous évoluons dans un monde en mutation rapide où l'obsolescence des idées est la règle. Notre approche intègre une veille stratégique constante et une analyse prospective des marchés émergents, particulièrement dans le contexte panafricain.</p>
-                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">Au-delà du Business Plan :</strong> Nous aidons nos partenaires à décrypter les signaux faibles de l'économie pour transformer l'incertitude en avantage concurrentiel.</p>
-                        <p class="text-clinique-orange font-semibold mt-3 leading-relaxed"><strong>L'ambition :</strong> Inculquer une vision à 360° qui permet de passer d'une gestion de survie à une stratégie de conquête et de domination de marché.</p>
+                        <h3 class="font-serif text-2xl font-bold text-clinique-blue mb-4 group-hover:text-clinique-orange transition-colors">1. Vision Stratégique & Prospective</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">Notre approche intègre une veille stratégique constante et une analyse prospective des marchés émergents, particulièrement dans le contexte panafricain.</p>
+                        <div class="bg-clinique-light p-6 rounded-2xl border-l-4 border-clinique-blue">
+                             <p class="text-gray-700 italic"><strong class="text-clinique-blue">Au-delà du Business Plan :</strong> Nous aidons nos partenaires à décrypter les signaux faibles de l'économie pour transformer l'incertitude en avantage concurrentiel.</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Point 2 -->
-                <div class="mb-10 flex items-start gap-5">
-                    <div class="w-16 h-16 bg-clinique-orange text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
-                        <i class="fas fa-cogs text-black"></i>
+                <div class="mb-12 flex flex-col md:flex-row items-start gap-8 group">
+                    <div class="w-20 h-20 bg-clinique-orange/10 text-clinique-orange rounded-[1.5rem] flex items-center justify-center text-3xl flex-shrink-0 group-hover:bg-clinique-orange group-hover:text-white transition-all duration-500 shadow-sm">
+                        <i class="fas fa-cogs"></i>
                     </div>
                     <div>
-                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">2. Méthodologie Clinique & Architecture des Processus</h3>
-                        <p class="text-gray-700 leading-relaxed">L'innovation sans méthode n'est que du bruit. La Clinique a développé un protocole d'accompagnement rigoureux, articulé autour de diagnostics profonds et de feuilles de route opérationnelles.</p>
-                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">Le Protocole :</strong> Nous déstructurons les idées reçues pour reconstruire des modèles d'affaires basés sur la réalité du terrain congolais.</p>
-                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">L'Excellence Opérationnelle :</strong> En utilisant des outils d'agilité organisationnelle et de Design Thinking, nous garantissons que chaque projet, qu'il soit scolaire ou institutionnel, repose sur des fondations structurelles inébranlables et une efficacité de déploiement optimale.</p>
+                        <h3 class="font-serif text-2xl font-bold text-clinique-blue mb-4 group-hover:text-clinique-orange transition-colors">2. Méthodologie Clinique & Architecture</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">L'innovation sans méthode n'est que du bruit. La Clinique a développé un protocole d'accompagnement rigoureux, articulé autour de diagnostics profonds.</p>
+                        <div class="bg-clinique-light p-6 rounded-2xl border-l-4 border-clinique-orange">
+                            <p class="text-gray-700 italic"><strong class="text-clinique-orange">L'Excellence Opérationnelle :</strong> En utilisant des outils d'agilité organisationnelle, nous garantissons que chaque projet repose sur des fondations inébranlables.</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Point 3 -->
-                <div class="mb-10 flex items-start gap-5">
-                    <div class="w-16 h-16 bg-clinique-dark text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
-                        <i class="fas fa-chart-bar text-black"></i>
+                <div class="mb-12 flex flex-col md:flex-row items-start gap-8 group">
+                    <div class="w-20 h-20 bg-clinique-dark/10 text-clinique-dark rounded-[1.5rem] flex items-center justify-center text-3xl flex-shrink-0 group-hover:bg-clinique-dark group-hover:text-white transition-all duration-500 shadow-sm">
+                        <i class="fas fa-chart-bar"></i>
                     </div>
                     <div>
-                        <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">3. Mesure de l'Impact & Analyse de la Performance</h3>
-                        <p class="text-gray-700 leading-relaxed">La complaisance n'a pas sa place dans notre écosystème. Chaque action entreprise par La Clinique est soumise à un audit de performance rigoureux. Nous avons développé une matrice d'indicateurs (KPI) qui va bien au-delà du simple profit financier.</p>
-                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">Le Tableau de Bord :</strong> Nous mesurons l'indice de création de valeur ajoutée, l'augmentation du capital humain et l'efficience des processus administratifs.</p>
-                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">La Garantie de Résultats :</strong> Ce suivi data-driven nous permet d'ajuster nos prescriptions en temps réel, garantissant ainsi que chaque investissement — qu'il soit temporel ou financier — génère un impact social et économique quantifiable et auditable.</p>
+                        <h3 class="font-serif text-2xl font-bold text-clinique-blue mb-4 group-hover:text-clinique-orange transition-colors">3. Mesure de l'Impact & Performance</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">La complaisance n'a pas sa place dans notre écosystème. Chaque action entreprise est soumise à un audit de performance rigoureux via des KPI précis.</p>
+                        <div class="bg-clinique-light p-6 rounded-2xl border-l-4 border-clinique-dark">
+                            <p class="text-gray-700 italic"><strong class="text-clinique-dark">La Garantie de Résultats :</strong> Ce suivi data-driven nous permet d'ajuster nos prescriptions en temps réel pour un impact quantifiable.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1397,7 +1419,7 @@
                         <h3 class="font-heading text-xl font-bold text-clinique-blue mb-3">4. Engagement Holistique & Partenariat de Croissance</h3>
                         <p class="text-gray-700 leading-relaxed">Nous ne signons pas des contrats, nous scellons des alliances. L'entrepreneuriat est un marathon, pas un sprint. C'est pourquoi La Clinique s'engage dans une relation de compagnonnage avec ses bénéficiaires.</p>
                         <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">L'Écosystème vivant :</strong> Nous créons une symbiose entre la jeunesse montante, les PME en quête de structuration et les institutions publiques.</p>
-                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">La Pérennité :</strong> Notre accompagnement ne s'arrête pas à la remise d'un certificat. Nous restons aux côtés de nos partenaires pour sécuriser leur croissance, faciliter leur accès au réseau et veille r à ce que l'étincelle initiale se transforme en une institution pérenne capable de traverser les décennies.</p>
+                        <p class="text-gray-700 mt-3 leading-relaxed"><strong class="text-clinique-blue">La Pérennité :</strong> Notre accompagnement ne s'arrête pas à la remise d'un certificat. Nous restons aux côtés de nos partenaires pour sécuriser leur croissance, faciliter leur accès au réseau et veiller à ce que l'étincelle initiale se transforme en une institution pérenne capable de traverser les décennies.</p>
                     </div>
                 </div>
             </div>
@@ -1417,14 +1439,26 @@
             </div>
             
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gradient-to-br from-clinique-blue to-clinique-dark rounded-3xl p-8 md:p-12 text-white">
-                    <div class="text-center mb-8">
-                        <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center text-5xl mx-auto mb-6">
-                            <i class="fas fa-eye"></i>
+                <div class="bg-hero-gradient rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden shadow-lux">
+                <!-- Background decorative elements -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-96 h-96 bg-clinique-orange/10 rounded-full -ml-48 -mb-48 blur-3xl"></div>
+                
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="font-serif text-4xl md:text-5xl mb-6">Notre Vision</h2>
+                        <div class="w-24 h-1 bg-clinique-gold mx-auto rounded-full"></div>
+                    </div>
+                    
+                    <div class="text-center mb-12 space-y-6">
+                        <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-4xl mx-auto mb-8 border border-white/20 shadow-xl">
+                            <i class="fas fa-eye text-clinique-gold"></i>
                         </div>
-                        <p class="text-2xl md:text-3xl font-heading font-bold leading-relaxed mb-6">
-                            Université de l’Entrepreneuriat du Congo <span class="text-clinique-gold block md:inline md:ml-2 text-xl font-medium">(Vision 2035 - 2040)</span>
-                        </p>
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold leading-tight mb-8">
+                            Université de l’Entrepreneuriat du Congo <br>
+                            <span class="text-clinique-gold text-2xl font-light italic">(Horizon 2035 - 2040)</span>
+                        </h3>
+                    </div>
                         <p class="text-lg md:text-xl leading-relaxed mb-4 text-white/90">
                             Notre ambition : créer une Université de l’Entrepreneuriat du Congo, où les étudiants viendront directement après le Bac pour apprendre à créer et gérer des entreprises.
                         </p>
@@ -1828,7 +1862,7 @@ Nous croyons qu’un pays se développe lorsque sa jeunesse apprend à créer, i
     <section class="py-24 bg-clinique-light reveal dark:bg-gray-800 relative overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 opacity-5">
-            <img src="img/clinique10.jpg" alt="" class="w-full h-full object-cover">
+            <img src="img/clinique10.jpg" alt="Bureau moderne avec vue sur la ville" class="w-full h-full object-cover">
         </div>
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -1849,7 +1883,7 @@ Nous croyons qu’un pays se développe lorsque sa jeunesse apprend à créer, i
                 </div>
                 <div class="tilt-card card-premium overflow-hidden">
                     <div class="h-56 overflow-hidden">
-                        <img src="img/clinique2.jpg" class="w-full h-full object-cover lazy-img" alt="Article: La transformation économique" loading="lazy" onerror="this.style.display='none'">
+                        <img src="img/clinique2.jpg" alt="Mirichi Mbumba Nkuangudi - Fondateur" class="w-full h-full object-cover lazy-img" loading="lazy" onerror="this.style.display='none'">
                     </div>
                     <div class="p-6">
                         <span class="text-clinique-orange text-sm font-semibold">Stratégie</span>
@@ -1860,7 +1894,7 @@ Nous croyons qu’un pays se développe lorsque sa jeunesse apprend à créer, i
                 </div>
                 <div class="tilt-card card-premium overflow-hidden">
                     <div class="h-56 overflow-hidden">
-                        <img src="img/clinique3.jpg" class="w-full h-full object-cover lazy-img" alt="Article: Leadership & Innovation" loading="lazy" onerror="this.style.display='none'">
+                        <img src="img/clinique3.jpg" alt="Jeunes entrepreneurs en formation" class="w-full h-full object-cover lazy-img" loading="lazy" onerror="this.style.display='none'">
                     </div>
                     <div class="p-6">
                         <span class="text-clinique-orange text-sm font-semibold">Leadership</span>
@@ -2104,7 +2138,7 @@ Nous croyons qu’un pays se développe lorsque sa jeunesse apprend à créer, i
             </div>
 <p class="text-white/80 mb-2">La Clinique de l'Entrepreneuriat</p>
             <p class="text-white/60 text-sm">+243 801 199 934</p>
-            <p class="text-white/60 text-sm">© 2026 Tous droits réservés. Réalisé par <span class="font-bold text-clinique-gold">360 Creative</span></p>
+            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <a href="https://marcoilng.netlify.app" target="_blank" class="font-bold text-clinique-gold hover:underline">Marco ILUNGA</a></p>
             
             <!-- Quick Links -->
             <div class="flex justify-center gap-6 mt-6">
@@ -2116,6 +2150,7 @@ Nous croyons qu’un pays se développe lorsque sa jeunesse apprend à créer, i
     </footer>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -399,20 +399,16 @@
 })(jQuery);
 
 // ========================================
-// Lenis Smooth Scroll (Optional)
+// 22. Lenis Smooth Scroll
 // ========================================
-/*
-// Décommenter pour utiliser Lenis smooth scroll
-// Requires: https://github.com/studio-freight/lenis
-
 document.addEventListener('DOMContentLoaded', function() {
     const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
         smoothTouch: false,
         touchMultiplier: 2,
     });
@@ -424,4 +420,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     requestAnimationFrame(raf);
 });
-*/
+
+// ========================================
+// 23. MAGNETIC BUTTONS EFFECT
+// ========================================
+$(document).ready(function() {
+    const magneticButtons = document.querySelectorAll('.btn-gradient, .glass, .w-10.h-10');
+    
+    magneticButtons.forEach(btn => {
+        btn.addEventListener('mousemove', function(e) {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+});
