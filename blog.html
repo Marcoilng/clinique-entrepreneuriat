@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualités & Blog | La Clinique de l'Entrepreneuriat</title>
-    <meta name="description" content="Découvrez les dernières nouvelles, événements et articles de La Clinique de l'Entrepreneuriat en RDC et en Afrique.">
-    <meta name="keywords" content="actualités, blog, entrepreneuriat, RDC, Afrique, événements, formation">
+    <title>Actualités & Tribune de l'Initiateur | La Clinique de l'Entrepreneuriat</title>
+    <meta name="description" content="Suivez l'actualité de l'entrepreneuriat en RDC et découvrez les tribunes stratégiques de Mirichi Mbumba Nkuangudi sur la transformation économique.">
+    <meta name="keywords" content="blog entrepreneuriat RDC, tribune Mirichi Mbumba, actualités économiques Congo, formation start-up Kinshasa">
     <meta name="author" content="La Clinique de l'Entrepreneuriat">
-    <meta property="og:title" content="Actualités | La Clinique de l'Entrepreneuriat">
-    <meta property="og:description" content="Restez informé des dernières nouvelles de La Clinique de l'Entrepreneuriat.">
+    <link rel="canonical" href="https://laclinique-entrepreneuriat.com/blog.html">
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laclinique-entrepreneuriat.com/blog.html">
+    <meta property="og:title" content="Actualités & Tribune | La Clinique de l'Entrepreneuriat">
+    <meta property="og:description" content="Décryptage et actualités de l'écosystème entrepreneurial africain.">
+    <meta property="og:image" content="https://laclinique-entrepreneuriat.com/img/og-blog.jpg">
+
+    <!-- JSON-LD for Blog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Le Blog de la Clinique",
+      "description": "Actualités et tribunes sur l'entrepreneuriat en RDC",
+      "publisher": {
+        "@type": "Organization",
+        "name": "La Clinique de l'Entrepreneuriat"
+      }
+    }
+    </script>
     
     <!-- SECURITY: Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://code.jquery.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://lib.owlcarousel; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com;">
@@ -81,12 +100,28 @@
             width: 100%;
         }
 
+        .shadow-lux {
+            box-shadow: 0 20px 60px -15px rgba(18, 92, 93, 0.2);
+        }
+
         .hero-blog {
             position: relative;
             min-height: 50vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, rgba(18,92,93,0.95) 0%, rgba(10,61,62,0.92) 100%);
+            overflow: hidden;
+        }
+
+        .hero-blog::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(232,131,26,0.1), transparent);
+            filter: blur(80px);
         }
 
         .card-article {
@@ -159,7 +194,7 @@
                     <a href="index.html">
                         <img src="img/LOGO-ENTREP-01.png" alt="Logo" class="h-16 w-auto">
                     </a>
-                    <span class="font-heading font-bold text-clinique-blue">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
+                    <span class="font-heading font-bold text-clinique-blue text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
                 </div>
                 
                 <nav class="hidden lg:flex items-center gap-6">
@@ -206,13 +241,6 @@
             <img src="img/clinique11.jpg" alt="" class="w-full h-full object-cover">
         </div>
         <div class="max-w-7xl mx-auto px-4 py-16 w-full text-center text-white relative z-10">
-            <div class="inline-block bg-clinique-orange/20 text-clinique-orange py-2 px-4 rounded-full text-sm font-semibold mb-6">
-                Actualités & Blog
-            </div>
-            <h1 class="font-heading text-4xl md:text-5xl font-bold mb-6">
-                Restez informé
-            </h1>
-            <p class="text-xl text-white/90 max-w-2xl mx-auto">
                 Découvrez les dernières nouvelles, événements et réflexions de La Clinique de l'Entrepreneuriat.
             </p>
         </div>
@@ -342,6 +370,31 @@
             </h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Nouvelle Tribune: Patrice Lumumba -->
+                <div class="card-article reveal" data-category="tribune">
+                    <div class="relative">
+                        <div class="image-wrapper h-64">
+                            <img src="img/lumumba_tribune.jpg" alt="Patrice Lumumba" class="w-full h-full object-cover" onerror="this.src='img/covertribunes.jpeg'">
+                        </div>
+                        <span class="badge-category bg-clinique-gold text-white px-3 py-1 rounded-full text-xs font-semibold">Tribune de l'initiateur</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>27 Mars 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-4">
+                            Patrice Lumumba croyait en un Congo beau et prometteur...
+                        </h3>
+                        <div class="text-gray-600 text-sm mb-4 space-y-3">
+                            <p class="italic text-clinique-blue font-semibold">Au milieu du tumulte, il voyait plus loin que le chaos.</p>
+                            <p>Il voyait un peuple debout. Une nation consciente de sa valeur. Un Congo maître de son destin.</p>
+                            <p>Voir la beauté de l'avenir, c'est avoir la force de bâtir. Aujourd'hui, cette responsabilité nous appartient. À nous de transformer l'espoir en action, la vision en projets et le potentiel en prospérité.</p>
+                            <p class="font-bold">Le Congo sera beau... si nous décidons de le rendre grand.</p>
+                            <p class="text-clinique-orange font-bold">#CL2K26</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Article "Nos pères ont porté le poids du silence." -->
                 <div class="card-article reveal" data-category="tribune">
                     <div class="relative">
@@ -830,7 +883,7 @@
             </div>
             <p class="text-white/80 mb-2">La Clinique de l'Entrepreneuriat</p>
             <p class="text-white/60 text-sm">+243 801 199 934</p>
-            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <span class="font-bold text-clinique-gold">360 Creative</span></p>
+            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <a href="https://marcoilng.netlify.app" target="_blank" class="font-bold text-clinique-gold hover:underline">Marco ILUNGA</a></p>
             
             <div class="flex justify-center gap-6 mt-6">
                 <a href="index.html" class="text-white/60 hover:text-white text-sm">Accueil</a>
@@ -843,6 +896,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

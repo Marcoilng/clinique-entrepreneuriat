@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Programmes | La Clinique de l'Entrepreneuriat</title>
-    <meta name="description" content="Découvrez les programmes de La Clinique de l'Entrepreneuriat : formation, accompagnement, conseil et incubation pour entrepreneurs en RDC et en Afrique.">
-    <meta name="keywords" content="programmes, formation, accompagnement, incubation, conseil, entrepreneuriat, RDC, Afrique">
-    <meta name="author" content="La Clinique de l'Entrepreneuriat">
-    <meta property="og:title" content="Nos Programmes | La Clinique de l'Entrepreneuriat">
-    <meta property="og:description" content="Des programmes adaptés à vos besoins pour développer votre entreprise.">
-    <meta property="og:type" content="website">
+    <title>Programmes d'Éducation & Incubation | La Clinique de l'Entrepreneuriat</title>
+    <meta name="description" content="Découvrez nos programmes : L'Entrepreneuriat à l'École, Lab Idées et Accélération. Le futur de l'éducation entrepreneuriale au Congo.">
+    <meta name="keywords" content="programmes éducation, entrepreneuriat école RDC, lab idées Congo, accélération startup">
+    <link rel="canonical" href="https://laclinique-entrepreneuriat.com/nos-programme.html">
+    
+    <!-- JSON-LD Education -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "La Clinique de l'Entrepreneuriat - Programmes",
+      "description": "Programmes de formation et d'incubation entrepreneuriale",
+      "url": "https://laclinique-entrepreneuriat.com/nos-programme.html"
+    }
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +64,10 @@
             background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(20px);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .shadow-lux {
+            box-shadow: 0 20px 60px -15px rgba(18, 92, 93, 0.2);
         }
 
         .nav-link {
@@ -153,7 +165,7 @@
                     <a href="index.html">
                         <img src="img/LOGO-ENTREP-01.png" alt="Logo" class="h-16 w-auto">
                     </a>
-                    <span class="font-heading font-bold text-clinique-blue">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
+                    <span class="font-heading font-bold text-clinique-blue text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
                 </div>
                 
                 <nav class="hidden lg:flex items-center gap-6">
@@ -197,19 +209,20 @@
             <img src="img/clinique12.jpg" alt="" class="w-full h-full object-cover">
         </div>
         <div class="absolute inset-0 opacity-10">
-            <img src="img/clinique14.jpg" alt="" class="w-full h-full object-cover">
+            <img src="img/clinique14.jpg" alt="Formation entrepreneuriale" class="w-full h-full object-cover">
         </div>
-        <div class="max-w-7xl mx-auto px-4 py-20 w-full text-center text-white relative z-10">
-            <div class="inline-block bg-clinique-orange/20 text-clinique-orange py-2 px-4 rounded-full text-sm font-semibold mb-6">
-                Nos Programmes
-            </div>
-            <h1 class="font-heading text-4xl md:text-6xl font-bold mb-6">
-                Des programmes sur mesure<br>pour chaque entrepreneur
+        <div class="max-w-7xl mx-auto px-4 py-32 w-full text-center text-white relative z-10">
+            <p class="text-clinique-gold font-heading font-bold tracking-[0.3em] uppercase text-sm mb-6 reveal animate__animated animate__fadeInDown italic">
+                Éducation • Transmission • Leadership
+            </p>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-8 reveal animate__animated animate__fadeInUp">
+                Des programmes <span class="text-clinique-gold italic">sur mesure</span><br>pour chaque entrepreneur
             </h1>
-            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10">
+            <div class="w-24 h-1 bg-clinique-gold mx-auto rounded-full reveal animate__animated animate__fadeInUp animate__delay-1 mb-10"></div>
+            <p class="text-xl md:text-2xl text-white/80 font-light tracking-wide max-w-3xl mx-auto mb-12 reveal animate__animated animate__fadeInUp animate__delay-2">
                 Découvrez nos programmes d'accompagnement, de l'idéation à la croissance de votre entreprise.
             </p>
-            <a href="#programmes" class="btn-gradient text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+            <a href="#programmes" class="btn-gradient text-white font-bold py-5 px-10 rounded-full text-lg inline-block shadow-lg hover:scale-105 transition-transform reveal animate__animated animate__fadeInUp animate__delay-3">
                 Découvrir nos programmes
             </a>
         </div>
@@ -226,8 +239,8 @@
                     <img src="img/entrep-ecole.jpeg" alt="L'Entrepreneuriat à l'École" class="w-full h-[400px] object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-12">
-                        <h2 class="font-heading text-4xl md:text-5xl font-bold text-white">L’Entrepreneuriat à l’École</h2>
-                        <p class="text-white/90 text-xl mt-2">Former les leaders et créateurs de demain</p>
+                        <h2 class="font-serif text-4xl md:text-6xl font-bold text-white mb-2">L’Entrepreneuriat à l’École</h2>
+                        <p class="text-clinique-gold text-2xl font-heading italic">Former les leaders et créateurs de demain</p>
                     </div>
                 </div>
 
@@ -240,7 +253,7 @@
 
                 <!-- Pedagogical Path -->
                 <div class="relative reveal">
-                    <h3 class="font-heading text-3xl text-center text-clinique-blue mb-16 relative">
+                    <h3 class="font-serif text-4xl text-center text-clinique-blue mb-16 relative">
                         <span class="inline-block relative">
                             Un parcours en 5 étapes
                             <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2/3 h-1 bg-gradient-to-r from-clinique-orange to-clinique-gold rounded-full"></span>
@@ -384,7 +397,7 @@
             </div>
             <p class="text-white/80 mb-2">La Clinique de l'Entrepreneuriat</p>
             <p class="text-white/60 text-sm">+243 801 199 934</p>
-            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <span class="font-bold text-clinique-gold">360 Creative</span></p>
+            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <a href="https://marcoilng.netlify.app" target="_blank" class="font-bold text-clinique-gold hover:underline">Marco ILUNGA</a></p>
             
             <div class="flex justify-center gap-6 mt-6">
                 <a href="index.html" class="text-white/60 hover:text-white text-sm">Accueil</a>
@@ -397,32 +410,9 @@
         </div>
     </footer>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 150) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-        window.addEventListener('scroll', reveal);
-        reveal();
-    </script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/modern.js"></script>
 </body>
 </html>
