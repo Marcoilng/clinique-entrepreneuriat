@@ -1541,83 +1541,19 @@
     </div>
 
     <!-- EVENT POPUP MODAL -->
-    <div id="event-popup" class="event-popup-overlay hidden" role="dialog" aria-labelledby="event-popup-title" aria-modal="true">
+    <div id="event-popup" class="event-popup-overlay hidden" role="dialog" aria-modal="true">
         <div class="event-popup-content">
             <button id="event-popup-close" class="event-popup-close" aria-label="Fermer">
                 <i class="fas fa-times"></i>
             </button>
             <img src="img/event.jpeg" alt="Événement CHREPRENEUR" class="event-popup-image" onerror="this.style.display='none'">
-            <div class="p-6 md:p-8">
-                <div class="text-center mb-5">
-                    <span class="inline-block bg-clinique-orange/10 text-clinique-orange py-1.5 px-4 rounded-full text-xs font-semibold tracking-wider uppercase mb-3 border border-clinique-orange/20">
-                        Événement Exclusif
-                    </span>
-                    <h2 id="event-popup-title" class="font-heading text-2xl md:text-3xl font-bold text-clinique-blue mb-1 dark:text-white">
-                        CHREPRENEUR
-                    </h2>
-                    <p class="text-base text-clinique-orange font-medium">Chrétien et Entrepreneur</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-clinique-blue/5 to-clinique-orange/5 rounded-2xl p-5 mb-5 border border-gray-100 dark:border-gray-700">
-                    <p class="text-base text-gray-700 text-center leading-relaxed dark:text-gray-300">
-                        Une génération qui prie et qui crée aussi. Dieu inspire les bâtisseurs et les entrepreneurs.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4 mb-5">
-                    <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
-                        <div class="w-10 h-10 bg-clinique-blue/10 text-clinique-blue rounded-lg flex items-center justify-center mb-2">
-                            <i class="fas fa-calendar-alt text-sm"></i>
-                        </div>
-                        <p class="text-xs text-gray-500 uppercase tracking-wide mb-1 dark:text-gray-400">Date</p>
-                        <p class="text-sm font-semibold text-gray-800 dark:text-white">12 Juin 2026</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">13H00</p>
-                    </div>
-                    <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
-                        <div class="w-10 h-10 bg-clinique-orange/10 text-clinique-orange rounded-lg flex items-center justify-center mb-2">
-                            <i class="fas fa-map-marker-alt text-sm"></i>
-                        </div>
-                        <p class="text-xs text-gray-500 uppercase tracking-wide mb-1 dark:text-gray-400">Lieu</p>
-                        <p class="text-sm font-semibold text-gray-800 dark:text-white">Silikin Village</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">Kinshasa</p>
-                    </div>
-                </div>
-
-                <div class="mb-5">
-                    <p class="text-xs text-gray-500 uppercase tracking-wide mb-3 dark:text-gray-400">Intervenants</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm font-medium dark:bg-gray-700 dark:text-gray-300">Eugène Kandolo</span>
-                        <span class="bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm font-medium dark:bg-gray-700 dark:text-gray-300">Guylain Tshibamba</span>
-                        <span class="bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm font-medium dark:bg-gray-700 dark:text-gray-300">Benjamin Masiya</span>
-                    </div>
-                </div>
-
-                <div class="mb-5">
-                    <p class="text-xs text-gray-500 uppercase tracking-wide mb-3 dark:text-gray-400">Programme</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-clinique-blue/10 text-clinique-blue py-1.5 px-3 rounded-lg text-xs font-medium dark:bg-clinique-blue/20 dark:text-blue-300">Conférence</span>
-                        <span class="bg-clinique-blue/10 text-clinique-blue py-1.5 px-3 rounded-lg text-xs font-medium dark:bg-clinique-blue/20 dark:text-blue-300">Vernissage</span>
-                        <span class="bg-clinique-blue/10 text-clinique-blue py-1.5 px-3 rounded-lg text-xs font-medium dark:bg-clinique-blue/20 dark:text-blue-300">Networking</span>
-                        <span class="bg-clinique-blue/10 text-clinique-blue py-1.5 px-3 rounded-lg text-xs font-medium dark:bg-clinique-blue/20 dark:text-blue-300">Slam</span>
-                        <span class="bg-clinique-blue/10 text-clinique-blue py-1.5 px-3 rounded-lg text-xs font-medium dark:bg-clinique-blue/20 dark:text-blue-300">Dédicaces</span>
-                    </div>
-                </div>
-
-                <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-5 dark:bg-amber-900/20 dark:border-amber-800">
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-info-circle text-amber-500 mt-0.5"></i>
-                        <p class="text-sm text-amber-800 dark:text-amber-300">
-                            Accès sur réservation. Les précommandes sont prioritaires.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="space-y-3">
+            <div class="p-6 md:p-8 text-center">
+                <div class="space-y-4">
                     <a href="https://wa.me/243828310998?text=Bonjour, je souhaite réserver ma place pour le vernissage du livre CHREPRENEUR le 12 Juin 2026 à 13H00 à l'Auditorium de Silikin Village." target="_blank" class="w-full btn-gradient text-white font-semibold py-3.5 px-6 rounded-xl inline-flex items-center justify-center text-base hover:scale-[1.02] transition-transform">
                         <i class="fab fa-whatsapp mr-2 text-lg"></i>Réserver ma place
                     </a>
-                    <p class="text-center text-xs text-gray-500 dark:text-gray-400">
-                        <a href="https://wa.me/243828310998" target="_blank" class="text-clinique-orange font-medium hover:underline">+243 828 310 998</a>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        <a href="https://wa.me/243828310998" target="_blank" class="text-clinique-orange font-semibold hover:underline">+243 828 310 998</a>
                     </p>
                 </div>
             </div>
