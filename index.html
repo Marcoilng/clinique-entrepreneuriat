@@ -1025,6 +1025,99 @@
         }
 
         /* ========================================
+           EVENT POPUP MODAL
+           ======================================== */
+        .event-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 99998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .event-popup-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            z-index: 99999;
+            animation: slideUp 0.5s ease-out;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark .event-popup-content {
+            background: #1a1a1a;
+        }
+
+        .event-popup-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .event-popup-close:hover {
+            background: var(--clinique-orange);
+            transform: rotate(90deg);
+        }
+
+        .event-popup-image {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 24px 24px 0 0;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .event-popup-image {
+                height: 200px;
+            }
+        }
+
+        /* ========================================
            SECTION LIVRE CHREPRENEUR
            ======================================== */
 
@@ -1415,6 +1508,109 @@
         <p class="loader-text">LA CLINIQUE DE L'ENTREPRENEURIAT</p>
         <div class="loader-progress">
             <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- EVENT POPUP MODAL -->
+    <div id="event-popup" class="event-popup-overlay hidden" role="dialog" aria-labelledby="event-popup-title" aria-modal="true">
+        <div class="event-popup-content">
+            <button id="event-popup-close" class="event-popup-close" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="img/event.jpeg" alt="Événement CHREPRENEUR" class="event-popup-image" onerror="this.style.display='none'">
+            <div class="p-8 md:p-10">
+                <div class="text-center mb-6">
+                    <span class="inline-block bg-clinique-orange/20 text-clinique-orange py-2 px-4 rounded-full text-sm font-semibold mb-4">
+                        <i class="fas fa-star mr-2"></i>Événement Majeur
+                    </span>
+                    <h2 id="event-popup-title" class="font-heading text-3xl md:text-4xl font-bold text-clinique-blue mb-2 dark:text-white">
+                        CHREPRENEUR
+                    </h2>
+                    <p class="text-xl text-clinique-orange font-semibold">"Chrétien et Entrepreneur"</p>
+                </div>
+
+                <div class="bg-clinique-light rounded-2xl p-6 mb-6 dark:bg-gray-800">
+                    <p class="text-lg text-gray-700 text-center italic mb-3 dark:text-gray-300">
+                        <i class="fas fa-hands-praying mr-2"></i>Une génération qui prie et qui crée aussi
+                    </p>
+                    <p class="text-gray-600 text-center dark:text-gray-300">
+                        Dieu inspire les bâtisseurs et les entrepreneurs.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="flex items-start gap-3">
+                        <div class="w-12 h-12 bg-clinique-blue text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-clinique-blue dark:text-white">Date</h4>
+                            <p class="text-gray-600 dark:text-gray-300">Vendredi 12 Juin 2026 à 13H00</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-12 h-12 bg-clinique-orange text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-clinique-blue dark:text-white">Lieu</h4>
+                            <p class="text-gray-600 dark:text-gray-300">Auditorium de Silikin Village, Kinshasa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-heading font-bold text-clinique-blue mb-3 dark:text-white"><i class="fas fa-microphone mr-2"></i>Intervenants :</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="bg-white rounded-xl p-3 text-center shadow-sm dark:bg-gray-700">
+                            <p class="font-semibold text-clinique-blue dark:text-white"><i class="fas fa-check-circle text-green-500 mr-1"></i> Eugène Kandolo</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-3 text-center shadow-sm dark:bg-gray-700">
+                            <p class="font-semibold text-clinique-blue dark:text-white"><i class="fas fa-check-circle text-green-500 mr-1"></i> Guylain Tshibamba</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-3 text-center shadow-sm dark:bg-gray-700">
+                            <p class="font-semibold text-clinique-blue dark:text-white"><i class="fas fa-check-circle text-green-500 mr-1"></i> Benjamin Masiya (Slam)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-heading font-bold text-clinique-blue mb-3 dark:text-white"><i class="fas fa-list-ul mr-2"></i>Au programme :</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        <span class="bg-clinique-blue/10 text-clinique-blue py-2 px-3 rounded-lg text-sm text-center dark:bg-clinique-blue/30 dark:text-white"><i class="fas fa-chalkboard-teacher mr-1"></i> Conférence</span>
+                        <span class="bg-clinique-blue/10 text-clinique-blue py-2 px-3 rounded-lg text-sm text-center dark:bg-clinique-blue/30 dark:text-white"><i class="fas fa-book-open mr-1"></i> Vernissage</span>
+                        <span class="bg-clinique-blue/10 text-clinique-blue py-2 px-3 rounded-lg text-sm text-center dark:bg-clinique-blue/30 dark:text-white"><i class="fas fa-users mr-1"></i> Networking</span>
+                        <span class="bg-clinique-blue/10 text-clinique-blue py-2 px-3 rounded-lg text-sm text-center dark:bg-clinique-blue/30 dark:text-white"><i class="fas fa-music mr-1"></i> Slam</span>
+                        <span class="bg-clinique-blue/10 text-clinique-blue py-2 px-3 rounded-lg text-sm text-center dark:bg-clinique-blue/30 dark:text-white"><i class="fas fa-comments mr-1"></i> Échanges</span>
+                        <span class="bg-clinique-blue/10 text-clinique-blue py-2 px-3 rounded-lg text-sm text-center dark:bg-clinique-blue/30 dark:text-white"><i class="fas fa-pen-fancy mr-1"></i> Dédicaces</span>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 dark:bg-yellow-900/20 dark:border-yellow-500">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 mt-1"></i>
+                        <div>
+                            <p class="font-bold text-yellow-800 dark:text-yellow-400"><i class="fas fa-ticket-alt mr-1"></i> Accès sur réservation</p>
+                            <p class="text-gray-700 text-sm dark:text-gray-300">Les personnes qui précommandent le livre seront prioritaires.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mb-6">
+                    <p class="text-gray-600 italic dark:text-gray-300">
+                        Dieu donne des idées capables de transformer le monde.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://wa.me/243828310998?text=Bonjour, je souhaite réserver ma place pour le vernissage du livre CHREPRENEUR le 12 Juin 2026 à 13H00 à l'Auditorium de Silikin Village." target="_blank" class="btn-gradient text-white font-bold py-4 px-8 rounded-full inline-block text-lg hover:scale-105 transition-transform">
+                        <i class="fab fa-whatsapp mr-2"></i>Réserver ma place
+                    </a>
+                    <p class="text-gray-500 text-sm mt-3 dark:text-gray-400">
+                        <i class="fas fa-phone mr-1"></i> Réservation : <a href="https://wa.me/243828310998" target="_blank" class="text-clinique-orange font-semibold hover:underline">+243 828 310 998</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -3242,6 +3438,73 @@
                     });
                 }
             })();
+    </script>
+
+    <!-- Event Popup Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const eventPopup = document.getElementById('event-popup');
+            const eventPopupClose = document.getElementById('event-popup-close');
+            const loader = document.getElementById('loader');
+
+            // Check if popup has been shown in this session
+            const popupShown = sessionStorage.getItem('eventPopupShown');
+
+            // Show popup after loader is hidden and if not shown in this session
+            function showEventPopup() {
+                if (!popupShown) {
+                    setTimeout(() => {
+                        eventPopup.classList.remove('hidden');
+                        // Prevent body scroll when popup is open
+                        document.body.style.overflow = 'hidden';
+                    }, 500);
+                }
+            }
+
+            // Wait for loader to finish
+            if (loader) {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.target.classList.contains('hidden')) {
+                            showEventPopup();
+                            observer.disconnect();
+                        }
+                    });
+                });
+                observer.observe(loader, { attributes: true, attributeFilter: ['class'] });
+            } else {
+                showEventPopup();
+            }
+
+            // Close popup when clicking the close button
+            if (eventPopupClose) {
+                eventPopupClose.addEventListener('click', function() {
+                    eventPopup.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    sessionStorage.setItem('eventPopupShown', 'true');
+                });
+            }
+
+            // Close popup when clicking outside the content
+            if (eventPopup) {
+                eventPopup.addEventListener('click', function(e) {
+                    if (e.target === eventPopup) {
+                        eventPopup.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        sessionStorage.setItem('eventPopupShown', 'true');
+                    }
+                });
+            }
+
+            // Close popup on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !eventPopup.classList.contains('hidden')) {
+                    eventPopup.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    sessionStorage.setItem('eventPopupShown', 'true');
+                }
+            });
+        });
     </script>
 </body>
 
