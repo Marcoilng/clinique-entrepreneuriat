@@ -1160,16 +1160,17 @@
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
         }
 
-        .event-popup-timer {
+        .event-popup-countdown {
             position: absolute;
             top: 15px;
             left: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 6px 12px;
+            background: rgba(212, 175, 55, 0.9);
+            padding: 8px 16px;
             border-radius: 20px;
-            font-size: 12px;
-            color: #D4AF37;
-            font-weight: 600;
+            font-size: 14px;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
 
         /* ========================================
@@ -3299,7 +3300,7 @@
             <button class="event-popup-close" onclick="closeEventPopup()" aria-label="Fermer">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="event-popup-timer" id="event-popup-timer">8s</div>
+            <div class="event-popup-countdown" id="event-popup-countdown">J-26</div>
             <img src="img/poster touch up event.jpeg" alt="TOUCH UP Event" class="event-popup-image">
             <div class="event-popup-info">
                 <h2 class="event-popup-title">TOUCH UP</h2>
@@ -3307,7 +3308,7 @@
                 <div class="event-popup-details">
                     <div class="event-popup-detail-item">
                         <i class="fas fa-calendar"></i>
-                        Samedi 02 septembre 2026
+                        Samedi 12 septembre 2026
                     </div>
                     <div class="event-popup-detail-item">
                         <i class="fas fa-clock"></i>
@@ -3357,18 +3358,48 @@
 
     <!-- Event Popup Script -->
     <script>
-        // Event Popup with 8-second timer
+        // Event Popup with countdown to event date
+        const EVENT_DATE = new Date('2026-09-12T13:00:00');
         let eventPopupTimer;
         let eventTimeLeft = 8;
 
+        function calculateDaysLeft() {
+            const today = new Date();
+            const diffTime = EVENT_DATE - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        function updateCountdown() {
+            const daysLeft = calculateDaysLeft();
+            const countdownElement = document.getElementById('event-popup-countdown');
+            if (countdownElement) {
+                if (daysLeft > 0) {
+                    countdownElement.textContent = `J-${daysLeft}`;
+                } else if (daysLeft === 0) {
+                    countdownElement.textContent = 'JOUR J';
+                } else {
+                    countdownElement.textContent = 'Événement passé';
+                }
+            }
+        }
+
         function showEventPopup() {
+            const daysLeft = calculateDaysLeft();
+            
+            // Don't show popup if event date has passed
+            if (daysLeft < 0) {
+                return;
+            }
+
             const popup = document.getElementById('event-popup');
             if (popup) {
                 popup.classList.add('show');
+                updateCountdown();
                 eventTimeLeft = 8;
                 updateEventTimer();
                 
-                // Start countdown
+                // Start countdown for auto-close
                 eventPopupTimer = setInterval(() => {
                     eventTimeLeft--;
                     updateEventTimer();
