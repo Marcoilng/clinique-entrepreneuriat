@@ -1033,117 +1033,173 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 99998;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            animation: fadeIn 0.4s ease-out;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .event-popup-overlay.show {
+            opacity: 1;
+            visibility: visible;
         }
 
         .event-popup-content {
-            background: white;
-            border-radius: 32px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
+            background: linear-gradient(145deg, rgba(18, 92, 93, 0.95) 0%, rgba(10, 61, 62, 0.98) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 24px;
+            padding: 0;
+            max-width: 500px;
+            width: 90%;
             position: relative;
-            z-index: 99999;
-            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.5s ease;
+            overflow: hidden;
         }
 
-        .dark .event-popup-content {
-            background: linear-gradient(145deg, #1a1a1a, #252525);
-            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        .event-popup-overlay.show .event-popup-content {
+            transform: scale(1);
         }
 
         .event-popup-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.9);
+            border: none;
             border-radius: 50%;
-            color: #333;
-            font-size: 18px;
+            color: white;
+            font-size: 20px;
             cursor: pointer;
             z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .dark .event-popup-close {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            color: white;
+            transition: all 0.3s ease;
         }
 
         .event-popup-close:hover {
-            background: var(--clinique-orange);
-            border-color: var(--clinique-orange);
-            color: white;
-            transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 8px 20px rgba(232, 131, 26, 0.4);
+            background: rgba(232, 131, 26, 1);
+            transform: rotate(90deg);
         }
 
         .event-popup-image {
             width: 100%;
             height: auto;
-            max-height: 280px;
-            object-fit: contain;
-            border-radius: 32px 32px 0 0;
             display: block;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
         }
 
-        .dark .event-popup-image {
-            background: linear-gradient(135deg, #1a1a1a, #252525);
+        .event-popup-info {
+            padding: 24px;
+            text-align: center;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .event-popup-title {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37 0%, #E8831A 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
         }
 
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(40px) scale(0.96);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .event-popup-theme {
+            font-size: 16px;
+            color: #E8831A;
+            font-style: italic;
+            margin-bottom: 16px;
         }
 
-        @media (max-width: 768px) {
-            .event-popup-content {
-                border-radius: 24px;
-                max-width: 95%;
-            }
+        .event-popup-details {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
 
-            .event-popup-image {
-                max-height: 200px;
-                border-radius: 24px 24px 0 0;
-            }
+        .event-popup-detail-item {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #f5f0e8;
+        }
 
-            .event-popup-close {
-                width: 38px;
-                height: 38px;
-                top: 16px;
-                right: 16px;
-            }
+        .event-popup-detail-item i {
+            color: #D4AF37;
+            margin-right: 6px;
+        }
+
+        .event-popup-btn {
+            background: linear-gradient(135deg, #D4AF37 0%, #E8831A 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .event-popup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .event-popup-timer {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #D4AF37;
+            font-weight: 600;
+        }
+
+        /* ========================================
+           SCROLL ANIMATIONS
+           ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
         }
 
         /* ========================================
@@ -1540,26 +1596,6 @@
         </div>
     </div>
 
-    <!-- EVENT POPUP MODAL -->
-    <div id="event-popup" class="event-popup-overlay hidden" role="dialog" aria-modal="true">
-        <div class="event-popup-content">
-            <button id="event-popup-close" class="event-popup-close" aria-label="Fermer">
-                <i class="fas fa-times"></i>
-            </button>
-            <img src="img/event.jpeg" alt="Événement CHREPRENEUR" class="event-popup-image" onerror="this.style.display='none'">
-            <div class="p-6 md:p-8 text-center">
-                <div class="space-y-4">
-                    <a href="https://wa.me/243828310998?text=Bonjour, je souhaite réserver ma place pour le vernissage du livre CHREPRENEUR le 12 Juin 2026 à 13H00 à l'Auditorium de Silikin Village." target="_blank" class="w-full btn-gradient text-white font-semibold py-3.5 px-6 rounded-xl inline-flex items-center justify-center text-base hover:scale-[1.02] transition-transform">
-                        <i class="fab fa-whatsapp mr-2 text-lg"></i>Réserver ma place
-                    </a>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        <a href="https://wa.me/243828310998" target="_blank" class="text-clinique-orange font-semibold hover:underline">+243 828 310 998</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- SCROLL PROGRESS -->
     <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     <div id="custom-cursor" aria-hidden="true"></div>
@@ -1616,6 +1652,8 @@
                         Programmes</a>
                     <a href="blog.html"
                         class="nav-link text-gray-600 hover:text-clinique-blue transition-colors text-sm xl:text-base">Blog</a>
+                    <a href="event.html"
+                        class="nav-link text-gray-600 hover:text-clinique-blue transition-colors text-sm xl:text-base">Événements</a>
                     <a href="initiateur.html"
                         class="nav-link text-gray-600 hover:text-clinique-blue transition-colors text-sm xl:text-base">L'initiateur</a>
                     <a href="index.html#contact"
@@ -1646,6 +1684,7 @@
                 <a href="services.html" class="block py-2 text-gray-600">Services</a>
                 <a href="nos-programme.html" class="block py-2 text-gray-600">Nos Programmes</a>
                 <a href="blog.html" class="block py-2 text-gray-600">Blog</a>
+                <a href="event.html" class="block py-2 text-gray-600">Événements</a>
                 <a href="initiateur.html" class="block py-2 text-gray-600">L'initiateur</a>
                 <a href="index.html#contact" class="block py-2 text-gray-600">Contact</a>
             </div>
@@ -3254,31 +3293,32 @@
         </div>
     </section>
 
-    <!-- NEWSLETTER POPUP -->
-    <div id="newsletter-popup" class="hidden newsletter-popup">
-        <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-sm dark:bg-gray-800" role="dialog"
-            aria-labelledby="newsletter-title">
-            <button id="close-newsletter"
-                class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                aria-label="Fermer">
+    <!-- EVENT POPUP -->
+    <div id="event-popup" class="event-popup-overlay">
+        <div class="event-popup-content">
+            <button class="event-popup-close" onclick="closeEventPopup()" aria-label="Fermer">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="text-center">
-                <div
-                    class="w-16 h-16 bg-clinique-orange text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-                    <i class="fas fa-envelope"></i>
+            <div class="event-popup-timer" id="event-popup-timer">8s</div>
+            <img src="img/poster touch up event.jpeg" alt="TOUCH UP Event" class="event-popup-image">
+            <div class="event-popup-info">
+                <h2 class="event-popup-title">TOUCH UP</h2>
+                <p class="event-popup-theme">L'identité avant la réussite</p>
+                <div class="event-popup-details">
+                    <div class="event-popup-detail-item">
+                        <i class="fas fa-calendar"></i>
+                        Samedi 02 septembre 2026
+                    </div>
+                    <div class="event-popup-detail-item">
+                        <i class="fas fa-clock"></i>
+                        À partir de 13h00
+                    </div>
+                    <div class="event-popup-detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Silikin Village
+                    </div>
                 </div>
-                <h3 id="newsletter-title"
-                    class="font-heading text-xl font-bold text-clinique-blue mb-2 dark:text-white">Restez informé!</h3>
-                <p class="text-gray-600 text-sm mb-4 dark:text-gray-300">Inscrivez-vous à notre newsletter pour recevoir
-                    nos dernières nouvelles et formations.</p>
-                <form id="newsletter-form" class="space-y-3">
-                    <input type="email" placeholder="Votre email" required
-                        class="w-full px-4 py-2 rounded-xl border-2 border-gray-200 focus:border-clinique-blue outline-none text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                    <button type="submit"
-                        class="w-full btn-gradient text-white font-bold py-2 rounded-xl text-sm">S'inscrire</button>
-                </form>
-                <p class="text-gray-400 text-xs mt-2">Pas de spam, désabonnement possible.</p>
+                <a href="event.html" class="event-popup-btn">Voir les détails</a>
             </div>
         </div>
     </div>
@@ -3300,6 +3340,7 @@
 
             <!-- Quick Links -->
             <div class="flex justify-center gap-6 mt-6">
+                <a href="event.html" class="text-white/60 hover:text-white text-sm">Événements</a>
                 <a href="#" class="text-white/60 hover:text-white text-sm">Mentions légales</a>
                 <a href="#" class="text-white/60 hover:text-white text-sm">Politique de confidentialité</a>
                 <a href="#" class="text-white/60 hover:text-white text-sm">Plan du site</a>
@@ -3313,6 +3354,64 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/modern.js"></script>
+
+    <!-- Event Popup Script -->
+    <script>
+        // Event Popup with 8-second timer
+        let eventPopupTimer;
+        let eventTimeLeft = 8;
+
+        function showEventPopup() {
+            const popup = document.getElementById('event-popup');
+            if (popup) {
+                popup.classList.add('show');
+                eventTimeLeft = 8;
+                updateEventTimer();
+                
+                // Start countdown
+                eventPopupTimer = setInterval(() => {
+                    eventTimeLeft--;
+                    updateEventTimer();
+                    
+                    if (eventTimeLeft <= 0) {
+                        closeEventPopup();
+                    }
+                }, 1000);
+            }
+        }
+
+        function closeEventPopup() {
+            const popup = document.getElementById('event-popup');
+            if (popup) {
+                popup.classList.remove('show');
+                if (eventPopupTimer) {
+                    clearInterval(eventPopupTimer);
+                }
+            }
+        }
+
+        function updateEventTimer() {
+            const timerElement = document.getElementById('event-popup-timer');
+            if (timerElement) {
+                timerElement.textContent = eventTimeLeft + 's';
+            }
+        }
+
+        // Show popup on page load after 2 seconds
+        window.addEventListener('load', () => {
+            setTimeout(showEventPopup, 2000);
+        });
+
+        // Close popup when clicking outside
+        document.addEventListener('click', (e) => {
+            const popup = document.getElementById('event-popup');
+            if (popup && popup.classList.contains('show')) {
+                if (e.target === popup) {
+                    closeEventPopup();
+                }
+            }
+        });
+    </script>
 
     <!-- Script : Livre CHREPRENEUR – Compte à rebours & formulaire -->
     <script>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements — La Clinique de l'Entrepreneuriat</title>
+    <meta name="description" content="Découvrez les événements organisés par la Clinique de l'Entrepreneuriat">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
+    <style>
+        :root {
+            --clinique-blue: #125C5D;
+            --clinique-orange: #E8831A;
+            --clinique-gold: #D4AF37;
+            --clinique-dark: #0A3D3E;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); color: #f5f0e8; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Glass Card */
+        .glass-card {
+            background: rgba(18, 92, 93, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(18, 92, 93, 0.2);
+        }
+        
+        /* Event Card */
+        .event-card {
+            background: linear-gradient(145deg, rgba(18, 92, 93, 0.2) 0%, rgba(10, 61, 62, 0.3) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #E8831A, #D4AF37);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+        .event-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Buttons */
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #E8831A 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        }
+        
+        /* Info Cards */
+        .info-card {
+            background: rgba(18, 92, 93, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #D4AF37 0%, #E8831A 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .info-icon i {
+            font-size: 24px;
+            color: white;
+        }
+        
+        /* Poster Image */
+        .poster-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 32px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .poster-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #D4AF37;
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .quote-text {
+            font-style: italic;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #f5f0e8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 20px 16px; }
+            .glass-card { padding: 24px; }
+            .event-card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="glass-card mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4" style="background: linear-gradient(135deg, #D4AF37 0%, #E8831A 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Nos Événements</h1>
+            <p class="text-lg text-gray-400">Découvrez les événements organisés par la Clinique de l'Entrepreneuriat</p>
+        </div>
+        
+        <!-- Events Grid -->
+        <div class="grid gap-8">
+            <!-- TOUCH UP Event -->
+            <div class="event-card">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Poster Image -->
+                    <div class="poster-container">
+                        <img src="img/poster touch up event.jpeg" alt="TOUCH UP Event Poster">
+                    </div>
+                    
+                    <!-- Event Details -->
+                    <div>
+                        <div class="mb-6">
+                            <span style="background: linear-gradient(135deg, #D4AF37 0%, #E8831A 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Leadership & Développement Personnel</span>
+                        </div>
+                        
+                        <h2 class="text-4xl font-bold mb-3">TOUCH UP</h2>
+                        <p class="text-xl mb-6 italic" style="color: #D4AF37;">L'identité avant la réussite</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="info-card">
+                                <div class="info-icon"><i class="fas fa-calendar"></i></div>
+                                <div>
+                                    <div class="text-xs text-gray-400 uppercase">Date</div>
+                                    <div class="font-semibold">Samedi 02 septembre 2026</div>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                                <div>
+                                    <div class="text-xs text-gray-400 uppercase">Heure</div>
+                                    <div class="font-semibold">À partir de 13h00</div>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <div class="text-xs text-gray-400 uppercase">Lieu</div>
+                                    <div class="font-semibold">Silikin Village, Kinshasa</div>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon"><i class="fas fa-users"></i></div>
+                                <div>
+                                    <div class="text-xs text-gray-400 uppercase">Places</div>
+                                    <div class="font-semibold">100 participants</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card mb-6">
+                            <div class="info-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <div class="text-xs text-gray-400 uppercase">Info Line</div>
+                                <div class="font-semibold text-lg">+243 99 163 3526</div>
+                            </div>
+                        </div>
+                        
+                        <a href="touchup.html" class="btn-gold w-full text-center">Réserver ma place</a>
+                    </div>
+                </div>
+                
+                <!-- Description -->
+                <div class="mt-8">
+                    <div class="quote-section">
+                        <p class="quote-text">
+                            Nous voulons contribuer à une génération de jeunes qui ne cherchent pas seulement à avoir, mais qui travaillent d'abord à devenir.
+                        </p>
+                    </div>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Des jeunes capables de connaître leur valeur, de développer leurs talents, de créer des solutions et, ensuite, de construire des entreprises et des projets qui ont un impact.
+                    </p>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        L'identité avant la réussite.
+                    </p>
+                    
+                    <div class="quote-section">
+                        <p class="quote-text">
+                            Parce que nous ne voulons pas seulement demander aux jeunes :<br><br>
+                            <strong style="color: #D4AF37;">« Qu'est-ce que tu veux avoir ? »</strong><br><br>
+                            Nous voulons aussi leur demander :<br><br>
+                            <strong style="color: #D4AF37;">« Qui veux-tu devenir ? »</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
