@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités & Tribune de l'Initiateur | La Clinique de l'Entrepreneuriat</title>
+    <meta name="description" content="Suivez l'actualité de l'entrepreneuriat en RDC et découvrez les tribunes stratégiques de Mirichi Mbumba Nkuangudi sur la transformation économique.">
+    <meta name="keywords" content="blog entrepreneuriat RDC, tribune Mirichi Mbumba, actualités économiques Congo, formation start-up Kinshasa">
+    <meta name="author" content="La Clinique de l'Entrepreneuriat">
+    <link rel="canonical" href="https://laclinique-entrepreneuriat.com/blog.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laclinique-entrepreneuriat.com/blog.html">
+    <meta property="og:title" content="Actualités & Tribune | La Clinique de l'Entrepreneuriat">
+    <meta property="og:description" content="Décryptage et actualités de l'écosystème entrepreneurial africain.">
+    <meta property="og:image" content="https://laclinique-entrepreneuriat.com/img/og-blog.jpg">
+
+    <!-- JSON-LD for Blog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Le Blog de la Clinique",
+      "description": "Actualités et tribunes sur l'entrepreneuriat en RDC",
+      "publisher": {
+        "@type": "Organization",
+        "name": "La Clinique de l'Entrepreneuriat"
+      }
+    }
+    </script>
+    
+    <!-- SECURITY: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://code.jquery.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://lib.owlcarousel; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com;">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: false,
+            theme: {
+                extend: {
+                    colors: {
+                        clinique: { 
+                            blue: '#125C5D', 
+                            orange: '#E8831A', 
+                            light: '#F0F4F4', 
+                            gold: '#D4AF37', 
+                            dark: '#0A3D3E',
+                            'blue-light': '#1A7A7B',
+                            'orange-light': '#F59E2D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --clinique-blue: #125C5D;
+            --clinique-orange: #E8831A;
+            --clinique-gold: #D4AF37;
+            --clinique-dark: #0A3D3E;
+        }
+
+        .nav-modern.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--clinique-orange), var(--clinique-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .shadow-lux {
+            box-shadow: 0 20px 60px -15px rgba(18, 92, 93, 0.2);
+        }
+
+        .hero-blog {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(18,92,93,0.95) 0%, rgba(10,61,62,0.92) 100%);
+            overflow: hidden;
+        }
+
+        .hero-blog::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(232,131,26,0.1), transparent);
+            filter: blur(80px);
+        }
+
+        .card-article {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-article:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(18, 92, 93, 0.15);
+        }
+
+        .card-article .image-wrapper {
+            overflow: hidden;
+        }
+
+        .card-article:hover .image-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .btn-gradient { 
+            background: linear-gradient(135deg, var(--clinique-orange), #F59E2D); 
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 131, 26, 0.4);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+        }
+
+        .badge-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-gradient { 
+            background: linear-gradient(135deg, var(--clinique-blue), var(--clinique-dark)); 
+        }
+
+        /* Fix for fixed header */
+        section[id] { scroll-margin-top: 100px; }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800">
+
+    <header id="main-header" class="nav-modern fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <a href="index.html">
+                        <img src="img/LOGO-ENTREP-01.png" alt="Logo" class="h-16 w-auto">
+                    </a>
+                    <span class="font-heading font-bold text-clinique-blue text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
+                </div>
+                
+                <nav class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-clinique-blue">Accueil</a>
+                    <a href="initiateur.html" class="nav-link text-gray-600 hover:text-clinique-blue">L'initiateur</a>
+                    <a href="services.html" class="nav-link text-gray-600 hover:text-clinique-blue">Services</a>
+                    <a href="nos-programme.html" class="nav-link text-gray-600 hover:text-clinique-blue">Nos Programmes</a>
+<a href="blog.html" class="nav-link text-clinique-blue font-semibold">Actualités</a>
+                    <a href="index.html#impact" class="nav-link text-gray-600 hover:text-clinique-blue">Impact</a>
+                    <a href="index.html#domaines" class="nav-link text-gray-600 hover:text-clinique-blue">Domaines</a>
+                    <a href="index.html#vision" class="nav-link text-gray-600 hover:text-clinique-blue">Vision</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-clinique-blue">Contact</a>
+                </nav>
+                
+                <a href="index.html#contact" class="hidden lg:inline-block btn-gradient text-white font-bold py-2 px-4 rounded-full text-sm">Collaborer</a>
+                
+                <button class="lg:hidden p-2" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl text-clinique-blue"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-3 text-gray-600">Accueil</a>
+                <a href="initiateur.html" class="block py-3 text-gray-600">L'initiateur</a>
+                <a href="services.html" class="block py-3 text-gray-600">Services</a>
+                <a href="nos-programme.html" class="block py-3 text-gray-600">Nos Programmes</a>
+<a href="blog.html" class="block py-3 text-clinique-blue font-semibold">Actualités</a>
+                <a href="index.html#impact" class="block py-2 text-gray-600">Impact</a>
+                <a href="index.html#domaines" class="block py-2 text-gray-600">Domaines</a>
+                <a href="index.html#vision" class="block py-2 text-gray-600">Vision</a>
+                <a href="#contact" class="block py-3 text-gray-600">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-blog pt-32 relative overflow-hidden">
+        <!-- Background Images -->
+        <div class="absolute inset-0 opacity-20">
+            <img src="img/clinique8.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 opacity-10">
+            <img src="img/clinique11.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 py-16 w-full text-center text-white relative z-10">
+                Découvrez les dernières nouvelles, événements et réflexions de La Clinique de l'Entrepreneuriat.
+            </p>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,120.25,189.7,105.51,235.27,94.06,279.7,73.4,321.39,56.44Z" fill="#ffffff"></path></svg>
+        </div>
+    </section>
+
+    <!-- Filtres -->
+    <section class="py-8 bg-clinique-light border-b">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-clinique-blue hover:text-white transition">Tous</button>
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-clinique-blue hover:text-white transition">Formations</button>
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-clinique-blue hover:text-white transition">Événements</button>
+                <button class="px-6 py-2 bg-clinique-gold text-white rounded-full font-semibold text-sm">Tribune de l'initiateur</button>
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-green-600 hover:text-white transition">PME</button>
+                <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-semibold text-sm hover:bg-purple-600 hover:text-white transition">Témoignages</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles à la une -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-heading section-title text-clinique-blue mb-10">
+                À la une
+            </h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+<!-- Article principal -->
+                <div class="card-article lg:col-span-2 reveal">
+                    <div class="relative">
+                        <div class="image-wrapper h-80">
+                            <img src="img/couv.png" alt="Article à la une" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-clinique-orange text-white px-4 py-1 rounded-full text-sm font-semibold">Événement</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 text-gray-500 text-sm mb-4">
+                            <span><i class="far fa-calendar mr-2"></i>15 Janvier 2026</span>
+                            <span><i class="far fa-user mr-2"></i>La Rédaction</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-clinique-blue mb-4">
+                            Lancement de la nouvelle cohorte d'incubation 2026 : Transformez votre rêve entrepreneurial en réalité
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            La Clinique de l'Entrepreneuriat est fière d'annoncer le lancement de sa nouvelle cohorte d'incubation pour l'année 2026. Ce programme stratégique vise à identifier, former et accompagner les entrepreneurs les plus prometteurs de la région de Kinshasa et au-delà.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            Les entrepreneurs sélectionnés bénéficieront d'un accompagnement personnalisé de 6 mois, incluant des sessions de coaching individuel, des ateliers pratiques sur la gestion financière, le marketing et la stratégie commerciale, ainsi qu'un accès à notre réseau de mentors expérimentés et de partenaires potentiels.
+                        </p>
+                        
+                        <!-- Critères de sélection -->
+                        <div class="bg-clinique-light rounded-2xl p-6 my-6">
+                            <h4 class="font-heading text-xl font-bold text-clinique-blue mb-4">Critères de sélection</h4>
+                            <p class="text-gray-600 mb-4">Pour intégrer la cohorte d'incubation 2026 de la Clinique de l'Entrepreneuriat, les candidats devront répondre aux critères suivants :</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white rounded-xl p-4">
+                                    <h5 class="font-bold text-clinique-blue mb-2">1️. Projet entrepreneurial viable</h5>
+                                    <ul class="text-gray-600 text-sm space-y-1">
+                                        <li>• Idée claire et structurée</li>
+                                        <li>• Réponse à un besoin réel du marché</li>
+                                        <li>• Modèle économique cohérent</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl p-4">
+                                    <h5 class="font-bold text-clinique-blue mb-2">2️. Motivation et engagement</h5>
+                                    <ul class="text-gray-600 text-sm space-y-1">
+                                        <li>• Détermination démontrée</li>
+                                        <li>• Disponibilité pour suivre le programme pendant 6 mois</li>
+                                        <li>• Capacité à passer à l'action</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl p-4">
+                                    <h5 class="font-bold text-clinique-blue mb-2">3️. Potentiel de croissance</h5>
+                                    <ul class="text-gray-600 text-sm space-y-1">
+                                        <li>• Capacité d'évolution et de développement</li>
+                                        <li>• Vision à moyen et long terme</li>
+                                        <li>• Possibilité de création d'emplois</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl p-4">
+                                    <h5 class="font-bold text-clinique-blue mb-2">4️. Impact économique ou social</h5>
+                                    <ul class="text-gray-600 text-sm space-y-1">
+                                        <li>• Contribution au développement local ou national</li>
+                                        <li>• Innovation dans le secteur choisi</li>
+                                        <li>• Valeur ajoutée pour la communauté</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl p-4">
+                                    <h5 class="font-bold text-clinique-blue mb-2">5️. Capacité d'apprentissage</h5>
+                                    <ul class="text-gray-600 text-sm space-y-1">
+                                        <li>• Ouverture au coaching</li>
+                                        <li>• Capacité à recevoir des feedbacks</li>
+                                        <li>• Volonté d'amélioration continue</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">
+                            <strong>Date limite :</strong> Les candidats doivent soumettre leur dossier avant le 28 février 2026.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            <strong>Contact :</strong> Pour toute question ou soumission de dossier, contactez-nous au +243 801 199 934 ou par email à lacliniquedelentrepreneuriat@gmail.com
+                        </p>
+                        <p class="text-gray-500 text-sm mb-4">15 Janvier 2026 | Catégorie : Événement | Durée de lecture : 5 min</p>
+                        <a href="#contact" class="text-clinique-orange font-semibold hover:underline">Postuler maintenant →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Derniers articles -->
+    <section class="py-16 bg-clinique-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="font-heading section-title text-clinique-blue mb-10">
+                Derniers articles
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Nouvelle Tribune: Patrice Lumumba -->
+                <div class="card-article reveal" data-category="tribune">
+                    <div class="relative">
+                        <div class="image-wrapper h-64">
+                            <img src="img/lumumba_tribune.jpg" alt="Patrice Lumumba" class="w-full h-full object-cover" onerror="this.src='img/covertribunes.jpeg'">
+                        </div>
+                        <span class="badge-category bg-clinique-gold text-white px-3 py-1 rounded-full text-xs font-semibold">Tribune de l'initiateur</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>27 Mars 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-4">
+                            Patrice Lumumba croyait en un Congo beau et prometteur...
+                        </h3>
+                        <div class="text-gray-600 text-sm mb-4 space-y-3">
+                            <p class="italic text-clinique-blue font-semibold">Au milieu du tumulte, il voyait plus loin que le chaos.</p>
+                            <p>Il voyait un peuple debout. Une nation consciente de sa valeur. Un Congo maître de son destin.</p>
+                            <p>Voir la beauté de l'avenir, c'est avoir la force de bâtir. Aujourd'hui, cette responsabilité nous appartient. À nous de transformer l'espoir en action, la vision en projets et le potentiel en prospérité.</p>
+                            <p class="font-bold">Le Congo sera beau... si nous décidons de le rendre grand.</p>
+                            <p class="text-clinique-orange font-bold">#CL2K26</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article "Nos pères ont porté le poids du silence." -->
+                <div class="card-article reveal" data-category="tribune">
+                    <div class="relative">
+                        <div class="h-48 flex items-center justify-center p-4">
+                            <img src="img/covertribunes.jpeg" alt="Tribune" class="w-40 h-40 rounded-full object-cover shadow-lg">
+                        </div>
+                        <span class="badge-category bg-clinique-gold text-white px-3 py-1 rounded-full text-xs font-semibold">Tribune de l'initiateur</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>14 Mars 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Nos pères ont porté le poids du silence.
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Ils se sont levés avant l’aube.<br>
+                            Ils ont travaillé quand personne ne regardait.<br>
+                            Ils ont porté des responsabilités que personne n’applaudissait.<br><br>
+                            Avant nos diplômes, il y avait leurs sacrifices.<br>
+                            Avant nos ambitions, il y avait leurs renoncements.<br><br>
+                            Ils ont construit avec leurs mains ce que nous avons parfois la chance d’imaginer avec nos idées.<br><br>
+                            Ils n’avaient pas toujours les opportunités.<br>
+                            Mais ils avaient la dignité du travail et la force de tenir.<br><br>
+                            Aujourd’hui, notre génération ne peut pas seulement hériter.<br>
+                            Elle doit élever cet héritage.<br><br>
+                            Car honorer nos pères ne signifie pas seulement se souvenir…<br>
+                            Cela signifie aller plus loin qu’eux.<br><br>
+                            Transformer leur courage en vision.<br>
+                            Transformer leur endurance en création.<br>
+                            Transformer leurs sacrifices en opportunités pour toute une génération.<br><br>
+                            Leur silence était une force.<br>
+                            Notre mission est d’en faire un avenir plus grand.<br><br>
+                            <b>Créer des opportunités, bâtir l’avenir.</b>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Article "On nous a formés..." -->
+                <div class="card-article reveal" data-category="tribune">
+                    <div class="relative">
+                        <div class="h-48 flex items-center justify-center p-4">
+                            <img src="img/covertribunes.jpeg" alt="Tribune" class="w-40 h-40 rounded-full object-cover shadow-lg">
+                        </div>
+                        <span class="badge-category bg-clinique-gold text-white px-3 py-1 rounded-full text-xs font-semibold">Tribune de l'initiateur</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>2 Mars 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            On nous a formés à chercher un emploi…
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            <b>Mais qui va créer les emplois ?</b><br><br>
+                            Depuis des générations, le message est resté le même :<br>
+                            « Étudie bien pour avoir un bon travail. »<br><br>
+                            À l’école, on nous apprend à réussir aux examens.<br>
+                            À l’université, on nous prépare à obtenir un diplôme.<br>
+                            Dans nos familles, on nous encourage à chercher un emploi stable.<br><br>
+                            Mais une question fondamentale reste souvent sans réponse :<br><br>
+                            <b>Si tout le monde cherche un emploi… qui va les créer ?</b><br><br>
+                            Une mentalité héritée<br><br>
+                            Dans beaucoup de pays africains, y compris en RDC, le système éducatif a longtemps été orienté vers la formation de demandeurs d’emploi plutôt que de créateurs d’emplois.<br><br>
+                            L’objectif implicite était clair :<br>
+                            Obtenir un poste dans l’administration, dans une grande entreprise ou à l’étranger.<br><br>
+                            Mais le marché du travail a changé.<br>
+                            Les opportunités sont limitées.<br>
+                            Le chômage des jeunes augmente.<br><br>
+                            Le nombre de diplômés dépasse largement le nombre d’emplois disponibles.<br><br>
+                            <b>Le vrai défi : changer de mentalité</b><br><br>
+                            Le problème n’est pas le manque de talent.<br>
+                            Le problème n’est pas le manque d’intelligence.<br>
+                            Le problème est souvent le manque d’orientation entrepreneuriale.<br><br>
+                            On nous apprend à exécuter.<br>
+                            On nous apprend à postuler.<br>
+                            On nous apprend à attendre.<br><br>
+                            Mais on nous apprend rarement à :<br>
+                            	•	Identifier un problème<br>
+                            	•	Créer une solution<br>
+                            	•	Construire une entreprise<br>
+                            	•	Générer de la valeur<br><br>
+                            <b>Créer au lieu d’attendre</b><br><br>
+                            Un pays ne se développe pas uniquement avec des chercheurs d’emploi.<br>
+                            Il se développe avec des bâtisseurs, des innovateurs, des entrepreneurs.<br><br>
+                            L’entrepreneuriat ne signifie pas que tout le monde doit créer une grande entreprise.<br>
+                            Cela signifie développer une mentalité :<br>
+                            	•	Voir les opportunités là où d’autres voient des problèmes<br>
+                            	•	Transformer un talent en activité<br>
+                            	•	Passer de l’idée à l’action<br><br>
+                            <b>L’avenir appartient aux créateurs</b><br><br>
+                            Le futur économique de notre pays dépend de notre capacité à former une génération capable de créer.<br><br>
+                            Créer des entreprises.<br>
+                            Créer des solutions.<br>
+                            Créer des emplois.<br><br>
+                            Il est temps d’ajouter une nouvelle phrase à notre système éducatif :<br><br>
+                            « Étudie bien pour comprendre le monde…<br>
+                            mais apprends aussi à le transformer. »<br><br>
+                            Parce que si nous continuons à former uniquement des chercheurs d’emploi,<br>
+                            nous continuerons à dépendre des opportunités créées par d’autres.<br><br>
+                            Mais si nous formons des créateurs d’emplois,<br>
+                            nous construirons notre propre avenir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Article "Le diplôme ne suffit plus" -->
+                <div class="card-article reveal" data-category="tribune">
+                    <div class="relative">
+                        <div class="h-48 flex items-center justify-center p-4">
+                            <img src="img/covertribunes.jpeg" alt="Tribune" class="w-40 h-40 rounded-full object-cover shadow-lg">
+                        </div>
+                        <span class="badge-category bg-clinique-gold text-white px-3 py-1 rounded-full text-xs font-semibold">Tribune de l'initiateur</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>2 Mars 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Le diplôme ne suffit plus
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Pendant longtemps, on nous a fait croire qu’un diplôme était la clé du succès.<br><br>
+                            « Travaille bien à l’école. »<br>
+                            « Obtiens ton diplôme. »<br>
+                            « Tu trouveras un emploi. »<br><br>
+                            Mais aujourd’hui, la réalité est plus complexe.<br><br>
+                            Chaque année, des milliers de jeunes sortent diplômés.<br>
+                            Chaque année, le marché du travail ne peut pas tous les absorber.<br><br>
+                            Alors une question s’impose :<br><br>
+                            <b>Le problème est-il le manque d’emplois… ou le manque de créateurs d’emplois ?</b><br><br>
+                            L’erreur du système<br><br>
+                            Notre système éducatif a été conçu pour former des employés compétents.<br>
+                            Pas des entrepreneurs.<br>
+                            Pas des innovateurs.<br>
+                            Pas des créateurs de solutions.<br><br>
+                            On nous apprend à répondre correctement aux questions.<br>
+                            Mais rarement à poser les bonnes questions.<br><br>
+                            On nous apprend à suivre des instructions.<br>
+                            Mais rarement à prendre des initiatives.<br><br>
+                            <b>Et si on changeait la trajectoire ?</b><br><br>
+                            Imaginez un jeune qui, en plus de son diplôme, sait :<br>
+                            	•	Identifier une opportunité<br>
+                            	•	Monter un projet<br>
+                            	•	Gérer un budget<br>
+                            	•	Vendre une idée<br>
+                            	•	Construire une équipe<br><br>
+                            Ce jeune ne dépend plus uniquement d’un recrutement.<br>
+                            Il devient une opportunité pour les autres.<br><br>
+                            <b>Le vrai développement commence ici</b><br><br>
+                            Un pays progresse lorsque sa jeunesse ne cherche pas seulement à être embauchée…<br>
+                            mais à bâtir.<br><br>
+                            L’entrepreneuriat n’est pas une alternative pour ceux qui échouent.<br>
+                            C’est une voie stratégique pour ceux qui veulent impacter.<br><br>
+                            Nous devons arrêter de dire aux jeunes :<br>
+                            « Cherche un emploi. »<br><br>
+                            Nous devons commencer à leur dire :<br>
+                            « Crée de la valeur. Résous des problèmes. Bâtis quelque chose. »<br><br>
+                            Parce que le développement d’un pays ne dépend pas seulement de ses diplômes.<br>
+                            Il dépend de sa capacité à transformer ses talents en entreprises.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Article "Quand les parents étouffent..." -->
+                <div class="card-article reveal" data-category="tribune">
+                    <div class="relative">
+                        <div class="h-48 flex items-center justify-center p-4">
+                            <img src="img/covertribunes.jpeg" alt="Tribune" class="w-40 h-40 rounded-full object-cover shadow-lg">
+                        </div>
+                        <span class="badge-category bg-clinique-gold text-white px-3 py-1 rounded-full text-xs font-semibold">Tribune de l'initiateur</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>2 Mars 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Quand les parents étouffent les talents de leurs enfants
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Beaucoup de talents ne meurent pas par manque de capacité.<br>
+                            Ils meurent par manque de soutien.<br><br>
+                            Combien d’enfants aiment le football,<br>
+                            mais on leur dit :<br>
+                            « Le foot ne nourrit pas. »<br><br>
+                            Combien aiment chanter,<br>
+                            mais on leur répond :<br>
+                            « La musique n’est pas un métier sérieux. »<br><br>
+                            Combien aiment dessiner, créer, inventer,<br>
+                            mais on leur impose :<br>
+                            « Tu seras avocat. Tu seras médecin. Tu seras fonctionnaire. »<br><br>
+                            <b>Une créativité naturelle</b><br><br>
+                            Chaque enfant naît avec une forme de créativité.<br>
+                            Un don.<br>
+                            Une passion.<br>
+                            Une sensibilité particulière.<br><br>
+                            Ce n’est pas un hasard.<br>
+                            C’est une capacité unique.<br><br>
+                            Mais très souvent, au lieu d’être cultivée,<br>
+                            elle est corrigée, comparée, étouffée.<br><br>
+                            On veut sécuriser l’avenir de l’enfant.<br>
+                            Mais parfois, en voulant le protéger, on le limite.<br><br>
+                            <b>Le vrai danger</b><br><br>
+                            Le danger n’est pas qu’un enfant tente sa passion.<br>
+                            Le danger est qu’il grandisse frustré.<br><br>
+                            Un talent ignoré devient une frustration.<br>
+                            Une passion interdite devient un regret.<br>
+                            Un rêve brisé devient une vie subie.<br><br>
+                            Beaucoup d’adultes aujourd’hui travaillent dans des domaines qu’ils n’aiment pas.<br>
+                            Pas parce qu’ils n’avaient pas de talent.<br>
+                            Mais parce qu’on leur a appris à abandonner ce qu’ils aimaient.<br><br>
+                            <b>Encourager ne veut pas dire forcer</b><br><br>
+                            Soutenir un talent ne signifie pas abandonner les études.<br>
+                            Cela signifie accompagner, orienter, structurer.<br><br>
+                            Un enfant peut aimer le football et être discipliné.<br>
+                            Il peut aimer la musique et apprendre la gestion.<br>
+                            Il peut aimer créer et développer des compétences solides.<br><br>
+                            Le talent n’est pas l’ennemi de la réussite.<br>
+                            Il peut en être la base.<br><br>
+                            <b>Une responsabilité collective</b><br><br>
+                            Les parents veulent le meilleur pour leurs enfants.<br>
+                            Mais le meilleur n’est pas toujours ce qui est le plus traditionnel.<br><br>
+                            Le monde a changé.<br>
+                            Les opportunités ont changé.<br>
+                            Les carrières ont évolué.<br><br>
+                            Un pays progresse quand il laisse sa jeunesse exprimer son potentiel.<br><br>
+                            Un enfant soutenu devient un adulte confiant.<br>
+                            Un talent accompagné devient une compétence.<br>
+                            Une compétence développée peut devenir une richesse.<br><br>
+                            Nous ne devrions pas demander aux enfants d’abandonner leurs rêves.<br>
+                            Nous devrions leur apprendre à les structurer.<br><br>
+                            Parce qu’un talent soutenu peut changer une vie.<br>
+                            Et une génération encouragée peut changer un pays.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Article "Le Congo que je veux" -->
+                <div class="card-article reveal" data-category="tribune">
+                    <div class="relative">
+                        <div class="h-48 flex items-center justify-center p-4">
+                            <img src="img/covertribunes.jpeg" alt="Tribune" class="w-40 h-40 rounded-full object-cover shadow-lg">
+                        </div>
+                        <span class="badge-category bg-clinique-gold text-white px-3 py-1 rounded-full text-xs font-semibold">Tribune de l'initiateur</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>2 Mars 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Le Congo que je veux
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Je rêve d’un Congo différent.<br>
+                            Un Congo debout.<br>
+                            Un Congo qui croit en lui.<br><br>
+                            Comme le disait Frantz Fanon,<br>
+                            l’Afrique a la forme d’un revolver…<br>
+                            et la gâchette se trouve en RDC.<br><br>
+                            Cela signifie une chose :<br>
+                            si le Congo se lève, l’Afrique avance.<br>
+                            Si le Congo échoue, l’Afrique vacille.<br><br>
+                            Nous ne sommes pas un petit pays sans importance.<br>
+                            Nous sommes un pays stratégique.<br>
+                            Un pays riche.<br>
+                            Un pays central.<br><br>
+                            Mais la vraie richesse d’un pays ne se trouve pas seulement dans son sol.<br>
+                            Elle se trouve dans son peuple.<br><br>
+                            <b>Le Congo que je veux</b><br><br>
+                            Je veux un Congo où il y a du travail pour tout le monde.<br>
+                            Pas seulement des diplômes accrochés aux murs.<br>
+                            Pas seulement des CV envoyés sans réponse.<br><br>
+                            Je veux un Congo où les jeunes ne cherchent pas seulement un emploi,<br>
+                            mais créent des solutions.<br><br>
+                            Un Congo où chaque problème devient une opportunité.<br>
+                            Un Congo où l’innovation remplace la plainte.<br>
+                            Un Congo où l’initiative remplace l’attente.<br><br>
+                            <b>Un Congo beau</b><br><br>
+                            Comme le disait Patrice Lumumba,<br>
+                            nous voulons un Congo beau.<br><br>
+                            Beau par son unité.<br>
+                            Beau par son intelligence.<br>
+                            Beau par son travail.<br><br>
+                            La beauté d’une nation ne vient pas seulement de ses paysages.<br>
+                            Elle vient de la dignité de son peuple.<br><br>
+                            <b>La responsabilité de notre génération</b><br><br>
+                            Nous sommes la génération qui ne peut plus attendre.<br><br>
+                            Attendre que l’État fasse tout.<br>
+                            Attendre que l’étranger investisse tout.<br>
+                            Attendre qu’un miracle arrive.<br><br>
+                            Le changement commence par nous.<br><br>
+                            Par notre discipline.<br>
+                            Par notre travail.<br>
+                            Par notre capacité à créer.<br><br>
+                            <b>Travailler pour un Congo nouveau</b><br><br>
+                            Le Congo que je veux ne viendra pas par les discours.<br>
+                            Il viendra par l’action.<br><br>
+                            Quand un jeune lance une entreprise.<br>
+                            Quand une femme développe son activité.<br>
+                            Quand un étudiant transforme son idée en projet.<br>
+                            Quand un leader forme une équipe compétente.<br><br>
+                            C’est ainsi qu’un pays change.<br><br>
+                            Le Congo n’a pas besoin seulement de critiques.<br>
+                            Il a besoin de bâtisseurs.<br><br>
+                            Il a besoin d’une jeunesse qui comprend que l’avenir ne s’attend pas…<br>
+                            il se construit.<br><br>
+                            Le Congo que je veux commence aujourd’hui.<br>
+                            Et il commence avec nous.
+                        </p>
+                    </div>
+                </div>
+<!-- Article 1 -->
+                <div class="card-article reveal" data-category="formation">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique1.jpg" alt="Formation" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-clinique-blue text-white px-3 py-1 rounded-full text-xs font-semibold">Formation</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>10 Janvier 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Atelier sur la gestion financière pour les PME : Les fondamentaux
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            La Clinique de l'Entrepreneuriat a organisé un atelier intensif sur la gestion financière destiné aux propriétaires de PME. Les participants ont appris à établir un budget prévisionnel, gérer leur trésorerie et optimiser leur fonds de roulement. Cet atelier pratique a réuni 45 entrepreneurs de Kinshasa.
+                        </p>
+                        <p class="text-gray-500 text-xs mb-3">Durée de lecture : 4 min</p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="card-article reveal" data-category="pme">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique2.jpg" alt="PME" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">PME</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>5 Janvier 2026</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Comment structurer votre entreprise en 2026
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Les clés pour structurer efficacement votre PME et préparer sa croissance durable...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="card-article reveal" data-category="temoignage">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique3.jpg" alt="Témoignage" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Témoignage</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>28 Décembre 2025</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Témoignage : Comment j'ai lancé mon entreprise
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Parcours d'un entrepreneur accompagné par La Clinique de l'Entrepreneuriat...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="card-article reveal" data-category="evenement">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique4.jpg" alt="Événement" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-clinique-orange text-white px-3 py-1 rounded-full text-xs font-semibold">Événement</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>20 Décembre 2025</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Forum de l'Entrepreneuriat Kinshasa 2025
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Retour sur le plus grand forum entrepreneurial de l'année en RDC...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="card-article reveal" data-category="formation">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique5.jpg" alt="Formation" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-clinique-blue text-white px-3 py-1 rounded-full text-xs font-semibold">Formation</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>15 Décembre 2025</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Programme de formation des formateurs
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            La Clinique lance un programme de formation des formateurs pour renforcer les capacités...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+
+                <!-- Article 6 -->
+                <div class="card-article reveal" data-category="pme">
+                    <div class="relative">
+                        <div class="image-wrapper h-48">
+                            <img src="img/clinique6.jpg" alt="PME" class="w-full h-full object-cover">
+                        </div>
+                        <span class="badge-category bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">PME</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 text-gray-500 text-xs mb-3">
+                            <span><i class="far fa-calendar mr-1"></i>10 Décembre 2025</span>
+                        </div>
+                        <h3 class="font-heading text-lg font-bold text-clinique-blue mb-3">
+                            Les 5 erreurs à éviter quand vous startpez
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Conseils pratiques pour éviter les pièges courants de l'entrepreneuriat...
+                        </p>
+                        <a href="#" class="text-clinique-orange font-semibold text-sm hover:underline">Lire la suite →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex gap-2">
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-clinique-blue text-white font-semibold">1</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-clinique-blue hover:text-white font-semibold">2</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-clinique-blue hover:text-white font-semibold">3</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-gray-600 hover:bg-clinique-blue hover:text-white font-semibold">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 bg-clinique-blue text-white relative overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 opacity-10">
+            <img src="img/clinique12.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="font-heading text-3xl font-bold mb-6">
+                Abonnez-vous à notre newsletter
+            </h2>
+            <p class="text-white/90 mb-8">
+                Recevez nos dernières nouvelles, conseils et événements directement dans votre boîte mail.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input type="email" placeholder="Votre adresse email" required class="flex-1 px-6 py-4 rounded-full text-gray-800 outline-none">
+                <button type="submit" class="btn-gradient text-white font-bold py-4 px-8 rounded-full">
+                    S'abonner
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="relative inline-block mb-4">
+                <img src="img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png" alt="Logo" class="h-16 w-auto mx-auto" onerror="this.style.display='none'">
+            </div>
+            <p class="text-white/80 mb-2">La Clinique de l'Entrepreneuriat</p>
+            <p class="text-white/60 text-sm">+243 801 199 934</p>
+            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <a href="https://marcoilng.netlify.app" target="_blank" class="font-bold text-clinique-gold hover:underline">Marco ILUNGA</a></p>
+            
+            <div class="flex justify-center gap-6 mt-6">
+                <a href="index.html" class="text-white/60 hover:text-white text-sm">Accueil</a>
+                <a href="initiateur.html" class="text-white/60 hover:text-white text-sm">L'initiateur</a>
+                <a href="services.html" class="text-white/60 hover:text-white text-sm">Services</a>
+                <a href="blog.html" class="text-white/60 hover:text-white text-sm">Actualités</a>
+                <a href="index.html#contact" class="text-white/60 hover:text-white text-sm">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/modern.js"></script>
+    
+    <!-- Firebase Dynamic Blog Loader -->
+    <script type="module" src="js/blog-loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirichi Mbumba Nkuangudi | Visionnaire & Initiateur | La Clinique</title>
+    <meta name="description" content="Découvrez le parcours de Mirichi Mbumba Nkuangudi, l'esprit derrière la première Université de l'Entrepreneuriat du Congo. Arbitre, Juriste et Coach.">
+    <meta name="keywords" content="Mirichi Mbumba Nkuangudi, initiateur, université entrepreneuriat, juriste d'affaires RDC, coach entrepreneuriat">
+    <link rel="canonical" href="https://laclinique-entrepreneuriat.com/initiateur.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Mirichi Mbumba Nkuangudi | L'Initiateur">
+    <meta property="og:url" content="https://laclinique-entrepreneuriat.com/initiateur.html">
+    <meta property="og:image" content="https://laclinique-entrepreneuriat.com/img/initiateur-profile.jpg">
+
+    <!-- JSON-LD Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mirichi Mbumba Nkuangudi",
+      "jobTitle": "Initiateur & Juriste d'Affaires",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "La Clinique de l'Entrepreneuriat"
+      },
+      "url": "https://laclinique-entrepreneuriat.com/initiateur.html"
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="lib/owlcarousel/assets/owl.carousel.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: false,
+            theme: {
+                extend: {
+                    colors: {
+                        clinique: { 
+                            blue: '#125C5D', 
+                            orange: '#E8831A', 
+                            light: '#F0F4F4', 
+                            gold: '#D4AF37', 
+                            dark: '#0A3D3E',
+                            'blue-light': '#1A7A7B',
+                            'orange-light': '#F59E2D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --clinique-blue: #125C5D;
+            --clinique-orange: #E8831A;
+            --clinique-gold: #D4AF37;
+            --clinique-dark: #0A3D3E;
+        }
+
+        .nav-modern {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-modern.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .shadow-lux {
+            box-shadow: 0 20px 60px -15px rgba(18, 92, 93, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--clinique-orange), var(--clinique-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hero-initiator {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(18,92,93,0.95) 0%, rgba(10,61,62,0.92) 50%, rgba(26,122,123,0.88) 100%);
+            overflow: hidden;
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(232, 131, 26, 0.6);
+            border-radius: 50%;
+            animation: float-particle 15s infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 6s; }
+        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 8s; }
+        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 10s; }
+        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 12s; }
+        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 1s; }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.6; }
+            25% { transform: translateY(-100px) translateX(50px) scale(1.5); opacity: 0.8; }
+            50% { transform: translateY(-50px) translateX(-30px) scale(1); opacity: 0.4; }
+            75% { transform: translateY(-150px) translateX(20px) scale(1.2); opacity: 0.7; }
+        }
+
+        .floating-shape {
+            position: absolute;
+            border: 2px solid rgba(232, 131, 26, 0.15);
+            animation: rotate-float 25s linear infinite;
+        }
+
+        .floating-shape-1 {
+            width: 400px;
+            height: 400px;
+            top: -150px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .floating-shape-2 {
+            width: 250px;
+            height: 250px;
+            bottom: 15%;
+            left: -80px;
+            transform: rotate(45deg);
+        }
+
+        @keyframes rotate-float {
+            0% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(180deg) translateY(-40px); }
+            100% { transform: rotate(360deg) translateY(0); }
+        }
+
+        .card-premium {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(18, 92, 93, 0.15);
+        }
+
+        .btn-gradient { 
+            background: linear-gradient(135deg, var(--clinique-orange), #F59E2D); 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-gradient:hover::before {
+            left: 100%;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 131, 26, 0.4);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+        }
+
+        .elegant-text {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .quote-mark {
+            font-size: 12rem;
+            line-height: 0.5;
+            color: var(--clinique-orange);
+            opacity: 0.15;
+            font-family: Georgia, serif;
+        }
+
+        .profile-wrapper {
+            position: relative;
+        }
+
+        .profile-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px solid var(--clinique-orange);
+            border-radius: 24px;
+            z-index: -1;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--clinique-blue), var(--clinique-orange));
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: var(--clinique-orange);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        .stat-card {
+            background: linear-gradient(145deg, rgba(18, 92, 93, 0.1), rgba(18, 92, 93, 0.05));
+            border: 1px solid rgba(18, 92, 93, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(145deg, rgba(18, 92, 93, 0.15), rgba(18, 92, 93, 0.08));
+            box-shadow: 0 15px 40px rgba(18, 92, 93, 0.15);
+        }
+
+        .footer-gradient { 
+            background: linear-gradient(135deg, var(--clinique-blue), var(--clinique-dark)); 
+        }
+
+        @media (max-width: 768px) {
+            .hero-initiator {
+                min-height: auto;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--clinique-blue);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--clinique-orange);
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800 transition-colors duration-300">
+
+    <header id="main-header" class="nav-modern fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <a href="index.html">
+                        <img src="img/LOGO-ENTREP-01.png" alt="Logo" class="h-16 w-auto" onerror="this.src='img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png'" loading="lazy">
+                    </a>
+                    <span class="font-heading font-bold text-clinique-blue text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap">LA CLINIQUE DE <span class="text-clinique-orange">L'ENTREPRENEURIAT</span></span>
+                </div>
+                
+                <nav class="hidden lg:flex items-center gap-4 xl:gap-6">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-clinique-blue text-sm xl:text-base">Accueil</a>
+                    <a href="initiateur.html" class="nav-link text-clinique-blue font-semibold text-sm xl:text-base">L'initiateur</a>
+                    <a href="#vision" class="nav-link text-gray-600 hover:text-clinique-blue text-sm xl:text-base">Vision</a>
+                    <a href="#parcours" class="nav-link text-gray-600 hover:text-clinique-blue text-sm xl:text-base">Parcours</a>
+                    <a href="services.html" class="nav-link text-gray-600 hover:text-clinique-blue text-sm xl:text-base">Services</a>
+                    <a href="blog.html" class="nav-link text-gray-600 hover:text-clinique-blue text-sm xl:text-base">Blog</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-clinique-blue text-sm xl:text-base">Contact</a>
+                </nav>
+                
+                <a href="index.html#contact" class="hidden lg:inline-block btn-gradient text-white font-bold py-2 px-4 rounded-full text-sm">Collaborer</a>
+                
+                <button class="lg:hidden p-2" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl text-clinique-blue"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-3 text-gray-600">Accueil</a>
+                <a href="initiateur.html" class="block py-3 text-clinique-blue font-semibold">L'initiateur</a>
+                <a href="index.html#impact" class="block py-2 text-gray-600">Impact</a>
+                <a href="index.html#domaines" class="block py-2 text-gray-600">Domaines</a>
+                <a href="index.html#vision" class="block py-2 text-gray-600">Vision</a>
+                <a href="#parcours" class="block py-2 text-gray-600">Parcours</a>
+                <a href="services.html" class="block py-2 text-gray-600">Services</a>
+                <a href="blog.html" class="block py-2 text-gray-600">Blog</a>
+                <a href="#contact" class="block py-2 text-gray-600">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-initiator pt-20 relative overflow-hidden">
+        <!-- Background Images -->
+        <div class="absolute inset-0 opacity-10">
+            <img src="img/clinique13.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="floating-shape floating-shape-1"></div>
+        <div class="floating-shape floating-shape-2"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-20 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white order-2 lg:order-1">
+                    <div class="inline-block bg-clinique-orange/20 text-clinique-orange py-2 px-4 rounded-full text-sm font-semibold mb-6">
+                        L'Initiateur
+                    </div>
+                    <div class="relative z-10 w-full text-center text-white px-4 py-32">
+                <p class="text-clinique-gold font-heading font-bold tracking-[0.3em] uppercase text-sm mb-6 reveal animate__animated animate__fadeInDown italic">
+                    Arbitre • Juriste • Visionnaire
+                </p>
+                <h1 class="text-5xl md:text-8xl font-serif font-bold mb-8 reveal animate__animated animate__fadeInUp">
+                    Mirichi Mbumba <br>
+                    <span class="text-clinique-gold italic text-4xl md:text-6xl block mt-4">Nkuangudi</span>
+                </h1>
+                <div class="w-32 h-1 bg-clinique-gold mx-auto rounded-full reveal animate__animated animate__fadeInUp animate__delay-1 mb-8"></div>
+                <p class="text-xl md:text-2xl text-white/80 font-light tracking-wide max-w-3xl mx-auto reveal animate__animated animate__fadeInUp animate__delay-2">
+                    L'homme derrière la vision de La Clinique de l'Entrepreneuriat
+                </p>
+            </div>
+                <p class="text-lg text-white/90 max-w-xl mb-8 reveal leading-relaxed">
+                        Visionnaire engagé, il a fondé La Clinique de l'Entrepreneuriat avec une conviction profonde : <strong class="text-clinique-gold">le développement de l'Afrique viendra de la structuration des talents, des entreprises et des institutions.</strong>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 reveal">
+                        <a href="#vision" class="btn-gradient text-white font-bold py-4 px-8 rounded-full text-lg hover:scale-105">
+                            Découvrir sa vision
+                        </a>
+                        <a href="#parcours" class="glass text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-white/20">
+                            Son parcours
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center order-1 lg:order-2 reveal">
+                    <div class="profile-wrapper">
+                        <img src="img/initiateur.jpg" alt="Mirichi Mbumba Nkuangudi" class="w-80 h-96 object-cover rounded-3xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/50 text-2xl"></i>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,120.25,189.7,105.51,235.27,94.06,279.7,73.4,321.39,56.44Z" fill="#ffffff"></path></svg>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="stat-card text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-clinique-blue mb-2">5000+</div>
+                    <div class="text-gray-600">Jeunes accompagnés</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-clinique-orange mb-2">150+</div>
+                    <div class="text-gray-600">PME structurées</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-clinique-gold mb-2">50+</div>
+                    <div class="text-gray-600">Institutions formées</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-clinique-dark mb-2">10+</div>
+                    <div class="text-gray-600">Années d'expérience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="py-24 bg-white reveal">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-12 items-start">
+                <div class="lg:col-span-2">
+                    <h2 class="font-serif section-title text-clinique-blue mb-8">Notre Ambition Stratégique</h2>
+                    <div class="space-y-8">
+                        <div class="bg-hero-gradient rounded-[2.5rem] p-10 md:p-16 text-white relative overflow-hidden shadow-lux">
+                            <div class="relative z-10">
+                                <h3 class="font-serif text-3xl font-bold mb-6">Université de l’Entrepreneuriat du Congo</h3>
+                                <p class="text-xl leading-relaxed text-white/90 font-light italic border-l-4 border-clinique-gold pl-8">
+                                    "Mon ambition est de créer une véritable Université de l’Entrepreneuriat du Congo, où les étudiants viendront directement après le Bac pour apprendre à créer et gérer des entreprises."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-clinique-light p-8 rounded-2xl shadow-sm reveal reveal-delay-1">
+                                <i class="fas fa-rocket text-4xl text-clinique-gold mb-4"></i>
+                                <h4 class="font-heading font-bold text-xl text-clinique-blue mb-2">Innovation</h4>
+                                <p class="text-gray-600">Développer des solutions entrepreneuriales nouvelles et adaptées aux réalités africaines.</p>
+                            </div>
+                            <div class="bg-clinique-light p-8 rounded-2xl shadow-sm reveal reveal-delay-2">
+                                <i class="fas fa-chart-line text-4xl text-clinique-gold mb-4"></i>
+                                <h4 class="font-heading font-bold text-xl text-clinique-blue mb-2">Croissance</h4>
+                                <p class="text-gray-600">Accélérer le scaling des entreprises africaines pour un impact économique significatif.</p>
+                            </div>
+                            <div class="bg-clinique-light p-8 rounded-2xl shadow-sm reveal reveal-delay-3">
+                                <i class="fas fa-globe-africa text-4xl text-clinique-gold mb-4"></i>
+                                <h4 class="font-heading font-bold text-xl text-clinique-blue mb-2">Impact</h4>
+                                <p class="text-gray-600">Assurer un rayonnement continental et international des initiatives entrepreneuriales congolaises.</p>
+                            </div>
+                            <div class="bg-clinique-light p-8 rounded-2xl shadow-sm reveal reveal-delay-4">
+                                <i class="fas fa-users text-4xl text-clinique-gold mb-4"></i>
+                                <h4 class="font-heading font-bold text-xl text-clinique-blue mb-2">Communauté</h4>
+                                <p class="text-gray-600">Bâtir un réseau panafricain solide d'entrepreneurs et d'innovateurs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-1">
+                    <div class="sticky top-28 bg-clinique-blue p-8 rounded-[2.5rem] text-white shadow-lux reveal reveal-delay-5">
+                        <div class="text-center mb-8">
+                            <i class="fas fa-lightbulb text-6xl text-clinique-gold mb-4"></i>
+                            <h3 class="font-serif text-3xl font-bold mb-2">Notre Philosophie</h3>
+                            <p class="text-white/80">Transformer les défis en opportunités</p>
+                        </div>
+                        <blockquote class="elegant-text text-xl italic leading-relaxed mb-6 border-l-4 border-clinique-gold pl-4">
+                            "Nous ne transmettons pas seulement des compétences. Nous développons des leaders capables de créer de la valeur, des emplois et des solutions durables."
+                        </blockquote>
+                        <p class="text-clinique-gold font-semibold text-right">— Mirichi Mbumba Nkuangudi</p>
+                        <p class="text-white/70 text-sm text-right">Initiateur de La Clinique de l'Entrepreneuriat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-clinique-gold/20 text-clinique-gold py-2 px-4 rounded-full text-sm font-semibold mb-4">
+                    Parcours
+                </div>
+                <h2 class="font-heading section-title text-clinique-blue">
+                    Un homme d'action au service de l'Afrique
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        <span class="font-heading text-clinique-blue font-bold text-xl">Mirichi Mbumba Nkuangudi</span> incarne l'excellence professionnelle et l'engagement sociétal. Plusieurs casquettes, une seule mission : transformer l'Afrique par l'entrepreneuriat.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Sa trajectoire illustre parfaitement cette devise : <strong class="text-clinique-orange">"L'audace de croire, le courage d'agir, la détermination de réussir."</strong>
+                    </p>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        En tant qu'<strong class="text-clinique-blue">Arbitre et Médiateur International</strong>, il contribue à la résolution des conflits commerciaux. Son expertise en <strong class="text-clinique-blue">droit des affaires</strong> permet aux entreprises de naviguer efficacement dans l'environnement juridique africain.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-clinique-blue/10 text-clinique-blue px-4 py-2 rounded-full text-sm font-semibold">Arbitre International</span>
+                        <span class="bg-clinique-orange/10 text-clinique-orange px-4 py-2 rounded-full text-sm font-semibold">Médiateur</span>
+                        <span class="bg-clinique-gold/10 text-clinique-gold px-4 py-2 rounded-full text-sm font-semibold">Juriste d'Affaires</span>
+                        <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">Coach</span>
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">Conférencier</span>
+                        <span class="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-semibold">Écrivain</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card-premium p-8 bg-clinique-light">
+                        <h3 class="font-heading text-2xl font-bold text-clinique-blue mb-8">Parcours</h3>
+                        
+                        <div class="space-y-8">
+                            <div class="timeline-item">
+                                <h4 class="font-bold text-clinique-blue text-lg">Formation</h4>
+                                <p class="text-gray-700 font-medium">Diplôme en Droit des Affaires</p>
+                                <p class="text-gray-500 text-sm">Université de Kinshasa / formation internationale</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4 class="font-bold text-clinique-blue text-lg">Certification</h4>
+                                <p class="text-gray-700 font-medium">Arbitrage et Médiation Internationale</p>
+                                <p class="text-gray-500 text-sm">Institutions reconnues internationalement</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4 class="font-bold text-clinique-blue text-lg">Expérience</h4>
+                                <p class="text-gray-700 font-medium">Coach en Affaires & Entrepreneuriat</p>
+                                <p class="text-gray-500 text-sm">Centaines d'entrepreneurs accompagnés</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4 class="font-bold text-clinique-blue text-lg">Création</h4>
+                                <p class="text-gray-700 font-medium">Fondation de La Clinique</p>
+                                <p class="text-gray-500 text-sm">L'écosystème entrepreneurial de référence en RDC</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-clinique-blue text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-block bg-white/10 text-white py-2 px-4 rounded-full text-sm font-semibold mb-6">
+                        Ambition
+                    </div>
+                    <h2 class="font-heading section-title mb-6">
+                        Université de l’Entrepreneuriat du Congo
+                    </h2>
+                    <p class="text-white/90 text-lg mb-6 leading-relaxed">
+                        <strong class="text-clinique-gold">Vision 2035 - 2040 :</strong> Notre ambition est de créer une institution d'excellence où les étudiants viendront directement après le Bac pour apprendre à créer, structurer et gérer des entreprises à fort impact.
+                    </p>
+                    <p class="text-white/90 text-lg mb-8 leading-relaxed">
+                        L'objectif est de former les nouveaux leaders économiques du pays et du continent africain, capables de transformer les défis en opportunités durables.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/10 rounded-2xl p-6">
+                            <i class="fas fa-rocket text-3xl text-clinique-gold mb-3"></i>
+                            <h4 class="font-heading font-bold mb-2">Innovation</h4>
+                            <p class="text-white/70 text-sm">Solutions entrepreneuriales nouvelles</p>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl p-6">
+                            <i class="fas fa-chart-line text-3xl text-clinique-gold mb-3"></i>
+                            <h4 class="font-heading font-bold mb-2">Croissance</h4>
+                            <p class="text-white/70 text-sm">Scaling d'entreprises africaines</p>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl p-6">
+                            <i class="fas fa-globe-africa text-3xl text-clinique-gold mb-3"></i>
+                            <h4 class="font-heading font-bold mb-2">Impact</h4>
+                            <p class="text-white/70 text-sm">Rayonnement continental</p>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl p-6">
+                            <i class="fas fa-users text-3xl text-clinique-gold mb-3"></i>
+                            <h4 class="font-heading font-bold mb-2">Communauté</h4>
+                            <p class="text-white/70 text-sm">Réseau panafricain</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:block">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-clinique-orange to-clinique-gold rounded-3xl blur-xl opacity-30"></div>
+                        <div class="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+                            <div class="text-center">
+                                <i class="fas fa-globe text-7xl text-clinique-gold mb-6"></i>
+                                <h3 class="font-heading text-2xl font-bold mb-4">Vision Long Terme</h3>
+                                <p class="text-white/80 mb-6">Horizon 2035-2040</p>
+                                <div class="text-5xl font-bold text-clinique-gold">Leaders</div>
+                                <p class="text-white/70">Économiques de demain</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading section-title text-clinique-blue">
+                    Les valeurs qui guident l'action
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-premium p-8 text-center hover-float reveal reveal-delay-1">
+                    <div class="w-16 h-16 bg-clinique-blue/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-clinique-blue text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-clinique-blue mb-2">Excellence</h3>
+                    <p class="text-gray-600 text-sm">Un engagement total vers la qualité.</p>
+                </div>
+                
+                <div class="card-premium p-8 text-center hover-float reveal reveal-delay-2">
+                    <div class="w-16 h-16 bg-clinique-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-clinique-orange text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-clinique-blue mb-2">Intégrité</h3>
+                    <p class="text-gray-600 text-sm">Une conduite éthique et transparente.</p>
+                </div>
+                
+                <div class="card-premium p-8 text-center hover-float reveal reveal-delay-3">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-clinique-blue mb-2">Collaboration</h3>
+                    <p class="text-gray-600 text-sm">Le partenariat comme pilier de la réussite.</p>
+                </div>
+                
+                <div class="card-premium p-8 text-center hover-float reveal reveal-delay-4">
+                    <div class="w-16 h-16 bg-clinique-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lightbulb text-clinique-gold text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-clinique-blue mb-2">Innovation</h3>
+                    <p class="text-gray-600 text-sm">La créativité au service des solutions nouvelles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-clinique-light">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-block bg-clinique-orange/20 text-clinique-orange py-2 px-4 rounded-full text-sm font-semibold mb-6">
+                Rencontrons-nous
+            </div>
+            <h2 class="font-heading section-title text-clinique-blue mb-6">
+                Rejoignez cette vision
+            </h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto mb-10">
+                Que vous soyez un jeune entrepreneur, une PME ou une institution, vous pouvez faire partie de cette transformation économique de l'Afrique.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#contact" class="btn-gradient text-white font-bold py-4 px-8 rounded-full text-lg hover:scale-105">
+                    Collaborer avec nous
+                </a>
+                <a href="index.html" class="border-2 border-clinique-blue text-clinique-blue font-bold py-4 px-8 rounded-full text-lg hover:bg-clinique-blue hover:text-white">
+                    Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="relative inline-block mb-4">
+                <img src="img/LOGO-ENTREP-AVEC-FOND-BLANC-01.png" alt="Logo" class="h-16 w-auto mx-auto" onerror="this.style.display='none'">
+            </div>
+            <p class="text-white/80 mb-2">La Clinique de l'Entrepreneuriat</p>
+            <p class="text-white/60 text-sm">+243 801 199 934</p>
+            <p class="text-white/60 text-sm mt-1">Sous la direction de Mirichi Mbumba Nkuangudi</p>
+            <p class="text-white/60 text-sm mt-4">© 2026 Tous droits réservés. Réalisé par <a href="https://marcoilng.netlify.app" target="_blank" class="font-bold text-clinique-gold hover:underline">Marco ILUNGA</a></p>
+            
+            <div class="flex justify-center gap-6 mt-6">
+                <a href="index.html" class="text-white/60 hover:text-white text-sm">Accueil</a>
+                <a href="initiateur.html" class="text-white/60 hover:text-white text-sm">L'initiateur</a>
+                <a href="services.html" class="text-white/60 hover:text-white text-sm">Services</a>
+                <a href="blog.html" class="text-white/60 hover:text-white text-sm">Blog</a>
+                <a href="index.html#contact" class="text-white/60 hover:text-white text-sm">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
+</body>
+</html>
