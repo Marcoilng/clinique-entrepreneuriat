@@ -206,12 +206,6 @@
         let isLoggedIn = false;
         let bookings = [];
 
-        // Check if already logged in
-        if (localStorage.getItem('admin_logged_in') === 'true') {
-            isLoggedIn = true;
-            showDashboard();
-        }
-
         // Handle login
         function handleLogin(event) {
             event.preventDefault();
@@ -219,7 +213,6 @@
             
             if (password === ADMIN_PASSWORD) {
                 isLoggedIn = true;
-                localStorage.setItem('admin_logged_in', 'true');
                 showDashboard();
             } else {
                 alert('Mot de passe incorrect');
@@ -230,7 +223,6 @@
         // Logout
         function logout() {
             isLoggedIn = false;
-            localStorage.removeItem('admin_logged_in');
             document.getElementById('login-section').classList.remove('hidden');
             document.getElementById('dashboard-section').classList.add('hidden');
         }
