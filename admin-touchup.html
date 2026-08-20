@@ -146,6 +146,21 @@
                 </div>
             </div>
             
+            <!-- Configuration -->
+            <div class="glass-card mb-8">
+                <h2 class="text-xl font-bold mb-6" style="color: #D4AF37;">Configuration des places</h2>
+                <div class="flex items-center gap-4">
+                    <div class="flex-1">
+                        <label class="block mb-2 font-semibold" style="color: #D4AF37;">Nombre maximum de places</label>
+                        <input type="number" id="max-participants" value="100" min="1" 
+                               class="w-full p-3 bg-gray-800 border-2 border-gray-700 rounded-lg text-white focus:border-yellow-500 focus:outline-none">
+                    </div>
+                    <button onclick="updateMaxParticipants()" class="btn-gold mt-6">
+                        <i class="fas fa-save mr-2"></i>Mettre à jour
+                    </button>
+                </div>
+            </div>
+            
             <!-- Actions -->
             <div class="glass-card mb-8">
                 <div class="flex flex-wrap gap-4">
@@ -201,10 +216,10 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        const MAX_PARTICIPANTS = 100;
         const ADMIN_PASSWORD = "TouchUp2026!"; // Changez ce mot de passe
         let isLoggedIn = false;
         let bookings = [];
+        let maxParticipants = 100;
 
         // Handle login
         function handleLogin(event) {
@@ -231,7 +246,37 @@
         function showDashboard() {
             document.getElementById('login-section').classList.add('hidden');
             document.getElementById('dashboard-section').classList.remove('hidden');
+            loadConfiguration();
             loadBookings();
+        }
+
+        // Load configuration from Firebase
+        function loadConfiguration() {
+            database.ref('touchup/config/maxParticipants').once('value', (snapshot) => {
+                const value = snapshot.val();
+                if (value) {
+                    maxParticipants = value;
+                    document.getElementById('max-participants').value = value;
+                }
+            });
+        }
+
+        // Update max participants in Firebase
+        function updateMaxParticipants() {
+            const newValue = parseInt(document.getElementById('max-participants').value);
+            if (newValue && newValue > 0) {
+                database.ref('touchup/config/maxParticipants').set(newValue)
+                    .then(() => {
+                        maxParticipants = newValue;
+                        updateStats();
+                        alert('Configuration mise à jour avec succès');
+                    })
+                    .catch((error) => {
+                        alert('Erreur lors de la mise à jour: ' + error.message);
+                    });
+            } else {
+                alert('Veuillez entrer un nombre valide');
+            }
         }
 
         // Load bookings from Firebase
@@ -251,8 +296,8 @@
         // Update statistics
         function updateStats() {
             const total = bookings.length;
-            const available = MAX_PARTICIPANTS - total;
-            const fillRate = ((total / MAX_PARTICIPANTS) * 100).toFixed(1);
+            const available = maxParticipants - total;
+            const fillRate = ((total / maxParticipants) * 100).toFixed(1);
             
             document.getElementById('total-bookings').textContent = total;
             document.getElementById('available-places').textContent = available;

@@ -336,10 +336,34 @@
             }
         ];
 
-        const MAX_PARTICIPANTS = 100;
+        let MAX_PARTICIPANTS = 100;
         let selectedEvent = null;
         let currentBooking = null;
         let uploadedPhoto = null;
+
+        // Load configuration from Firebase
+        function loadConfiguration() {
+            database.ref('touchup/config/maxParticipants').once('value', (snapshot) => {
+                const value = snapshot.val();
+                if (value) {
+                    MAX_PARTICIPANTS = value;
+                    console.log('Configuration loaded: MAX_PARTICIPANTS =', MAX_PARTICIPANTS);
+                }
+            });
+        }
+
+        // Listen for configuration changes
+        function setupConfigurationListener() {
+            database.ref('touchup/config/maxParticipants').on('value', (snapshot) => {
+                const value = snapshot.val();
+                if (value) {
+                    MAX_PARTICIPANTS = value;
+                    console.log('Configuration updated: MAX_PARTICIPANTS =', MAX_PARTICIPANTS);
+                    // Reload events to update display
+                    loadEvents();
+                }
+            });
+        }
 
         // Handle photo upload with automatic square crop
         function handlePhotoUpload(event) {
@@ -870,6 +894,8 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
+            loadConfiguration();
+            setupConfigurationListener();
             loadEvents();
             setupRealtimeListener();
         });
