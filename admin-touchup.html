@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin TOUCH UP — La Clinique de l'Entrepreneuriat</title>
+    <meta name="description" content="Administration des réservations TOUCH UP">
+    
+    <!-- Scripts pour PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --clinique-blue: #125C5D;
+            --clinique-orange: #E8831A;
+            --clinique-gold: #D4AF37;
+            --clinique-dark: #0A3D3E;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); color: #f5f0e8; min-height: 100vh; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        
+        .glass-card {
+            background: rgba(18, 92, 93, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(18, 92, 93, 0.2);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #E8831A 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .table-row:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .hidden { display: none !important; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 20px 16px; }
+            .glass-card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Section -->
+        <div id="login-section" class="flex items-center justify-center min-h-screen">
+            <div class="glass-card w-full max-w-md">
+                <h1 class="text-3xl font-bold mb-6 text-center" style="color: #D4AF37;">Admin TOUCH UP</h1>
+                <form onsubmit="handleLogin(event)">
+                    <div class="mb-4">
+                        <label class="block mb-2 font-semibold" style="color: #D4AF37;">Mot de passe</label>
+                        <input type="password" id="admin-password" placeholder="Entrez le mot de passe" 
+                               class="w-full p-3 bg-gray-800 border-2 border-gray-700 rounded-lg text-white focus:border-yellow-500 focus:outline-none"
+                               required>
+                    </div>
+                    <button type="submit" class="btn-gold w-full">Se connecter</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="hidden">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold" style="color: #D4AF37;">Administration TOUCH UP</h1>
+                <button onclick="logout()" class="btn-gold" style="background: rgba(18, 92, 93, 0.8); border: 2px solid rgba(212, 175, 55, 0.3);">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Déconnexion
+                </button>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="glass-card">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #D4AF37 0%, #E8831A 100%);">
+                            <i class="fas fa-users text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold" id="total-bookings">0</div>
+                            <div class="text-sm text-gray-400">Total réservations</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <i class="fas fa-chair text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold" id="available-places">100</div>
+                            <div class="text-sm text-gray-400">Places disponibles</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                            <i class="fas fa-percentage text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold" id="fill-rate">0%</div>
+                            <div class="text-sm text-gray-400">Taux de remplissage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="glass-card mb-8">
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="generatePDFReport()" class="btn-gold">
+                        <i class="fas fa-file-pdf mr-2"></i>Générer rapport PDF
+                    </button>
+                    <button onclick="loadBookings()" class="btn-gold" style="background: rgba(18, 92, 93, 0.8); border: 2px solid rgba(212, 175, 55, 0.3);">
+                        <i class="fas fa-sync mr-2"></i>Actualiser
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Bookings Table -->
+            <div class="glass-card">
+                <h2 class="text-xl font-bold mb-6" style="color: #D4AF37;">Réservations</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="text-left py-3 px-4 font-semibold" style="color: #D4AF37;">Ticket</th>
+                                <th class="text-left py-3 px-4 font-semibold" style="color: #D4AF37;">Nom</th>
+                                <th class="text-left py-3 px-4 font-semibold" style="color: #D4AF37;">Email</th>
+                                <th class="text-left py-3 px-4 font-semibold" style="color: #D4AF37;">Téléphone</th>
+                                <th class="text-left py-3 px-4 font-semibold" style="color: #D4AF37;">Ville</th>
+                                <th class="text-left py-3 px-4 font-semibold" style="color: #D4AF37;">Date</th>
+                                <th class="text-left py-3 px-4 font-semibold" style="color: #D4AF37;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookings-table">
+                            <tr>
+                                <td colspan="7" class="text-center py-8 text-gray-400">Chargement...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDpdm8el1KWM_WD42HMExRCvFp9ySf4fvI",
+            authDomain: "mirichi-events.firebaseapp.com",
+            databaseURL: "https://mirichi-events-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "mirichi-events",
+            storageBucket: "mirichi-events.firebasestorage.app",
+            messagingSenderId: "582412284374",
+            appId: "1:582412284374:web:3c57614741e8a595f13477"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        const MAX_PARTICIPANTS = 100;
+        const ADMIN_PASSWORD = "TouchUp2026!"; // Changez ce mot de passe
+        let isLoggedIn = false;
+        let bookings = [];
+
+        // Check if already logged in
+        if (localStorage.getItem('admin_logged_in') === 'true') {
+            isLoggedIn = true;
+            showDashboard();
+        }
+
+        // Handle login
+        function handleLogin(event) {
+            event.preventDefault();
+            const password = document.getElementById('admin-password').value;
+            
+            if (password === ADMIN_PASSWORD) {
+                isLoggedIn = true;
+                localStorage.setItem('admin_logged_in', 'true');
+                showDashboard();
+            } else {
+                alert('Mot de passe incorrect');
+                document.getElementById('admin-password').value = '';
+            }
+        }
+
+        // Logout
+        function logout() {
+            isLoggedIn = false;
+            localStorage.removeItem('admin_logged_in');
+            document.getElementById('login-section').classList.remove('hidden');
+            document.getElementById('dashboard-section').classList.add('hidden');
+        }
+
+        // Show dashboard
+        function showDashboard() {
+            document.getElementById('login-section').classList.add('hidden');
+            document.getElementById('dashboard-section').classList.remove('hidden');
+            loadBookings();
+        }
+
+        // Load bookings from Firebase
+        function loadBookings() {
+            database.ref('touchup/bookings').once('value', (snapshot) => {
+                const data = snapshot.val();
+                bookings = data ? Object.entries(data).map(([key, value]) => ({
+                    id: key,
+                    ...value
+                })) : [];
+                
+                updateStats();
+                renderTable();
+            });
+        }
+
+        // Update statistics
+        function updateStats() {
+            const total = bookings.length;
+            const available = MAX_PARTICIPANTS - total;
+            const fillRate = ((total / MAX_PARTICIPANTS) * 100).toFixed(1);
+            
+            document.getElementById('total-bookings').textContent = total;
+            document.getElementById('available-places').textContent = available;
+            document.getElementById('fill-rate').textContent = fillRate + '%';
+        }
+
+        // Render bookings table
+        function renderTable() {
+            const tbody = document.getElementById('bookings-table');
+            
+            if (bookings.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center py-8 text-gray-400">Aucune réservation</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = bookings.map(booking => `
+                <tr class="table-row border-b border-gray-800">
+                    <td class="py-3 px-4">
+                        <span class="font-mono text-sm" style="color: #D4AF37;">${booking.ticketCode}</span>
+                    </td>
+                    <td class="py-3 px-4">${booking.fullName}</td>
+                    <td class="py-3 px-4">${booking.email}</td>
+                    <td class="py-3 px-4">${booking.phone}</td>
+                    <td class="py-3 px-4">${booking.city}</td>
+                    <td class="py-3 px-4 text-sm text-gray-400">
+                        ${new Date(booking.bookingDate).toLocaleDateString('fr-FR')}
+                    </td>
+                    <td class="py-3 px-4">
+                        <button onclick="deleteBooking('${booking.id}')" class="btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Delete booking
+        function deleteBooking(bookingId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette réservation?')) {
+                database.ref(`touchup/bookings/${bookingId}`).remove()
+                    .then(() => {
+                        alert('Réservation supprimée');
+                        loadBookings();
+                    })
+                    .catch((error) => {
+                        alert('Erreur lors de la suppression: ' + error.message);
+                    });
+            }
+        }
+
+        // Generate PDF Report
+        function generatePDFReport() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4');
+            
+            const pageWidth = 210;
+            const pageHeight = 297;
+            
+            // Header
+            doc.setFillColor(18, 92, 93);
+            doc.rect(0, 0, pageWidth, 40, 'F');
+            
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(24);
+            doc.setFont('helvetica', 'bold');
+            doc.text('RAPPORT RÉSERVATIONS', pageWidth / 2, 25, { align: 'center' });
+            
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'normal');
+            doc.text('TOUCH UP - La Clinique de l\'Entrepreneuriat', pageWidth / 2, 32, { align: 'center' });
+            
+            // Stats
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(14);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Statistiques', 20, 55);
+            
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'normal');
+            doc.text(`Total réservations: ${bookings.length}`, 20, 65);
+            doc.text(`Places disponibles: ${MAX_PARTICIPANTS - bookings.length}`, 20, 72);
+            doc.text(`Taux de remplissage: ${((bookings.length / MAX_PARTICIPANTS) * 100).toFixed(1)}%`, 20, 79);
+            
+            // Table
+            const tableData = bookings.map(booking => [
+                booking.ticketCode,
+                booking.fullName,
+                booking.email,
+                booking.phone,
+                booking.city,
+                new Date(booking.bookingDate).toLocaleDateString('fr-FR')
+            ]);
+            
+            doc.autoTable({
+                startY: 90,
+                head: [['Ticket', 'Nom', 'Email', 'Téléphone', 'Ville', 'Date']],
+                body: tableData,
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [18, 92, 93],
+                    textColor: [255, 255, 255],
+                    fontStyle: 'bold'
+                }
+            });
+            
+            // Footer
+            const pageCount = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= pageCount; i++) {
+                doc.setPage(i);
+                doc.setFontSize(8);
+                doc.setTextColor(128, 128, 128);
+                doc.text(
+                    `Généré le ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}`,
+                    pageWidth / 2,
+                    pageHeight - 10,
+                    { align: 'center' }
+                );
+            }
+            
+            doc.save(`rapport-touchup-${new Date().toISOString().split('T')[0]}.pdf`);
+        }
+
+        // Real-time listener for updates
+        database.ref('touchup/bookings').on('value', (snapshot) => {
+            if (isLoggedIn) {
+                loadBookings();
+            }
+        });
+    </script>
+</body>
+
+</html>
