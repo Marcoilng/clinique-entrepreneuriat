@@ -11,10 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
-    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -299,21 +295,6 @@
     </div>
 
     <script>
-        // Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDpdm8el1KWM_WD42HMExRCvFp9ySf4fvI",
-            authDomain: "mirichi-events.firebaseapp.com",
-            databaseURL: "https://mirichi-events-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "mirichi-events",
-            storageBucket: "mirichi-events.firebasestorage.app",
-            messagingSenderId: "582412284374",
-            appId: "1:582412284374:web:3c57614741e8a595f13477"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-
         // Event Data
         const events = [
             {
@@ -336,37 +317,20 @@
             }
         ];
 
-        let MAX_PARTICIPANTS = 100;
+        const MAX_PARTICIPANTS = 100;
         let selectedEvent = null;
         let currentBooking = null;
         let uploadedPhoto = null;
 
-        // Load configuration from Firebase
-        function loadConfiguration() {
-            database.ref('touchup/config/maxParticipants').once('value', (snapshot) => {
-                const value = snapshot.val();
-                if (value) {
-                    MAX_PARTICIPANTS = value;
-                    console.log('Configuration loaded: MAX_PARTICIPANTS =', MAX_PARTICIPANTS);
-                } else {
-                    // Set default if not exists
-                    database.ref('touchup/config/maxParticipants').set(100);
-                    MAX_PARTICIPANTS = 100;
-                }
-            });
+        // Get current registrations from localStorage
+        function getCurrentRegistrations() {
+            const bookings = JSON.parse(localStorage.getItem('clinique_bookings') || '[]');
+            return bookings.length;
         }
 
-        // Listen for configuration changes
-        function setupConfigurationListener() {
-            database.ref('touchup/config/maxParticipants').on('value', (snapshot) => {
-                const value = snapshot.val();
-                if (value) {
-                    MAX_PARTICIPANTS = value;
-                    console.log('Configuration updated: MAX_PARTICIPANTS =', MAX_PARTICIPANTS);
-                    // Reload events to update display
-                    loadEvents();
-                }
-            });
+        // Get available places
+        function getAvailablePlaces() {
+            return MAX_PARTICIPANTS - getCurrentRegistrations();
         }
 
         // Handle photo upload with automatic square crop
@@ -420,47 +384,8 @@
             reader.readAsDataURL(file);
         }
 
-        // Get current registrations from Firebase
-        function getCurrentRegistrations() {
-            return new Promise((resolve) => {
-                database.ref('touchup/bookings').once('value', (snapshot) => {
-                    const bookings = snapshot.val();
-                    resolve(bookings ? Object.keys(bookings).length : 0);
-                });
-            });
-        }
-
-        // Get available places (async version)
-        async function getAvailablePlaces() {
-            const currentRegistrations = await getCurrentRegistrations();
-            return MAX_PARTICIPANTS - currentRegistrations;
-        }
-
-        // Listen to real-time updates for booking count
-        function setupRealtimeListener() {
-            database.ref('touchup/bookings').on('value', (snapshot) => {
-                const bookings = snapshot.val();
-                const count = bookings ? Object.keys(bookings).length : 0;
-                const availablePlaces = MAX_PARTICIPANTS - count;
-                const progress = (count / MAX_PARTICIPANTS) * 100;
-                
-                const progressFill = document.getElementById('progress-fill');
-                if (progressFill) {
-                    progressFill.style.width = progress + '%';
-                }
-                
-                // Update displayed places count if events are shown
-                const placesDisplay = document.querySelector('.text-3xl.font-bold');
-                if (placesDisplay) {
-                    placesDisplay.textContent = availablePlaces;
-                }
-                
-                console.log('Real-time update:', count, 'registrations,', availablePlaces, 'places available');
-            });
-        }
-
         // Load events
-        async function loadEvents() {
+        function loadEvents() {
             console.log('Loading events...');
             const eventsGrid = document.getElementById('events-grid');
             if (!eventsGrid) {
@@ -468,7 +393,7 @@
                 return;
             }
             
-            const availablePlaces = await getAvailablePlaces();
+            const availablePlaces = getAvailablePlaces();
             const progress = ((MAX_PARTICIPANTS - availablePlaces) / MAX_PARTICIPANTS) * 100;
             document.getElementById('progress-fill').style.width = progress + '%';
             
@@ -589,7 +514,7 @@
         }
 
         // Handle booking
-        async function handleBooking(event) {
+        function handleBooking(event) {
             event.preventDefault();
             console.log('Booking form submitted');
 
@@ -611,7 +536,7 @@
             }
 
             // Check if event is full
-            const availablePlaces = await getAvailablePlaces();
+            const availablePlaces = getAvailablePlaces();
             if (availablePlaces <= 0) {
                 alert('Désolé, toutes les places sont réservées.');
                 return;
@@ -639,37 +564,17 @@
 
             console.log('Booking created:', currentBooking);
 
-            // Save to Firebase (simplest possible data structure)
-            const bookingData = {
-                fullName: fullName,
-                email: email,
-                phone: phone,
-                city: city,
-                ticketCode: ticketCode,
-                bookingDate: new Date().toISOString()
-            };
+            // Save to localStorage
+            const bookings = JSON.parse(localStorage.getItem('clinique_bookings') || '[]');
+            bookings.push(currentBooking);
+            localStorage.setItem('clinique_bookings', JSON.stringify(bookings));
 
-            console.log('Firebase database ref:', database.ref('touchup/bookings').toString());
-            console.log('Attempting to save to Firebase:', bookingData);
+            console.log('Booking saved to localStorage');
 
-            const newBookingRef = database.ref('touchup/bookings').push();
-            console.log('New booking ref key:', newBookingRef.key);
+            document.getElementById('reservation-form').classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
             
-            newBookingRef.set(bookingData, (error) => {
-                if (error) {
-                    console.error('Firebase Error:', error);
-                    console.error('Error code:', error.code);
-                    console.error('Error message:', error.message);
-                    console.error('Error details:', JSON.stringify(error));
-                    alert('Erreur lors de l\'enregistrement: ' + error.message);
-                } else {
-                    console.log('Booking saved successfully to Firebase');
-                    console.log('Booking ID:', newBookingRef.key);
-                    document.getElementById('reservation-form').classList.add('hidden');
-                    document.getElementById('success-message').classList.remove('hidden');
-                    console.log('Success message displayed');
-                }
-            });
+            console.log('Success message displayed');
         }
 
         // Download ticket
@@ -687,181 +592,142 @@
             const pageWidth = 210;
             const pageHeight = 297;
 
-            // Background - dark gradient effect
-            doc.setFillColor(10, 10, 10);
+            // Background gradient
+            doc.setFillColor(9, 9, 15);
             doc.rect(0, 0, pageWidth, pageHeight, 'F');
 
-            // Gradient effect at top
-            doc.setFillColor(18, 92, 93, 0.3);
-            doc.rect(0, 0, pageWidth, 40, 'F');
-
-            // Gold gradient bar at top
+            // Gold accent bar at top
             doc.setFillColor(212, 175, 55);
-            doc.rect(0, 0, pageWidth, 4, 'F');
-            
-            // Orange accent line
-            doc.setFillColor(232, 131, 26);
-            doc.rect(0, 4, pageWidth, 2, 'F');
+            doc.rect(0, 0, pageWidth, 6, 'F');
 
-            // Gold gradient bar at bottom
+            // Gold accent bar at bottom
             doc.setFillColor(212, 175, 55);
-            doc.rect(0, pageHeight - 4, pageWidth, 4, 'F');
+            doc.rect(0, pageHeight - 6, pageWidth, 6, 'F');
+
+            // Header section
+            doc.setFillColor(15, 15, 26);
+            doc.roundedRect(15, 12, pageWidth - 30, 35, 3, 3, 'F');
             
-            // Orange accent line at bottom
-            doc.setFillColor(232, 131, 26);
-            doc.rect(0, pageHeight - 6, pageWidth, 2, 'F');
-
-            // Brand header
+            // Event title
             doc.setTextColor(212, 175, 55);
-            doc.setFontSize(14);
+            doc.setFontSize(26);
             doc.setFont('helvetica', 'bold');
-            doc.text('LA CLINIQUE DE L\'ENTREPRENEURIAT', pageWidth / 2, 18, { align: 'center' });
+            doc.text(selectedEvent.title, 20, 28);
 
-            // Header section with glass effect
-            doc.setFillColor(18, 92, 93, 0.15);
-            doc.setDrawColor(212, 175, 55);
-            doc.setLineWidth(0.5);
-            doc.roundedRect(15, 25, pageWidth - 30, 38, 4, 4, 'FD');
-            
-            // Event title - large and bold
-            doc.setTextColor(212, 175, 55);
-            doc.setFontSize(32);
-            doc.setFont('helvetica', 'bold');
-            doc.text(selectedEvent.title, pageWidth / 2, 42, { align: 'center' });
-
-            // Event theme - italic
-            doc.setTextColor(232, 131, 26);
-            doc.setFontSize(13);
+            // Event theme
+            doc.setTextColor(232, 184, 75);
+            doc.setFontSize(11);
             doc.setFont('helvetica', 'italic');
-            doc.text(selectedEvent.theme, pageWidth / 2, 52, { align: 'center' });
+            doc.text(selectedEvent.theme, 20, 35);
 
-            // Event details card
-            doc.setFillColor(18, 92, 93, 0.1);
+            // Event card
+            doc.setFillColor(15, 15, 26);
             doc.setDrawColor(212, 175, 55);
             doc.setLineWidth(0.5);
-            doc.roundedRect(15, 72, pageWidth - 30, 45, 4, 4, 'FD');
+            doc.roundedRect(15, 55, pageWidth - 30, 50, 3, 3, 'FD');
 
-            // Section title
+            // Event details
             doc.setTextColor(212, 175, 55);
-            doc.setFontSize(11);
+            doc.setFontSize(10);
             doc.setFont('helvetica', 'bold');
-            doc.text('DÉTAILS DE L\'ÉVÉNEMENT', pageWidth / 2, 82, { align: 'center' });
+            doc.text('DÉTAILS DE L\'ÉVÉNEMENT', pageWidth / 2, 63, { align: 'center' });
 
-            // Event details with icons
             doc.setTextColor(245, 240, 232);
-            doc.setFontSize(11);
+            doc.setFontSize(10);
             doc.setFont('helvetica', 'normal');
             
-            const detailsY = 92;
+            const detailsY = 72;
             const detailsX = 20;
-            const lineHeight = 8;
+            const lineHeight = 7;
 
-            // Date
-            doc.setTextColor(212, 175, 55);
             doc.setFont('helvetica', 'bold');
-            doc.setFontSize(9);
-            doc.text('DATE', detailsX, detailsY);
-            doc.setTextColor(245, 240, 232);
+            doc.text('DATE:', detailsX, detailsY);
             doc.setFont('helvetica', 'normal');
-            doc.setFontSize(11);
-            doc.text(selectedEvent.date, detailsX + 18, detailsY);
+            doc.text(selectedEvent.date, detailsX + 20, detailsY);
 
-            // Time
-            doc.setTextColor(212, 175, 55);
             doc.setFont('helvetica', 'bold');
-            doc.setFontSize(9);
-            doc.text('HEURE', detailsX, detailsY + lineHeight);
-            doc.setTextColor(245, 240, 232);
+            doc.text('HEURE:', detailsX, detailsY + lineHeight);
             doc.setFont('helvetica', 'normal');
-            doc.setFontSize(11);
-            doc.text(selectedEvent.time, detailsX + 18, detailsY + lineHeight);
+            doc.text(selectedEvent.time, detailsX + 20, detailsY + lineHeight);
 
-            // Location
-            doc.setTextColor(212, 175, 55);
             doc.setFont('helvetica', 'bold');
-            doc.setFontSize(9);
-            doc.text('LIEU', detailsX, detailsY + lineHeight * 2);
-            doc.setTextColor(245, 240, 232);
+            doc.text('LIEU:', detailsX, detailsY + lineHeight * 2);
             doc.setFont('helvetica', 'normal');
-            doc.setFontSize(11);
-            doc.text(selectedEvent.location, detailsX + 18, detailsY + lineHeight * 2);
+            doc.text(selectedEvent.location, detailsX + 20, detailsY + lineHeight * 2);
 
-            // Category
-            doc.setTextColor(212, 175, 55);
             doc.setFont('helvetica', 'bold');
-            doc.setFontSize(9);
-            doc.text('CATÉGORIE', detailsX, detailsY + lineHeight * 3);
-            doc.setTextColor(245, 240, 232);
+            doc.text('CATÉGORIE:', detailsX, detailsY + lineHeight * 3);
             doc.setFont('helvetica', 'normal');
-            doc.setFontSize(11);
-            doc.text(selectedEvent.category, detailsX + 18, detailsY + lineHeight * 3);
-
-            // Info line
-            doc.setTextColor(232, 131, 26);
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(9);
-            doc.text('INFO LINE', detailsX, detailsY + lineHeight * 4);
-            doc.setTextColor(245, 240, 232);
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(11);
-            doc.text('+243 99 163 3526', detailsX + 18, detailsY + lineHeight * 4);
+            doc.text(selectedEvent.category, detailsX + 20, detailsY + lineHeight * 3);
 
             // Participant card
-            doc.setFillColor(18, 92, 93, 0.1);
-            doc.setDrawColor(212, 175, 55);
-            doc.setLineWidth(0.5);
-            doc.roundedRect(15, 125, pageWidth - 30, 70, 4, 4, 'FD');
+            doc.setFillColor(15, 15, 26);
+            doc.roundedRect(15, 112, pageWidth - 30, 85, 3, 3, 'FD');
 
-            // Photo section
+            // Photo - add directly without async
             if (currentBooking.photo) {
                 try {
-                    doc.addImage(currentBooking.photo, 'JPEG', 22, 133, 38, 50);
+                    doc.addImage(currentBooking.photo, 'JPEG', 20, 118, 40, 55);
                 } catch (e) {
                     doc.setFillColor(30, 30, 30);
-                    doc.rect(22, 133, 38, 50, 'F');
+                    doc.rect(20, 118, 40, 55, 'F');
                     doc.setTextColor(212, 175, 55);
                     doc.setFontSize(8);
-                    doc.text('Photo', 41, 158, { align: 'center' });
+                    doc.text('Photo', 40, 145, { align: 'center' });
                 }
             } else {
                 doc.setFillColor(30, 30, 30);
-                doc.rect(22, 133, 38, 50, 'F');
+                doc.rect(20, 118, 40, 55, 'F');
                 doc.setTextColor(212, 175, 55);
                 doc.setFontSize(8);
-                doc.text('Photo', 41, 158, { align: 'center' });
+                doc.text('Photo', 40, 145, { align: 'center' });
             }
 
             // Photo border with gold
             doc.setDrawColor(212, 175, 55);
             doc.setLineWidth(0.5);
-            doc.rect(22, 133, 38, 50);
+            doc.rect(20, 118, 40, 55);
 
             // Participant info
             doc.setTextColor(212, 175, 55);
             doc.setFontSize(10);
             doc.setFont('helvetica', 'bold');
-            doc.text('PARTICIPANT', 70, 142);
+            doc.text('PARTICIPANT', 70, 125);
 
             doc.setTextColor(245, 240, 232);
-            doc.setFontSize(20);
+            doc.setFontSize(18);
             doc.setFont('helvetica', 'bold');
-            doc.text(currentBooking.fullName, 70, 154);
+            doc.text(currentBooking.fullName, 70, 135);
 
-            doc.setFontSize(10);
+            doc.setFontSize(9);
             doc.setFont('helvetica', 'normal');
-            doc.text('Email: ' + currentBooking.email, 70, 165);
-            doc.text('Téléphone: ' + currentBooking.phone, 70, 174);
-            doc.text('Ville: ' + currentBooking.city, 70, 183);
+            doc.text('Email: ' + currentBooking.email, 70, 145);
+            doc.text('Téléphone: ' + currentBooking.phone, 70, 153);
+            doc.text('Ville: ' + currentBooking.city, 70, 161);
             
             if (currentBooking.profession) {
-                doc.text('Profession: ' + currentBooking.profession, 70, 192);
+                doc.text('Profession: ' + currentBooking.profession, 70, 169);
             }
 
-            // QR Code section
-            doc.setFillColor(18, 92, 93, 0.1);
+            // Booking info
             doc.setDrawColor(212, 175, 55);
-            doc.setLineWidth(0.5);
-            doc.roundedRect(15, 205, pageWidth - 30, 60, 4, 4, 'FD');
+            doc.setLineWidth(0.3);
+            doc.line(70, 175, pageWidth - 20, 175);
+            
+            doc.setFontSize(8);
+            doc.setTextColor(153, 153, 153);
+            const bookingDate = new Date(currentBooking.bookingDate).toLocaleDateString('fr-FR', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            doc.text('Réservation: ' + bookingDate, 70, 182);
+
+            // QR Code section
+            doc.setFillColor(15, 15, 26);
+            doc.roundedRect(15, 205, pageWidth - 30, 65, 3, 3, 'FD');
 
             // Generate QR code synchronously
             const qrCanvas = document.createElement('canvas');
@@ -872,59 +738,46 @@
                 element: qrCanvas,
                 value: currentBooking.ticketCode,
                 size: 140,
-                background: '#0A0A0A',
+                background: '#0F0F1A',
                 foreground: '#D4AF37'
             });
 
             const qrDataUrl = qrCanvas.toDataURL('image/png');
             document.body.removeChild(qrCanvas);
 
-            doc.addImage(qrDataUrl, 'PNG', 25, 215, 38, 38);
+            doc.addImage(qrDataUrl, 'PNG', 25, 215, 40, 40);
 
             // Ticket code
             doc.setTextColor(212, 175, 55);
-            doc.setFontSize(22);
+            doc.setFontSize(20);
             doc.setFont('helvetica', 'bold');
-            doc.text(currentBooking.ticketCode, 72, 230);
+            doc.text(currentBooking.ticketCode, 75, 230);
 
             doc.setTextColor(245, 240, 232);
-            doc.setFontSize(10);
+            doc.setFontSize(9);
             doc.setFont('helvetica', 'normal');
-            doc.text('Code unique de validation', 72, 240);
-            doc.text('Scannez ce code pour accéder à l\'événement', 72, 248);
+            doc.text('Code unique de validation', 75, 238);
+            doc.text('Scannez ce code pour accéder à l\'événement', 75, 246);
 
             // Footer with legal info
             doc.setDrawColor(212, 175, 55);
             doc.setLineWidth(0.3);
-            doc.line(15, 275, pageWidth - 15, 275);
+            doc.line(15, 280, pageWidth - 15, 280);
 
             doc.setTextColor(153, 153, 153);
-            doc.setFontSize(8);
+            doc.setFontSize(7);
             doc.setFont('helvetica', 'normal');
-            doc.text('Ce badge est personnel et incessible. Présentation obligatoire à l\'entrée.', pageWidth / 2, 282, { align: 'center' });
-            doc.text('Organisé par La Clinique de l\'Entrepreneuriat — contact@laclinique-entrepreneuriat.com', pageWidth / 2, 289, { align: 'center' });
+            doc.text('Ce badge est personnel et incessible. Présentation obligatoire à l\'entrée.', pageWidth / 2, 286, { align: 'center' });
+            doc.text('Organisé par La Clinique de l\'Entrepreneuriat — contact@laclinique-entrepreneuriat.com', pageWidth / 2, 291, { align: 'center' });
 
             // Save immediately
             doc.save(`TOUCH-UP-${currentBooking.fullName.replace(/\s+/g, '-')}.pdf`);
             console.log('PDF saved successfully');
         }
-
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM Content Loaded');
-            console.log('Firebase initialized:', firebase.apps.length > 0);
-            console.log('Database ref:', database.ref().toString());
-            
-            loadConfiguration();
-            setupConfigurationListener();
             loadEvents();
-            setupRealtimeListener();
-            
-            // Test Firebase connection
-            database.ref('.info/connected').on('value', (snapshot) => {
-                const connected = snapshot.val();
-                console.log('Firebase connection status:', connected);
-            });
         });
     </script>
 </body>
