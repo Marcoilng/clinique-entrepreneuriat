@@ -635,17 +635,26 @@
 
             console.log('Booking created:', currentBooking);
 
-            // Save to Firebase
+            // Save to Firebase (minimal data to avoid any issues)
+            const bookingData = {
+                fullName,
+                email,
+                phone,
+                city,
+                ticketCode,
+                bookingDate: new Date().toISOString()
+            };
+
+            console.log('Attempting to save to Firebase:', bookingData);
+
             const newBookingRef = database.ref('touchup/bookings').push();
-            newBookingRef.set({
-                ...currentBooking,
-                bookingId: newBookingRef.key
-            }, (error) => {
+            newBookingRef.set(bookingData, (error) => {
                 if (error) {
                     console.error('Error saving to Firebase:', error);
+                    console.error('Error details:', JSON.stringify(error));
                     alert('Erreur lors de l\'enregistrement de votre réservation. Veuillez réessayer.');
                 } else {
-                    console.log('Booking saved to Firebase');
+                    console.log('Booking saved to Firebase successfully');
                     document.getElementById('reservation-form').classList.add('hidden');
                     document.getElementById('success-message').classList.remove('hidden');
                     console.log('Success message displayed');
