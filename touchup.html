@@ -636,23 +636,21 @@
             console.log('Booking created:', currentBooking);
 
             // Save to Firebase
-            try {
-                const newBookingRef = database.ref('touchup/bookings').push();
-                await newBookingRef.set({
-                    ...currentBooking,
-                    bookingId: newBookingRef.key
-                });
-                console.log('Booking saved to Firebase');
-            } catch (error) {
-                console.error('Error saving to Firebase:', error);
-                alert('Erreur lors de l\'enregistrement de votre réservation. Veuillez réessayer.');
-                return;
-            }
-
-            document.getElementById('reservation-form').classList.add('hidden');
-            document.getElementById('success-message').classList.remove('hidden');
-            
-            console.log('Success message displayed');
+            const newBookingRef = database.ref('touchup/bookings').push();
+            newBookingRef.set({
+                ...currentBooking,
+                bookingId: newBookingRef.key
+            }, (error) => {
+                if (error) {
+                    console.error('Error saving to Firebase:', error);
+                    alert('Erreur lors de l\'enregistrement de votre réservation. Veuillez réessayer.');
+                } else {
+                    console.log('Booking saved to Firebase');
+                    document.getElementById('reservation-form').classList.add('hidden');
+                    document.getElementById('success-message').classList.remove('hidden');
+                    console.log('Success message displayed');
+                }
+            });
         }
 
         // Download ticket
