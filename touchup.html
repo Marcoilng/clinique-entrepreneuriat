@@ -639,30 +639,37 @@
 
             console.log('Booking created:', currentBooking);
 
-            // Save to Firebase (minimal data to avoid any issues)
+            // Save to Firebase (simplest possible data structure)
             const bookingData = {
-                fullName,
-                email,
-                phone,
-                city,
-                ticketCode,
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                city: city,
+                ticketCode: ticketCode,
                 bookingDate: new Date().toISOString()
             };
 
+            console.log('Firebase database ref:', database.ref('touchup/bookings').toString());
             console.log('Attempting to save to Firebase:', bookingData);
 
-            try {
-                const newBookingRef = database.ref('touchup/bookings').push();
-                await newBookingRef.set(bookingData);
-                console.log('Booking saved to Firebase successfully');
-                document.getElementById('reservation-form').classList.add('hidden');
-                document.getElementById('success-message').classList.remove('hidden');
-                console.log('Success message displayed');
-            } catch (error) {
-                console.error('Error saving to Firebase:', error);
-                console.error('Error details:', JSON.stringify(error));
-                alert('Erreur lors de l\'enregistrement de votre réservation. Veuillez réessayer.');
-            }
+            const newBookingRef = database.ref('touchup/bookings').push();
+            console.log('New booking ref key:', newBookingRef.key);
+            
+            newBookingRef.set(bookingData, (error) => {
+                if (error) {
+                    console.error('Firebase Error:', error);
+                    console.error('Error code:', error.code);
+                    console.error('Error message:', error.message);
+                    console.error('Error details:', JSON.stringify(error));
+                    alert('Erreur lors de l\'enregistrement: ' + error.message);
+                } else {
+                    console.log('Booking saved successfully to Firebase');
+                    console.log('Booking ID:', newBookingRef.key);
+                    document.getElementById('reservation-form').classList.add('hidden');
+                    document.getElementById('success-message').classList.remove('hidden');
+                    console.log('Success message displayed');
+                }
+            });
         }
 
         // Download ticket
@@ -904,10 +911,20 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM Content Loaded');
+            console.log('Firebase initialized:', firebase.apps.length > 0);
+            console.log('Database ref:', database.ref().toString());
+            
             loadConfiguration();
             setupConfigurationListener();
             loadEvents();
             setupRealtimeListener();
+            
+            // Test Firebase connection
+            database.ref('.info/connected').on('value', (snapshot) => {
+                const connected = snapshot.val();
+                console.log('Firebase connection status:', connected);
+            });
         });
     </script>
 </body>
