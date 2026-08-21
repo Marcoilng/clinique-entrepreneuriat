@@ -348,6 +348,10 @@
                 if (value) {
                     MAX_PARTICIPANTS = value;
                     console.log('Configuration loaded: MAX_PARTICIPANTS =', MAX_PARTICIPANTS);
+                } else {
+                    // Set default if not exists
+                    database.ref('touchup/config/maxParticipants').set(100);
+                    MAX_PARTICIPANTS = 100;
                 }
             });
         }
@@ -647,19 +651,18 @@
 
             console.log('Attempting to save to Firebase:', bookingData);
 
-            const newBookingRef = database.ref('touchup/bookings').push();
-            newBookingRef.set(bookingData, (error) => {
-                if (error) {
-                    console.error('Error saving to Firebase:', error);
-                    console.error('Error details:', JSON.stringify(error));
-                    alert('Erreur lors de l\'enregistrement de votre réservation. Veuillez réessayer.');
-                } else {
-                    console.log('Booking saved to Firebase successfully');
-                    document.getElementById('reservation-form').classList.add('hidden');
-                    document.getElementById('success-message').classList.remove('hidden');
-                    console.log('Success message displayed');
-                }
-            });
+            try {
+                const newBookingRef = database.ref('touchup/bookings').push();
+                await newBookingRef.set(bookingData);
+                console.log('Booking saved to Firebase successfully');
+                document.getElementById('reservation-form').classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+                console.log('Success message displayed');
+            } catch (error) {
+                console.error('Error saving to Firebase:', error);
+                console.error('Error details:', JSON.stringify(error));
+                alert('Erreur lors de l\'enregistrement de votre réservation. Veuillez réessayer.');
+            }
         }
 
         // Download ticket
